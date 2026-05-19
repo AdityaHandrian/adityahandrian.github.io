@@ -629,7 +629,10 @@ function initResumeDropdowns() {
     const linktreeBtn = document.getElementById('linktreeResumeBtnToggle');
     const linktreeMenu = document.getElementById('linktreeResumeMenu');
 
-    function toggleMenu(btn, menu) {
+    const heroWrapper = document.getElementById('heroResumeDropdown');
+    const linktreeWrapper = document.getElementById('linktreeResumeDropdown');
+
+    function toggleMenu(btn, menu, wrapper) {
         if (!btn || !menu) return;
         const isActive = menu.classList.contains('active');
         
@@ -639,6 +642,7 @@ function initResumeDropdowns() {
         if (!isActive) {
             btn.classList.add('active');
             menu.classList.add('active');
+            if (wrapper) wrapper.classList.add('active');
             btn.setAttribute('aria-expanded', 'true');
         }
     }
@@ -649,25 +653,27 @@ function initResumeDropdowns() {
             heroBtn.setAttribute('aria-expanded', 'false');
         }
         if (heroMenu) heroMenu.classList.remove('active');
+        if (heroWrapper) heroWrapper.classList.remove('active');
         
         if (linktreeBtn) {
             linktreeBtn.classList.remove('active');
             linktreeBtn.setAttribute('aria-expanded', 'false');
         }
         if (linktreeMenu) linktreeMenu.classList.remove('active');
+        if (linktreeWrapper) linktreeWrapper.classList.remove('active');
     }
 
     if (heroBtn && heroMenu) {
         heroBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            toggleMenu(heroBtn, heroMenu);
+            toggleMenu(heroBtn, heroMenu, heroWrapper);
         });
     }
 
     if (linktreeBtn && linktreeMenu) {
         linktreeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            toggleMenu(linktreeBtn, linktreeMenu);
+            toggleMenu(linktreeBtn, linktreeMenu, linktreeWrapper);
         });
     }
 
