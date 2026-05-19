@@ -1,12 +1,46 @@
 // ===== Initialize Lucide Icons =====
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     lucide.createIcons();
     initNavbar();
     initMobileMenu();
     initExperienceTabs();
+    initSPA();
     initScrollReveal();
-    initActiveNavHighlight();
 });
+
+// ===== Theme Toggle =====
+function initTheme() {
+    const themeToggle = document.getElementById('themeToggle');
+    const iconMoon = document.querySelector('.icon-moon');
+    const iconSun = document.querySelector('.icon-sun');
+    
+    if (!themeToggle || !iconMoon || !iconSun) return;
+    
+    const savedTheme = localStorage.getItem('theme');
+    
+    function setTheme(isDark) {
+        if (isDark) {
+            document.documentElement.removeAttribute('data-theme');
+            iconMoon.style.display = 'none';
+            iconSun.style.display = 'block';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            iconMoon.style.display = 'block';
+            iconSun.style.display = 'none';
+            localStorage.setItem('theme', 'light');
+        }
+    }
+    
+    // Default to dark theme if no preference is saved
+    setTheme(savedTheme ? savedTheme === 'dark' : true);
+    
+    themeToggle.addEventListener('click', () => {
+        const isCurrentlyLight = document.documentElement.getAttribute('data-theme') === 'light';
+        setTheme(isCurrentlyLight);
+    });
+}
 
 // ===== Navbar Scroll Effect =====
 function initNavbar() {
@@ -73,19 +107,61 @@ function initScrollReveal() {
     revealElements.forEach(el => observer.observe(el));
 }
 
-// ===== Active Nav Highlight =====
-function initActiveNavHighlight() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-                });
+// ===== SPA Router (Tabbed Pages) =====
+function initSPA() {
+    const sections = document.querySelectorAll('section.page-section');
+    const allLinks = document.querySelectorAll('.nav-link, .nav-logo, .footer-logo, .btn');
+
+    function showPage(targetHash) {
+        // Default to about if hash is empty or doesn't map to a section
+        let activeId = targetHash.replace('#', '') || 'about';
+        const targetSection = document.getElementById(activeId);
+        
+        if (!targetSection || !targetSection.classList.contains('page-section')) {
+            activeId = 'about';
+        }
+
+        // Hide all sections, show active
+        sections.forEach(sec => {
+            sec.classList.remove('active-page');
+        });
+        document.getElementById(activeId).classList.add('active-page');
+        
+        // Update body active page attribute for dynamic theme colors
+        document.body.setAttribute('data-active-page', activeId);
+
+        // Update Nav Links active indicator
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === '#' + activeId) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
         });
-    }, { threshold: 0.3 });
-    sections.forEach(section => observer.observe(section));
+
+        // Scroll to top of viewport
+        window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Attach click listeners to all router links
+    allLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                history.pushState(null, null, href);
+                showPage(href);
+            });
+        }
+    });
+
+    // Listen to browser navigation (back/forward buttons)
+    window.addEventListener('popstate', () => {
+        showPage(window.location.hash);
+    });
+
+    // Initial page load routing
+    showPage(window.location.hash);
 }
