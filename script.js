@@ -1,12 +1,16 @@
 // ===== Initialize Lucide Icons =====
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
+    initLanguage();
     lucide.createIcons();
     initNavbar();
     initMobileMenu();
     initExperienceTabs();
     initSPA();
     initScrollReveal();
+    initInteractiveGlow();
+    initBackgroundMusic();
+    initGalleryModal();
 });
 
 // ===== Theme Toggle =====
@@ -164,4 +168,455 @@ function initSPA() {
 
     // Initial page load routing
     showPage(window.location.hash);
+}
+
+// ===== Language Switcher =====
+function initLanguage() {
+    const langToggle = document.getElementById('langToggle');
+    if (!langToggle) return;
+
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function updateLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        langToggle.textContent = lang.toUpperCase();
+
+        document.querySelectorAll('[data-lang-en]').forEach(el => {
+            const enText = el.getAttribute('data-lang-en');
+            const idText = el.getAttribute('data-lang-id');
+            // Support raw HTML tag rendering (e.g. strong tag) inside translation strings
+            el.innerHTML = lang === 'en' ? enText : idText;
+        });
+    }
+
+    // Initialize with saved or default language
+    updateLanguage(currentLang);
+
+    langToggle.addEventListener('click', () => {
+        const nextLang = currentLang === 'en' ? 'id' : 'en';
+        updateLanguage(nextLang);
+    });
+}
+
+// ===== Interactive Mouse-Following Glow =====
+function initInteractiveGlow() {
+    const glow = document.getElementById('interactiveGlow');
+    if (!glow) return;
+
+    window.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        
+        // Use requestAnimationFrame to optimize rendering performance
+        requestAnimationFrame(() => {
+            glow.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+            glow.style.opacity = '1';
+        });
+    });
+
+    document.addEventListener('mouseleave', () => {
+        glow.style.opacity = '0';
+    });
+}
+
+// ===== Background Music Player =====
+function initBackgroundMusic() {
+    const player = document.getElementById('musicPlayer');
+    const audio = document.getElementById('bgAudio');
+    const toggleBtn = document.getElementById('musicToggleBtn');
+    const iconPlaying = document.getElementById('musicIconPlaying');
+    const iconMuted = document.getElementById('musicIconMuted');
+    const tooltip = document.getElementById('musicTooltip');
+
+    if (!player || !audio || !toggleBtn || !iconPlaying || !iconMuted || !tooltip) return;
+
+    // Set lower initial volume for pleasant background ambiance (20% volume)
+    audio.volume = 0.20;
+
+    let isMusicEnabled = localStorage.getItem('musicEnabled') === 'true';
+
+    function playMusic() {
+        audio.play().then(() => {
+            player.classList.add('playing');
+            iconPlaying.classList.remove('hidden');
+            iconMuted.classList.add('hidden');
+            toggleBtn.setAttribute('title', 'Mute Music');
+            localStorage.setItem('musicEnabled', 'true');
+        }).catch(err => {
+            console.log('Autoplay blocked by browser. Awaiting user interaction.');
+            // Autoplay blocked: set button state to not playing, but keep preference enabled
+            pauseMusic();
+            localStorage.setItem('musicEnabled', 'true'); // Keep preference true for next click
+        });
+    }
+
+    function pauseMusic() {
+        audio.pause();
+        player.classList.remove('playing');
+        iconPlaying.classList.add('hidden');
+        iconMuted.classList.remove('hidden');
+        toggleBtn.setAttribute('title', 'Play Music');
+        localStorage.setItem('musicEnabled', 'false');
+    }
+
+    // Toggle click handler
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Remove introduction animations
+        toggleBtn.classList.remove('pulse');
+        tooltip.classList.remove('visible');
+
+        if (audio.paused) {
+            playMusic();
+        } else {
+            pauseMusic();
+        }
+    });
+
+    // Pulse prompt helper for first-time visitors
+    if (localStorage.getItem('musicEnabled') === null) {
+        toggleBtn.classList.add('pulse');
+        tooltip.classList.add('visible');
+
+        // Automatically hide tooltip prompt after 8 seconds
+        setTimeout(() => {
+            tooltip.classList.remove('visible');
+        }, 8000);
+    }
+
+    // Set initial UI state
+    if (isMusicEnabled) {
+        playMusic();
+
+        // Fallback for strict browser autoplay policies: trigger play on first user interaction
+        const triggerAutoplay = () => {
+            if (localStorage.getItem('musicEnabled') === 'true' && audio.paused) {
+                playMusic();
+            }
+            document.removeEventListener('click', triggerAutoplay);
+        };
+        document.addEventListener('click', triggerAutoplay);
+    } else {
+        pauseMusic();
+    }
+}
+
+// ===== Gallery Modal Lightbox =====
+function initGalleryModal() {
+    const modal = document.getElementById('galleryModal');
+    const overlay = document.getElementById('galleryModalOverlay');
+    const closeBtn = document.getElementById('galleryModalClose');
+    const modalTitle = document.getElementById('galleryModalTitle');
+    const modalDesc = document.getElementById('galleryModalDesc');
+    const gridContainer = document.getElementById('galleryModalGrid');
+    const cards = document.querySelectorAll('.gallery-card');
+
+    // Lightbox viewer elements
+    const lightbox = document.getElementById('lightboxViewer');
+    const lightboxOverlay = document.getElementById('lightboxViewerOverlay');
+    const lightboxClose = document.getElementById('lightboxViewerClose');
+    const lightboxPrev = document.getElementById('lightboxViewerPrev');
+    const lightboxNext = document.getElementById('lightboxViewerNext');
+    const lightboxImg = document.getElementById('lightboxViewerImage');
+    const lightboxCounter = document.getElementById('lightboxViewerCounter');
+
+    if (!modal || !closeBtn || !modalTitle || !modalDesc || !gridContainer || !cards ||
+        !lightbox || !lightboxClose || !lightboxImg || !lightboxCounter) return;
+
+    const galleryData = {
+        'dot': {
+            titleEn: 'Business Analyst Internship',
+            titleId: 'Magang Business Analyst',
+            images: [
+                'assets/gallery/BUSINESS ANALYST DOT/Business Analyst Intern DOT.jpg'
+            ],
+            descEn: 'Interning as a Business Analyst at DOT Indonesia, analyzing requirements and designing digital solutions.',
+            descId: 'Magang sebagai Business Analyst di DOT Indonesia, menganalisis kebutuhan dan merancang solusi digital.'
+        },
+        'bem-its': {
+            titleEn: 'BEM ITS (Student Presidency)',
+            titleId: 'BEM ITS (Badan Eksekutif Mahasiswa)',
+            images: [
+                'assets/gallery/BEM ITS/IMG_0945.JPG',
+                'assets/gallery/BEM ITS/IMG_0969.JPG',
+                'assets/gallery/BEM ITS/IMG_0973.JPG',
+                'assets/gallery/BEM ITS/MMJ06585.JPG',
+                'assets/gallery/BEM ITS/MMJ06730 (2).JPG',
+                'assets/gallery/BEM ITS/MMJ06734 (1)(1).jpg'
+            ],
+            descEn: 'Active involvement and leadership in BEM ITS student organization projects and campus-wide events.',
+            descId: 'Keterlibatan aktif dan kepemimpinan dalam berbagai proyek organisasi mahasiswa BEM ITS.'
+        },
+        'hmtc': {
+            titleEn: 'HMTC Informatics Association',
+            titleId: 'Himpunan Mahasiswa HMTC',
+            images: [
+                'assets/gallery/HMTC/IMG_4915.JPG',
+                'assets/gallery/HMTC/L1007672.JPG',
+                'assets/gallery/HMTC/L1007678.JPG',
+                'assets/gallery/HMTC/L1007679.JPG',
+                'assets/gallery/HMTC/L1007760.JPG',
+                'assets/gallery/HMTC/Salinan IMG_4758.JPG',
+                'assets/gallery/HMTC/Salinan IMG_4791.JPG',
+                'assets/gallery/HMTC/Salinan IMG_4871.JPG',
+                'assets/gallery/HMTC/Salinan IMG_4873.JPG',
+                'assets/gallery/HMTC/Salinan IMG_4914.JPG'
+            ],
+            descEn: 'Organizing student activities, academic workshops, and student development programs at ITS.',
+            descId: 'Mengorganisir kegiatan mahasiswa, lokakarya akademis, dan program pengembangan di ITS.'
+        },
+        'hmtc-berbakti': {
+            titleEn: 'HMTC Berbakti',
+            titleId: 'HMTC Berbakti',
+            images: [
+                'assets/gallery/HMTC Berbakti/DSCF3128.jpg',
+                'assets/gallery/HMTC Berbakti/DSCF3131.jpg',
+                'assets/gallery/HMTC Berbakti/DSCF9264.JPG'
+            ],
+            descEn: "Engaging in community outreach and development initiatives under HMTC's social responsibility programs.",
+            descId: "Terlibat dalam pengabdian masyarakat dan program tanggung jawab sosial dari HMTC."
+        },
+        'its-mengajar': {
+            titleEn: 'ITS Mengajar Volunteer',
+            titleId: 'Relawan ITS Mengajar',
+            images: [
+                'assets/gallery/ITS MENGAJAR/day 14 kamera devina (588).JPG',
+                'assets/gallery/ITS MENGAJAR/day 14 kamera devina (628).JPG',
+                'assets/gallery/ITS MENGAJAR/DSC00215.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC00541.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC00544.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC00940.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC01182.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC01641.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC04942.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC08225.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC08227.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC08249.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC08790.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC09290.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC09462.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC09487(1).jpg',
+                'assets/gallery/ITS MENGAJAR/DSC09519.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC09638.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC09642.JPG',
+                'assets/gallery/ITS MENGAJAR/DSC09679 (1).JPG'
+            ],
+            descEn: 'Volunteering to teach and mentor students in local communities to support education.',
+            descId: 'Menjadi relawan untuk mengajar dan membimbing siswa di komunitas lokal guna mendukung pendidikan.'
+        },
+        'mahasiswa-berdampak': {
+            titleEn: 'Mahasiswa Berdampak',
+            titleId: 'Mahasiswa Berdampak',
+            images: [
+                'assets/gallery/Mahasiswa Berdampak/IMG_9730.JPG',
+                'assets/gallery/Mahasiswa Berdampak/IMG_9810.JPG',
+                'assets/gallery/Mahasiswa Berdampak/IMG_9858.JPG',
+                'assets/gallery/Mahasiswa Berdampak/IMG_9907.JPG',
+                'assets/gallery/Mahasiswa Berdampak/IMG_9912.JPG'
+            ],
+            descEn: 'Participating in youth impact campaigns, social movements, and positive student initiatives.',
+            descId: 'Berpartisipasi dalam kampanye dampak kepemudaan, gerakan sosial, dan inisiatif mahasiswa positif.'
+        },
+        'rumah-pengabdian': {
+            titleEn: 'Rumah Pengabdian 2 (FTEIC x HMTC)',
+            titleId: 'Rumah Pengabdian 2 (FTEIC x HMTC)',
+            images: [
+                'assets/gallery/Rumah Pengabdian 2 BEM FTEIC X HMTC/IMG_3062.JPG',
+                'assets/gallery/Rumah Pengabdian 2 BEM FTEIC X HMTC/IMG_3063.JPG'
+            ],
+            descEn: 'Community service collaboration between BEM FTEIC and HMTC, developing local village facilities.',
+            descId: 'Kolaborasi pengabdian masyarakat antara BEM FTEIC dan HMTC, membangun fasilitas desa setempat.'
+        },
+        'socare': {
+            titleEn: 'SoCare Community Service',
+            titleId: 'Bakti Sosial SoCare',
+            images: [
+                'assets/gallery/SOCARE/20250627_153141.jpg',
+                'assets/gallery/SOCARE/DSC00020.JPG',
+                'assets/gallery/SOCARE/DSC09439.JPG',
+                'assets/gallery/SOCARE/DSCF5035.JPG',
+                'assets/gallery/SOCARE/DSCF5074.JPG',
+                'assets/gallery/SOCARE/DSCF5078.JPG',
+                'assets/gallery/SOCARE/DSCF5086.JPG',
+                'assets/gallery/SOCARE/DSCF8139.JPG',
+                'assets/gallery/SOCARE/DSCF8175.JPG',
+                'assets/gallery/SOCARE/DSCF8176.JPG',
+                'assets/gallery/SOCARE/DSCF8406.JPG',
+                'assets/gallery/SOCARE/DSCF8523.JPG',
+                'assets/gallery/SOCARE/DSCF8536.JPG',
+                'assets/gallery/SOCARE/DSCF8640.JPG',
+                'assets/gallery/SOCARE/DSCF8746.JPG',
+                'assets/gallery/SOCARE/DSCF8895.JPG',
+                'assets/gallery/SOCARE/DSCF8970.JPG',
+                'assets/gallery/SOCARE/DSCF9121.JPG',
+                'assets/gallery/SOCARE/DSCF9138.JPG',
+                'assets/gallery/SOCARE/DSCF9163.JPG',
+                'assets/gallery/SOCARE/DSCF9214.JPG',
+                'assets/gallery/SOCARE/DSCF9328.JPG',
+                'assets/gallery/SOCARE/DSCF9359.JPG',
+                'assets/gallery/SOCARE/DSCF9361.JPG',
+                'assets/gallery/SOCARE/DSCF9640.JPG',
+                'assets/gallery/SOCARE/SOCARE 1.jpg',
+                'assets/gallery/SOCARE/SOCARE 2.jpg',
+                'assets/gallery/SOCARE/SOCARE 4.jpg',
+                'assets/gallery/SOCARE/SOCARE 53.jpg'
+            ],
+            descEn: 'Participating in community service programs to foster social awareness and support.',
+            descId: 'Berpartisipasi dalam program bakti sosial untuk menumbuhkan kepedulian sosial dan memberikan bantuan.'
+        }
+    };
+
+    let currentCategory = '';
+    let currentImageIndex = 0;
+
+    function openModal(category) {
+        if (!galleryData[category]) return;
+        currentCategory = category;
+        
+        const categoryData = galleryData[currentCategory];
+        const currentLang = localStorage.getItem('lang') || 'en';
+
+        // Set text content
+        modalTitle.textContent = currentLang === 'en' ? categoryData.titleEn : categoryData.titleId;
+        modalDesc.textContent = currentLang === 'en' ? categoryData.descEn : categoryData.descId;
+
+        // Build thumbnail grid
+        gridContainer.innerHTML = '';
+        const images = categoryData.images;
+        images.forEach((imgUrl, idx) => {
+            const thumb = document.createElement('div');
+            thumb.className = 'gallery-modal__thumbnail';
+            thumb.innerHTML = `<img src="${imgUrl}" alt="Thumbnail ${idx + 1}" class="gallery-modal__thumbnail-img" loading="lazy">`;
+            
+            thumb.addEventListener('click', () => {
+                openLightbox(idx);
+            });
+            gridContainer.appendChild(thumb);
+        });
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Lock scroll
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        if (!lightbox.classList.contains('active')) {
+            document.body.style.overflow = '';
+        }
+    }
+
+    function openLightbox(index) {
+        const categoryData = galleryData[currentCategory];
+        if (!categoryData) return;
+        
+        currentImageIndex = index;
+        updateLightboxContent();
+        lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+    }
+
+    function updateLightboxContent() {
+        const categoryData = galleryData[currentCategory];
+        if (!categoryData) return;
+        const images = categoryData.images;
+
+        // Set image source with transition
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+            lightboxImg.src = images[currentImageIndex];
+            lightboxImg.alt = `Image ${currentImageIndex + 1}`;
+            lightboxImg.style.opacity = '1';
+        }, 120);
+
+        // Update counter
+        lightboxCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+
+        // Show/hide navigation arrows based on count
+        if (images.length <= 1) {
+            lightboxPrev.style.display = 'none';
+            lightboxNext.style.display = 'none';
+        } else {
+            lightboxPrev.style.display = 'flex';
+            lightboxNext.style.display = 'flex';
+        }
+    }
+
+    function navigateLightbox(direction) {
+        const categoryData = galleryData[currentCategory];
+        if (!categoryData) return;
+        const images = categoryData.images;
+
+        if (direction === 'next') {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        } else {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        }
+        updateLightboxContent();
+    }
+
+    // Attach click listeners to cards
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const category = card.getAttribute('data-gallery-category');
+            if (category) openModal(category);
+        });
+    });
+
+    // Close listeners
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+
+    // Prev/Next buttons for lightbox
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigateLightbox('prev');
+        });
+    }
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigateLightbox('next');
+        });
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowRight') {
+                navigateLightbox('next');
+            } else if (e.key === 'ArrowLeft') {
+                navigateLightbox('prev');
+            }
+        } else if (modal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        }
+    });
+
+    // Recheck language dynamically
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            if (modal.classList.contains('active')) {
+                const categoryData = galleryData[currentCategory];
+                if (categoryData) {
+                    const currentLang = localStorage.getItem('lang') || 'en';
+                    modalTitle.textContent = currentLang === 'en' ? categoryData.titleEn : categoryData.titleId;
+                    modalDesc.textContent = currentLang === 'en' ? categoryData.descEn : categoryData.descId;
+                }
+            }
+        });
+    }
 }
