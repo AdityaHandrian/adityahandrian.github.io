@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Muhammad Aditya Handrian — Informatics Engineering Student at ITS. Portfolio showcasing experience in business analysis, software development, and leadership.">
+    <meta name="author" content="Muhammad Aditya Handrian">
+    <title>Aditya Handrian — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo"><span class="logo-bracket">&lt;</span>AH<span class="logo-bracket"> /&gt;</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow hero-glow--1"></div>
+        <div class="hero-glow hero-glow--2"></div>
+        <div class="hero-container">
+            <div class="hero-badge"><span class="badge-dot"></span>Open to Opportunities</div>
+            <h1 class="hero-name">Muhammad Aditya<br><span class="hero-name--accent">Handrian</span></h1>
+            <p class="hero-title">Undergraduate Informatics Engineering Student at <span class="text-accent">ITS</span></p>
+            <p class="hero-description">I'm drawn to the intersection where technology meets real-world impact. As a student still learning and growing, I enjoy exploring how technical concepts can be translated into solutions that genuinely help people and organizations. I believe the best outcomes come from collaborative teamwork, open communication, and a willingness to listen and adapt — and I'm always looking for opportunities to contribute and learn alongside others.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn--primary"><i data-lucide="send" class="btn-icon"></i>Get in Touch</a>
+                <a href="#experience" class="btn btn--outline"><i data-lucide="briefcase" class="btn-icon"></i>View Experience</a>
+            </div>
+            <div class="hero-scroll-indicator"><div class="scroll-line"></div><span>Scroll to explore</span></div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header"><span class="section-label">01 — About</span><h2 class="section-title">A Little About Me</h2></div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm Aditya — an Informatics Engineering student at <strong>Institut Teknologi Sepuluh Nopember (ITS)</strong> in Surabaya, Indonesia. My academic journey has been a wonderful opportunity to explore various facets of technology, from software development to data engineering and user experience design.</p>
+                    <p>What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've been fortunate enough to gain hands-on experience as a <strong>Business Analyst Intern</strong>, a <strong>Teaching Assistant</strong>, and a <strong>Frontend Web Engineer</strong> — roles that have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives.</p>
+                    <p>I'm still on a learning curve — and honestly, I think that's what keeps things exciting. Whether it's diving into a new framework, understanding a business workflow, or simply helping a teammate debug their code, I find meaning in the small, everyday acts of collaboration.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card"><div class="stat-icon"><i data-lucide="code-2"></i></div><div class="stat-info"><span class="stat-number">7+</span><span class="stat-label">Technologies</span></div></div>
+                    <div class="stat-card"><div class="stat-icon"><i data-lucide="award"></i></div><div class="stat-info"><span class="stat-number">9+</span><span class="stat-label">Certifications</span></div></div>
+                    <div class="stat-card"><div class="stat-icon"><i data-lucide="users"></i></div><div class="stat-info"><span class="stat-number">6+</span><span class="stat-label">Organizations</span></div></div>
+                    <div class="stat-card"><div class="stat-icon"><i data-lucide="heart-handshake"></i></div><div class="stat-info"><span class="stat-number">∞</span><span class="stat-label">Willingness to Learn</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section section--alt" id="experience">
+        <div class="container">
+            <div class="section-header"><span class="section-label">02 — Experience</span><h2 class="section-title">Where I've Contributed</h2></div>
+            <div class="exp-tabs">
+                <button class="exp-tab active" data-tab="professional"><i data-lucide="briefcase"></i> Professional</button>
+                <button class="exp-tab" data-tab="academic"><i data-lucide="graduation-cap"></i> Academic</button>
+                <button class="exp-tab" data-tab="organization"><i data-lucide="users"></i> Organization</button>
+            </div>
+
+            <!-- Professional Tab -->
+            <div class="exp-content active" id="tab-professional">
+                <div class="timeline">
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Business Analyst Intern</h3><p class="timeline-company">DOT Indonesia</p></div><span class="timeline-date">Feb 2026 – Present</span></div>
+                        <p class="timeline-desc">Collaborating with stakeholders to gather and document business requirements, ensuring technical solutions align with business objectives. Working closely with cross-functional teams to analyze workflows and support data-driven decision-making.</p>
+                        <div class="timeline-tags"><span class="tag">Business Analysis</span><span class="tag">Stakeholder Management</span><span class="tag">Documentation</span></div>
+                    </div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Event Staff</h3><p class="timeline-company">PM-BEM BERDAMPAK 2025 — Ministry of Education & Culture</p></div><span class="timeline-date">Jul – Dec 2025</span></div>
+                        <p class="timeline-desc">Supported event coordination for a national-level education initiative under Indonesia's Ministry of Education and Culture, contributing to impactful programs that reached communities across East Java.</p>
+                        <div class="timeline-tags"><span class="tag">Government</span><span class="tag">Event Coordination</span><span class="tag">Education</span></div>
+                    </div></div>
+                </div>
+            </div>
+
+            <!-- Academic Tab -->
+            <div class="exp-content" id="tab-academic">
+                <div class="timeline">
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Teaching Assistant — Software Development Concepts</h3><p class="timeline-company">Institut Teknologi Sepuluh Nopember (ITS)</p></div><span class="timeline-date">Aug 2025 – Jan 2026</span></div>
+                        <p class="timeline-desc">Had the privilege of supporting fellow students in understanding core software development methodologies. Facilitated lab sessions, reviewed assignments, and guided peers through practical exercises — learning just as much as I taught in the process.</p>
+                        <div class="timeline-tags"><span class="tag">Mentoring</span><span class="tag">Software Development</span><span class="tag">Peer Learning</span></div>
+                    </div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Frontend Web Engineer — MONA</h3><p class="timeline-company">Institut Teknologi Sepuluh Nopember (ITS)</p></div><span class="timeline-date">Sep – Dec 2025</span></div>
+                        <p class="timeline-desc">Developed the frontend for MONA — an AI-powered financial management application. Focused on crafting an intuitive, user-friendly interface that makes complex financial data feel approachable and actionable.</p>
+                        <div class="timeline-tags"><span class="tag">Frontend Development</span><span class="tag">AI Integration</span><span class="tag">UI/UX</span></div>
+                    </div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Guest Speaker</h3><p class="timeline-company">ITS CAMP 2025</p></div><span class="timeline-date">Aug 2025</span></div>
+                        <p class="timeline-desc">Presented a session on "Digital Ethics & Wise Communication in the Technology Era" to inspire and educate new students on responsible digital behavior and effective communication.</p>
+                        <div class="timeline-tags"><span class="tag">Public Speaking</span><span class="tag">Digital Ethics</span><span class="tag">Communication</span></div>
+                    </div></div>
+                </div>
+            </div>
+
+            <!-- Organization Tab -->
+            <div class="exp-content" id="tab-organization">
+                <div class="timeline">
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Staff of Social & Community Affairs Ministry</h3><p class="timeline-company">BEM ITS</p></div><span class="timeline-date">Mar 2025 – Apr 2026</span></div>
+                        <p class="timeline-desc">Contributed to social impact programs under the Student Executive Board of ITS, including serving as <strong>Project Officer for SOCARE 2025</strong> and <strong>Head of Consumption Division for ITS Mengajar for Indonesia 2025</strong>.</p>
+                        <div class="timeline-tags"><span class="tag">Social Impact</span><span class="tag">Project Management</span><span class="tag">Community Service</span></div>
+                    </div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Head of Event Division — INCLENATION 2025</h3><p class="timeline-company">BEM FTEIC ITS</p></div><span class="timeline-date">Mar – Aug 2025</span></div>
+                        <p class="timeline-desc">Led the event planning division, working with a dedicated team to conceptualize, organize, and deliver engaging events. This role taught me a great deal about delegation, creative problem-solving, and the value of empowering team members.</p>
+                        <div class="timeline-tags"><span class="tag">Leadership</span><span class="tag">Event Planning</span><span class="tag">Team Empowerment</span></div>
+                    </div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Staff of Student Social Development & Mentor</h3><p class="timeline-company">HMTC ITS</p></div><span class="timeline-date">Feb 2025 – Feb 2026</span></div>
+                        <p class="timeline-desc">Actively contributed to student development programs, including mentoring for <strong>Nawasena</strong> and organizing <strong>HGTS (HMTC Goes to School) 2025</strong> — an outreach initiative introducing high school students to computer science.</p>
+                        <div class="timeline-tags"><span class="tag">Mentoring</span><span class="tag">Student Outreach</span><span class="tag">Community</span></div>
+                    </div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Public Relations Staff & MC</h3><p class="timeline-company">Schematics ITS</p></div><span class="timeline-date">Mar – Nov 2024</span></div>
+                        <p class="timeline-desc">Managed public communications and served as Master of Ceremonies for the Bootcamp & Seminar of Technology — Basic, connecting audiences with technology insights through engaging presentations.</p>
+                        <div class="timeline-tags"><span class="tag">Public Relations</span><span class="tag">MC</span><span class="tag">Communication</span></div>
+                    </div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
+                        <div class="timeline-header"><div><h3 class="timeline-role">Event Staff</h3><p class="timeline-company">BEM FTEIC ITS & PAMMITS</p></div><span class="timeline-date">Mar – Dec 2024</span></div>
+                        <p class="timeline-desc">Supported event execution for ELITEXPESRAF 2024, Inclenation 2024, and PAMMITS — gaining valuable experience in logistics, coordination, and teamwork across multiple large-scale campus events.</p>
+                        <div class="timeline-tags"><span class="tag">Event Management</span><span class="tag">Logistics</span><span class="tag">Teamwork</span></div>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header"><span class="section-label">03 — Projects</span><h2 class="section-title">Things I've Built</h2></div>
+            <div class="projects-grid">
+                <div class="project-card project-card--featured">
+                    <div class="project-card__glow"></div>
+                    <div class="project-card__content">
+                        <div class="project-card__top"><div class="project-card__icon"><i data-lucide="wallet"></i></div><span class="project-card__label">Featured Project</span></div>
+                        <h3 class="project-card__title">MONA <span class="project-card__title--sub">(Money Assistant)</span></h3>
+                        <p class="project-card__subtitle">Your Intelligent Personal Finance Companion</p>
+                        <p class="project-card__desc">MONA is an intelligent personal finance companion designed to help users take complete control of their financial future. Built with modern technology and user-centric design, MONA makes managing money simple, secure, and insightful. Contributed as a Frontend Web Engineer — crafting the interface that brings complex financial data to life.</p>
+                        <div class="project-card__tech"><span class="tech-badge">Frontend Engineering</span><span class="tech-badge">AI Integration</span><span class="tech-badge">UI/UX Design</span><span class="tech-badge">FinTech</span></div>
+                        <div class="project-card__bottom">
+                            <div class="project-card__role"><i data-lucide="user" class="role-icon"></i><span>Role: Frontend Web Engineer</span></div>
+                            <a href="https://senopati.its.ac.id/mona" target="_blank" rel="noopener noreferrer" class="project-card__link"><i data-lucide="external-link"></i><span>Live Demo</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card__content">
+                        <div class="project-card__top"><div class="project-card__icon"><i data-lucide="shopping-bag"></i></div><span class="project-card__label">Machine Learning</span></div>
+                        <h3 class="project-card__title">Product Recommendation System</h3>
+                        <p class="project-card__subtitle">Comparative ML Recommendation Platform</p>
+                        <p class="project-card__desc">A comparative web platform benchmarking four recommendation algorithms (KNN, SVD++, NCF, and CBF) in real-time using Lazada review datasets. Features personalized and contextual recommendations (e.g., "because you viewed this") alongside an AI-powered sentiment analysis module for automated customer review processing.</p>
+                        <div class="project-card__tech"><span class="tech-badge">Machine Learning</span><span class="tech-badge">Frontend Engineering</span><span class="tech-badge">Sentiment Analysis</span><span class="tech-badge">Recommendation Systems</span></div>
+                        <div class="project-card__bottom">
+                            <div class="project-card__role"><i data-lucide="user" class="role-icon"></i><span>Role: ML Engineer / Frontend Engineer</span></div>
+                            <a href="https://github.com/AdityaHandrian/kelompokfprsbp" target="_blank" rel="noopener noreferrer" class="project-card__link"><i data-lucide="code"></i><span>Source Code</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS & CERTIFICATIONS -->
+    <section class="section section--alt" id="skills">
+        <div class="container">
+            <div class="section-header"><span class="section-label">04 — Skills & Certifications</span><h2 class="section-title">What I Work With</h2></div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category__header"><i data-lucide="cpu" class="skill-category__icon"></i><h3>Hard Skills</h3></div>
+                    <div class="skill-list">
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#3776AB"><i data-lucide="terminal"></i></div><span>Python</span></div>
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#00599C"><i data-lucide="code-2"></i></div><span>C++</span></div>
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#217346"><i data-lucide="table-2"></i></div><span>Excel</span></div>
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#F29111"><i data-lucide="database"></i></div><span>SQL</span></div>
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#FF6B6B"><i data-lucide="layout"></i></div><span>UI/UX</span></div>
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#A259FF"><i data-lucide="pen-tool"></i></div><span>Figma</span></div>
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#2C7AC3"><i data-lucide="map"></i></div><span>ArcGIS</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category__header"><i data-lucide="heart" class="skill-category__icon"></i><h3>Soft Skills</h3></div>
+                    <div class="skill-list">
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#FFD93D"><i data-lucide="crown"></i></div><span>Leadership</span></div>
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#6BCB77"><i data-lucide="lightbulb"></i></div><span>Problem Solving</span></div>
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#4D96FF"><i data-lucide="users"></i></div><span>Team Collaboration</span></div>
+                        <div class="skill-item"><div class="skill-item__icon" style="--accent:#FF6B6B"><i data-lucide="clock"></i></div><span>Time Management</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="certs-section">
+                <div class="skill-category__header" style="margin-bottom:2rem"><i data-lucide="badge-check" class="skill-category__icon"></i><h3>Certifications</h3></div>
+                <div class="certs-grid">
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="cloud"></i></div><div class="cert-card__info"><h4>Cloud Security Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="globe"></i></div><div class="cert-card__info"><h4>Cloud Web Application Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="git-branch"></i></div><div class="cert-card__info"><h4>Microservices & CI/CD Pipeline Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="database"></i></div><div class="cert-card__info"><h4>Data Engineering</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="brain"></i></div><div class="cert-card__info"><h4>Machine Learning Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="sparkles"></i></div><div class="cert-card__info"><h4>Generative AI Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="shield"></i></div><div class="cert-card__info"><h4>Cloud Security Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--palo"><i data-lucide="shield-check"></i></div><div class="cert-card__info"><h4>Security Operations Fundamentals</h4><p>Palo Alto Networks · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--palo"><i data-lucide="lock"></i></div><div class="cert-card__info"><h4>Cybersecurity Foundation</h4><p>Palo Alto Networks · Jan 2026</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header"><span class="section-label">05 — Contact</span><h2 class="section-title">Let's Connect</h2></div>
+            <div class="contact-container">
+                <p class="contact-desc">I'm always happy to connect — whether it's a potential collaboration, a shared interest, or simply a friendly conversation. Feel free to reach out through any of the channels below!</p>
+                <div class="contact-cards">
+                    <a href="mailto:adityahandriann@gmail.com" class="contact-card" id="contact-email">
+                        <div class="contact-card__icon"><i data-lucide="mail"></i></div>
+                        <div class="contact-card__info"><h4>Email</h4><p>adityahandriann@gmail.com</p></div>
+                        <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-linkedin">
+                        <div class="contact-card__icon"><i data-lucide="link"></i></div>
+                        <div class="contact-card__info"><h4>LinkedIn</h4><p>linkedin.com/in/adityahandrian</p></div>
+                        <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="#hero" class="footer-logo"><span class="logo-bracket">&lt;</span>AH<span class="logo-bracket"> /&gt;</span></a>
+                <p class="footer-text">Designed & built with curiosity and care.</p>
+                <p class="footer-copy">&copy; 2025 Muhammad Aditya Handrian. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
