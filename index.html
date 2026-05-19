@@ -10,7 +10,101 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <link rel="stylesheet" href="style.css?v=1.7">
+    <link rel="stylesheet" href="style.css?v=1.8">
+    <style>
+        /* Dropdown Layout & Aesthetic Fixes */
+        .resume-dropdown, .linktree-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .linktree-dropdown {
+            width: 100%;
+        }
+        .resume-dropdown-menu, .linktree-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 220px;
+            background: rgba(15, 23, 42, 0.85) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            padding: 0.5rem 0 !important;
+            z-index: 1000 !important;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 0 !important;
+        }
+        .linktree-dropdown-menu {
+            width: 100%;
+        }
+        .resume-dropdown-menu.active, .linktree-dropdown-menu.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            pointer-events: auto !important;
+        }
+        .resume-dropdown-item, .linktree-dropdown-item {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.75rem !important;
+            padding: 0.8rem 1.25rem !important;
+            color: rgba(255, 255, 255, 0.75) !important;
+            text-decoration: none !important;
+            font-size: 0.9rem !important;
+            font-weight: 500 !important;
+            transition: all 0.2s ease !important;
+            cursor: pointer !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            justify-content: flex-start !important;
+        }
+        .resume-dropdown-item svg, .linktree-dropdown-item svg {
+            width: 16px !important;
+            height: 16px !important;
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+        .resume-dropdown-item:hover, .linktree-dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.06) !important;
+            color: #60a5fa !important;
+        }
+        .resume-dropdown-item:hover svg, .linktree-dropdown-item:hover svg {
+            color: #60a5fa !important;
+        }
+        /* Light theme overrides */
+        [data-theme="light"] .resume-dropdown-menu,
+        [data-theme="light"] .linktree-dropdown-menu {
+            background: rgba(255, 255, 255, 0.85) !important;
+            border-color: rgba(0, 0, 0, 0.08) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+        }
+        [data-theme="light"] .resume-dropdown-item,
+        [data-theme="light"] .linktree-dropdown-item {
+            color: rgba(15, 23, 42, 0.75) !important;
+        }
+        [data-theme="light"] .resume-dropdown-item svg,
+        [data-theme="light"] .linktree-dropdown-item svg {
+            color: rgba(15, 23, 42, 0.5) !important;
+        }
+        [data-theme="light"] .resume-dropdown-item:hover,
+        [data-theme="light"] .linktree-dropdown-item:hover {
+            background: rgba(0, 0, 0, 0.03) !important;
+            color: #2563eb !important;
+        }
+        [data-theme="light"] .resume-dropdown-item:hover svg,
+        [data-theme="light"] .linktree-dropdown-item:hover svg {
+            color: #2563eb !important;
+        }
+    </style>
 </head>
 <body>
     <!-- GLOBAL BACKGROUND GRID & GLOWS -->
@@ -525,6 +619,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=1.7"></script>
+    <script src="script.js?v=1.8"></script>
 </body>
 </html>
