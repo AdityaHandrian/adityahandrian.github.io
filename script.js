@@ -632,6 +632,22 @@ function initResumeDropdowns() {
     const heroWrapper = document.getElementById('heroResumeDropdown');
     const linktreeWrapper = document.getElementById('linktreeResumeDropdown');
 
+    // Update "View Resume" links on mobile to use Google Docs Viewer to avoid download prompts
+    const viewLinks = document.querySelectorAll('.resume-dropdown-item:not([download])');
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (!isLocalhost && isMobile) {
+        const livePdfUrl = 'https://adityahandrian.github.io/assets/resume.pdf';
+        const googleDocsViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(livePdfUrl)}&embedded=true`;
+        
+        viewLinks.forEach(link => {
+            if (link.getAttribute('href') === 'assets/resume.pdf') {
+                link.href = googleDocsViewerUrl;
+            }
+        });
+    }
+
     function toggleMenu(btn, menu, wrapper) {
         if (!btn || !menu) return;
         const isActive = menu.classList.contains('active');
