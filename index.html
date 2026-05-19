@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Muhammad Aditya Handrian — Informatics Engineering Student at ITS. Portfolio showcasing experience in business analysis, software development, and leadership.">
+    <meta name="description" content="Muhammad Aditya Handrian | Informatics Engineering Student at ITS. Portfolio showcasing experience in business analysis, software development, and leadership.">
     <meta name="author" content="Muhammad Aditya Handrian">
-    <title>Aditya Handrian — Portfolio</title>
+    <title>Aditya Handrian | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,11 +13,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- GLOBAL BACKGROUND GRID & GLOWS -->
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow hero-glow--1"></div>
+    <div class="hero-glow hero-glow--2"></div>
 
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#hero" class="nav-logo"><span class="logo-bracket">&lt;</span>AH<span class="logo-bracket"> /&gt;</span></a>
+            <a href="#about" class="nav-logo"><span class="logo-bracket">&lt;/&gt;</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
@@ -25,52 +29,61 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" style="background: none; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="moon" class="icon-moon"></i>
+                    <i data-lucide="sun" class="icon-sun" style="display: none;"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+            </div>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-        <div class="hero-bg-grid"></div>
-        <div class="hero-glow hero-glow--1"></div>
-        <div class="hero-glow hero-glow--2"></div>
-        <div class="hero-container">
-            <div class="hero-badge"><span class="badge-dot"></span>Open to Opportunities</div>
-            <h1 class="hero-name">Muhammad Aditya<br><span class="hero-name--accent">Handrian</span></h1>
-            <p class="hero-title">Undergraduate Informatics Engineering Student at <span class="text-accent">ITS</span></p>
-            <p class="hero-description">I'm drawn to the intersection where technology meets real-world impact. As a student still learning and growing, I enjoy exploring how technical concepts can be translated into solutions that genuinely help people and organizations. I believe the best outcomes come from collaborative teamwork, open communication, and a willingness to listen and adapt — and I'm always looking for opportunities to contribute and learn alongside others.</p>
-            <div class="hero-cta">
-                <a href="#contact" class="btn btn--primary"><i data-lucide="send" class="btn-icon"></i>Get in Touch</a>
-                <a href="#experience" class="btn btn--outline"><i data-lucide="briefcase" class="btn-icon"></i>View Experience</a>
-            </div>
-            <div class="hero-scroll-indicator"><div class="scroll-line"></div><span>Scroll to explore</span></div>
-        </div>
-    </section>
+    <!-- ABOUT / HERO MERGED -->
+    <section class="about-hero page-section" id="about">
+        <div class="container relative">
+            <div class="about-hero-grid">
+                <!-- Left: Text content -->
+                <div class="about-hero-content">
+                    <div class="hero-badge"><span class="badge-dot"></span>Open to Opportunities</div>
+                    <h1 class="hero-name">Muhammad Aditya<br><span class="hero-name--accent">Handrian</span></h1>
+                    <p class="hero-title">Undergraduate Informatics Engineering Student at <span class="text-accent">ITS</span></p>
+                    
+                    <div class="about-text-modern">
+                        <p>I'm Aditya, an Informatics Engineering student at <strong>Institut Teknologi Sepuluh Nopember (ITS)</strong>. I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations.</p>
+                        <p>What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a <strong>Business Analyst Intern</strong>, a <strong>Teaching Assistant</strong>, and a <strong>Frontend Web Engineer</strong>. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives.</p>
+                        <p>I believe the best outcomes come from collaborative teamwork and a willingness to adapt. I'm always looking for opportunities to contribute, learn alongside others, and dive into new frameworks to expand my skill set.</p>
+                    </div>
 
-    <!-- ABOUT -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="section-header"><span class="section-label">01 — About</span><h2 class="section-title">A Little About Me</h2></div>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>I'm Aditya — an Informatics Engineering student at <strong>Institut Teknologi Sepuluh Nopember (ITS)</strong> in Surabaya, Indonesia. My academic journey has been a wonderful opportunity to explore various facets of technology, from software development to data engineering and user experience design.</p>
-                    <p>What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've been fortunate enough to gain hands-on experience as a <strong>Business Analyst Intern</strong>, a <strong>Teaching Assistant</strong>, and a <strong>Frontend Web Engineer</strong> — roles that have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives.</p>
-                    <p>I'm still on a learning curve — and honestly, I think that's what keeps things exciting. Whether it's diving into a new framework, understanding a business workflow, or simply helping a teammate debug their code, I find meaning in the small, everyday acts of collaboration.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn--primary"><i data-lucide="send" class="btn-icon"></i>Get in Touch</a>
+                        <a href="#experience" class="btn btn--outline"><i data-lucide="briefcase" class="btn-icon"></i>View Experience</a>
+                    </div>
+                    
+                    <div class="about-stats-modern">
+                        <div class="stat-card"><div class="stat-icon"><i data-lucide="code-2"></i></div><div class="stat-info"><span class="stat-number">7+</span><span class="stat-label">Technologies</span></div></div>
+                        <div class="stat-card"><div class="stat-icon"><i data-lucide="award"></i></div><div class="stat-info"><span class="stat-number">9+</span><span class="stat-label">Certifications</span></div></div>
+                        <div class="stat-card"><div class="stat-icon"><i data-lucide="users"></i></div><div class="stat-info"><span class="stat-number">6+</span><span class="stat-label">Organizations</span></div></div>
+                    </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card"><div class="stat-icon"><i data-lucide="code-2"></i></div><div class="stat-info"><span class="stat-number">7+</span><span class="stat-label">Technologies</span></div></div>
-                    <div class="stat-card"><div class="stat-icon"><i data-lucide="award"></i></div><div class="stat-info"><span class="stat-number">9+</span><span class="stat-label">Certifications</span></div></div>
-                    <div class="stat-card"><div class="stat-icon"><i data-lucide="users"></i></div><div class="stat-info"><span class="stat-number">6+</span><span class="stat-label">Organizations</span></div></div>
-                    <div class="stat-card"><div class="stat-icon"><i data-lucide="heart-handshake"></i></div><div class="stat-info"><span class="stat-number">∞</span><span class="stat-label">Willingness to Learn</span></div></div>
+
+                <!-- Right: Profile Picture -->
+                <div class="about-image-wrapper" style="animation: fadeInUp 0.8s ease 0.4s both;">
+                    <div class="about-image-container">
+                        <div class="about-image-fallback">
+                            <span class="fallback-initials">AH</span>
+                        </div>
+                        <img src="assets/profile.jpg" alt="Muhammad Aditya Handrian" class="about-image" onload="this.previousElementSibling.style.display='none';" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section class="section section--alt" id="experience">
+    <section class="section section--alt page-section" id="experience">
         <div class="container">
-            <div class="section-header"><span class="section-label">02 — Experience</span><h2 class="section-title">Where I've Contributed</h2></div>
+            <div class="section-header"><span class="section-label">02 / Experience</span><h2 class="section-title">Where I've Contributed</h2></div>
             <div class="exp-tabs">
                 <button class="exp-tab active" data-tab="professional"><i data-lucide="briefcase"></i> Professional</button>
                 <button class="exp-tab" data-tab="academic"><i data-lucide="graduation-cap"></i> Academic</button>
@@ -81,12 +94,12 @@
             <div class="exp-content active" id="tab-professional">
                 <div class="timeline">
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role">Business Analyst Intern</h3><p class="timeline-company">DOT Indonesia</p></div><span class="timeline-date">Feb 2026 – Present</span></div>
+                        <div class="timeline-header"><div><h3 class="timeline-role">Business Analyst Intern</h3><p class="timeline-company">DOT Indonesia</p></div><span class="timeline-date">Feb 2026 - Present</span></div>
                         <p class="timeline-desc">Collaborating with stakeholders to gather and document business requirements, ensuring technical solutions align with business objectives. Working closely with cross-functional teams to analyze workflows and support data-driven decision-making.</p>
                         <div class="timeline-tags"><span class="tag">Business Analysis</span><span class="tag">Stakeholder Management</span><span class="tag">Documentation</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role">Event Staff</h3><p class="timeline-company">PM-BEM BERDAMPAK 2025 — Ministry of Education & Culture</p></div><span class="timeline-date">Jul – Dec 2025</span></div>
+                        <div class="timeline-header"><div><h3 class="timeline-role">Event Staff</h3><p class="timeline-company">PM-BEM BERDAMPAK 2025 | Ministry of Education & Culture</p></div><span class="timeline-date">Jul - Dec 2025</span></div>
                         <p class="timeline-desc">Supported event coordination for a national-level education initiative under Indonesia's Ministry of Education and Culture, contributing to impactful programs that reached communities across East Java.</p>
                         <div class="timeline-tags"><span class="tag">Government</span><span class="tag">Event Coordination</span><span class="tag">Education</span></div>
                     </div></div>
@@ -97,13 +110,13 @@
             <div class="exp-content" id="tab-academic">
                 <div class="timeline">
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role">Teaching Assistant — Software Development Concepts</h3><p class="timeline-company">Institut Teknologi Sepuluh Nopember (ITS)</p></div><span class="timeline-date">Aug 2025 – Jan 2026</span></div>
-                        <p class="timeline-desc">Had the privilege of supporting fellow students in understanding core software development methodologies. Facilitated lab sessions, reviewed assignments, and guided peers through practical exercises — learning just as much as I taught in the process.</p>
+                        <div class="timeline-header"><div><h3 class="timeline-role">Teaching Assistant - Software Development Concepts</h3><p class="timeline-company">Institut Teknologi Sepuluh Nopember (ITS)</p></div><span class="timeline-date">Aug 2025 - Jan 2026</span></div>
+                        <p class="timeline-desc">Had the privilege of supporting fellow students in understanding core software development methodologies. Facilitated lab sessions, reviewed assignments, and guided peers through practical exercises, learning just as much as I taught in the process.</p>
                         <div class="timeline-tags"><span class="tag">Mentoring</span><span class="tag">Software Development</span><span class="tag">Peer Learning</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role">Frontend Web Engineer — MONA</h3><p class="timeline-company">Institut Teknologi Sepuluh Nopember (ITS)</p></div><span class="timeline-date">Sep – Dec 2025</span></div>
-                        <p class="timeline-desc">Developed the frontend for MONA — an AI-powered financial management application. Focused on crafting an intuitive, user-friendly interface that makes complex financial data feel approachable and actionable.</p>
+                        <div class="timeline-header"><div><h3 class="timeline-role">Frontend Web Engineer - MONA</h3><p class="timeline-company">Institut Teknologi Sepuluh Nopember (ITS)</p></div><span class="timeline-date">Sep - Dec 2025</span></div>
+                        <p class="timeline-desc">Developed the frontend for MONA, an AI-powered financial management application. Focused on crafting an intuitive, user-friendly interface that makes complex financial data feel approachable and actionable.</p>
                         <div class="timeline-tags"><span class="tag">Frontend Development</span><span class="tag">AI Integration</span><span class="tag">UI/UX</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
@@ -118,28 +131,28 @@
             <div class="exp-content" id="tab-organization">
                 <div class="timeline">
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role">Staff of Social & Community Affairs Ministry</h3><p class="timeline-company">BEM ITS</p></div><span class="timeline-date">Mar 2025 – Apr 2026</span></div>
+                        <div class="timeline-header"><div><h3 class="timeline-role">Staff of Social & Community Affairs Ministry</h3><p class="timeline-company">BEM ITS</p></div><span class="timeline-date">Mar 2025 - Apr 2026</span></div>
                         <p class="timeline-desc">Contributed to social impact programs under the Student Executive Board of ITS, including serving as <strong>Project Officer for SOCARE 2025</strong> and <strong>Head of Consumption Division for ITS Mengajar for Indonesia 2025</strong>.</p>
                         <div class="timeline-tags"><span class="tag">Social Impact</span><span class="tag">Project Management</span><span class="tag">Community Service</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role">Head of Event Division — INCLENATION 2025</h3><p class="timeline-company">BEM FTEIC ITS</p></div><span class="timeline-date">Mar – Aug 2025</span></div>
+                        <div class="timeline-header"><div><h3 class="timeline-role">Head of Event Division - INCLENATION 2025</h3><p class="timeline-company">BEM FTEIC ITS</p></div><span class="timeline-date">Mar - Aug 2025</span></div>
                         <p class="timeline-desc">Led the event planning division, working with a dedicated team to conceptualize, organize, and deliver engaging events. This role taught me a great deal about delegation, creative problem-solving, and the value of empowering team members.</p>
                         <div class="timeline-tags"><span class="tag">Leadership</span><span class="tag">Event Planning</span><span class="tag">Team Empowerment</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role">Staff of Student Social Development & Mentor</h3><p class="timeline-company">HMTC ITS</p></div><span class="timeline-date">Feb 2025 – Feb 2026</span></div>
-                        <p class="timeline-desc">Actively contributed to student development programs, including mentoring for <strong>Nawasena</strong> and organizing <strong>HGTS (HMTC Goes to School) 2025</strong> — an outreach initiative introducing high school students to computer science.</p>
+                        <div class="timeline-header"><div><h3 class="timeline-role">Staff of Student Social Development & Mentor</h3><p class="timeline-company">HMTC ITS</p></div><span class="timeline-date">Feb 2025 - Feb 2026</span></div>
+                        <p class="timeline-desc">Actively contributed to student development programs, including mentoring for <strong>Nawasena</strong> and organizing <strong>HGTS (HMTC Goes to School) 2025</strong>, an outreach initiative introducing high school students to computer science.</p>
                         <div class="timeline-tags"><span class="tag">Mentoring</span><span class="tag">Student Outreach</span><span class="tag">Community</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role">Public Relations Staff & MC</h3><p class="timeline-company">Schematics ITS</p></div><span class="timeline-date">Mar – Nov 2024</span></div>
-                        <p class="timeline-desc">Managed public communications and served as Master of Ceremonies for the Bootcamp & Seminar of Technology — Basic, connecting audiences with technology insights through engaging presentations.</p>
+                        <div class="timeline-header"><div><h3 class="timeline-role">Public Relations Staff & MC</h3><p class="timeline-company">Schematics ITS</p></div><span class="timeline-date">Mar - Nov 2024</span></div>
+                        <p class="timeline-desc">Managed public communications and served as Master of Ceremonies for the Bootcamp & Seminar of Technology - Basic, connecting audiences with technology insights through engaging presentations.</p>
                         <div class="timeline-tags"><span class="tag">Public Relations</span><span class="tag">MC</span><span class="tag">Communication</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role">Event Staff</h3><p class="timeline-company">BEM FTEIC ITS & PAMMITS</p></div><span class="timeline-date">Mar – Dec 2024</span></div>
-                        <p class="timeline-desc">Supported event execution for ELITEXPESRAF 2024, Inclenation 2024, and PAMMITS — gaining valuable experience in logistics, coordination, and teamwork across multiple large-scale campus events.</p>
+                        <div class="timeline-header"><div><h3 class="timeline-role">Event Staff</h3><p class="timeline-company">BEM FTEIC ITS & PAMMITS</p></div><span class="timeline-date">Mar - Dec 2024</span></div>
+                        <p class="timeline-desc">Supported event execution for ELITEXPESRAF 2024, Inclenation 2024, and PAMMITS, gaining valuable experience in logistics, coordination, and teamwork across multiple large-scale campus events.</p>
                         <div class="timeline-tags"><span class="tag">Event Management</span><span class="tag">Logistics</span><span class="tag">Teamwork</span></div>
                     </div></div>
                 </div>
@@ -148,9 +161,9 @@
     </section>
 
     <!-- PROJECTS -->
-    <section class="section" id="projects">
+    <section class="section page-section" id="projects">
         <div class="container">
-            <div class="section-header"><span class="section-label">03 — Projects</span><h2 class="section-title">Things I've Built</h2></div>
+            <div class="section-header"><span class="section-label">03 / Projects</span><h2 class="section-title">Things I've Built</h2></div>
             <div class="projects-grid">
                 <div class="project-card project-card--featured">
                     <div class="project-card__glow"></div>
@@ -158,7 +171,7 @@
                         <div class="project-card__top"><div class="project-card__icon"><i data-lucide="wallet"></i></div><span class="project-card__label">Featured Project</span></div>
                         <h3 class="project-card__title">MONA <span class="project-card__title--sub">(Money Assistant)</span></h3>
                         <p class="project-card__subtitle">Your Intelligent Personal Finance Companion</p>
-                        <p class="project-card__desc">MONA is an intelligent personal finance companion designed to help users take complete control of their financial future. Built with modern technology and user-centric design, MONA makes managing money simple, secure, and insightful. Contributed as a Frontend Web Engineer — crafting the interface that brings complex financial data to life.</p>
+                        <p class="project-card__desc">MONA is an intelligent personal finance companion designed to help users take complete control of their financial future. Built with modern technology and user-centric design, MONA makes managing money simple, secure, and insightful. Contributed as a Frontend Web Engineer, crafting the interface that brings complex financial data to life.</p>
                         <div class="project-card__tech"><span class="tech-badge">Frontend Engineering</span><span class="tech-badge">AI Integration</span><span class="tech-badge">UI/UX Design</span><span class="tech-badge">FinTech</span></div>
                         <div class="project-card__bottom">
                             <div class="project-card__role"><i data-lucide="user" class="role-icon"></i><span>Role: Frontend Web Engineer</span></div>
@@ -184,9 +197,9 @@
     </section>
 
     <!-- SKILLS & CERTIFICATIONS -->
-    <section class="section section--alt" id="skills">
+    <section class="section section--alt page-section" id="skills">
         <div class="container">
-            <div class="section-header"><span class="section-label">04 — Skills & Certifications</span><h2 class="section-title">What I Work With</h2></div>
+            <div class="section-header"><span class="section-label">04 / Skills & Certifications</span><h2 class="section-title">What I Work With</h2></div>
             <div class="skills-grid">
                 <div class="skill-category">
                     <div class="skill-category__header"><i data-lucide="cpu" class="skill-category__icon"></i><h3>Hard Skills</h3></div>
@@ -228,20 +241,44 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contact">
+    <section class="section page-section" id="contact">
         <div class="container">
-            <div class="section-header"><span class="section-label">05 — Contact</span><h2 class="section-title">Let's Connect</h2></div>
-            <div class="contact-container">
-                <p class="contact-desc">I'm always happy to connect — whether it's a potential collaboration, a shared interest, or simply a friendly conversation. Feel free to reach out through any of the channels below!</p>
-                <div class="contact-cards">
+            <div class="section-header"><span class="section-label">05 / Contact</span><h2 class="section-title">Let's Connect</h2></div>
+            <div class="contact-grid-layout">
+                <!-- Left: Collab Info -->
+                <div class="contact-info-panel">
+                    <h3 class="contact-subtitle">Let's build something great together.</h3>
+                    <p class="contact-desc">I'm always open to discussing new opportunities, collaborations, creative ideas, or peer learning. Feel free to reach out on any of the platforms or drop an email directly!</p>
+                    
+                    <div class="contact-status-card">
+                        <span class="status-indicator"></span>
+                        <div class="status-details">
+                            <strong>Availability Status</strong>
+                            <p>Open for Internship & Part-time roles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Cards Grid -->
+                <div class="contact-cards-grid">
                     <a href="mailto:adityahandriann@gmail.com" class="contact-card" id="contact-email">
-                        <div class="contact-card__icon"><i data-lucide="mail"></i></div>
+                        <div class="contact-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
                         <div class="contact-card__info"><h4>Email</h4><p>adityahandriann@gmail.com</p></div>
                         <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-linkedin">
-                        <div class="contact-card__icon"><i data-lucide="link"></i></div>
+                        <div class="contact-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></div>
                         <div class="contact-card__info"><h4>LinkedIn</h4><p>linkedin.com/in/adityahandrian</p></div>
+                        <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
+                    </a>
+                    <a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-instagram">
+                        <div class="contact-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+                        <div class="contact-card__info"><h4>Instagram</h4><p>@adityahandrian</p></div>
+                        <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
+                    </a>
+                    <a href="https://x.com/adtyh" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-twitter">
+                        <div class="contact-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></div>
+                        <div class="contact-card__info"><h4>Twitter / X</h4><p>@adtyh</p></div>
                         <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
                     </a>
                 </div>
@@ -253,7 +290,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <a href="#hero" class="footer-logo"><span class="logo-bracket">&lt;</span>AH<span class="logo-bracket"> /&gt;</span></a>
+                <a href="#about" class="footer-logo"><span class="logo-bracket">&lt;/&gt;</span></a>
                 <p class="footer-text">Designed & built with curiosity and care.</p>
                 <p class="footer-copy">&copy; 2025 Muhammad Aditya Handrian. All rights reserved.</p>
             </div>
