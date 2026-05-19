@@ -580,3 +580,135 @@ img{max-width:100%;display:block}
     padding: 7rem 0 4rem;
   }
 }
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  /* Reset background and colors for printing */
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  /* Hide unnecessary interactive/UI elements */
+  .navbar,
+  .theme-toggle,
+  .nav-toggle,
+  .hero-bg-grid,
+  .hero-glow,
+  .hero-scroll-indicator,
+  .exp-tabs,
+  .btn,
+  .about-stats-modern,
+  .project-card__glow {
+    display: none !important;
+  }
+
+  /* Show all sections sequentially for a complete printout */
+  .page-section {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    min-height: auto !important;
+    padding: 1.5rem 0 !important;
+    page-break-inside: avoid;
+  }
+
+  /* Show all tabbed experience content together */
+  .exp-content {
+    display: block !important;
+    opacity: 1 !important;
+    margin-bottom: 1.5rem;
+    page-break-inside: avoid;
+  }
+
+  /* Grid and layout adjustments for paper */
+  .about-hero-grid {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    gap: 1.5rem !important;
+  }
+
+  .about-hero-content {
+    width: 100% !important;
+  }
+
+  /* Restrict profile picture size in print */
+  .about-image-wrapper {
+    display: block !important;
+    text-align: center !important;
+    margin: 0 auto 1.5rem !important;
+    width: auto !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .about-image-container {
+    width: 120px !important;
+    height: 150px !important;
+    margin: 0 auto !important;
+    border: 1px solid #dddddd !important;
+    box-shadow: none !important;
+  }
+
+  .about-image {
+    width: 120px !important;
+    height: 150px !important;
+  }
+
+  /* Typography and elements readability */
+  h1, h2, h3, h4, p, span, li, strong, a {
+    color: #000000 !important;
+    background: transparent !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow: none !important;
+  }
+
+  h1 {
+    font-size: 24pt !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .hero-name--accent {
+    color: #000000 !important;
+    background: none !important;
+  }
+
+  /* Card styling on paper */
+  .timeline-card,
+  .project-card__content,
+  .stat-card,
+  .cert-card,
+  .contact-card {
+    background: #ffffff !important;
+    border: 1px solid #dddddd !important;
+    box-shadow: none !important;
+    padding: 1rem !important;
+    page-break-inside: avoid;
+    color: #000000 !important;
+  }
+
+  .timeline-marker {
+    background: #ffffff !important;
+    border-color: #000000 !important;
+  }
+
+  .tag, .tech-badge {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #334155 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Contact columns */
+  .contact-grid {
+    display: block !important;
+  }
+
+  .contact-info, .contact-cards {
+    width: 100% !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
