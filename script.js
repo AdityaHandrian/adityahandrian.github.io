@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initInteractiveGlow();
     initBackgroundMusic();
     initGalleryModal();
+    initResumeDropdowns();
 });
 
 // ===== Theme Toggle =====
@@ -619,4 +620,64 @@ function initGalleryModal() {
             }
         });
     }
+}
+
+// ===== CV / Resume Dropdowns Handler =====
+function initResumeDropdowns() {
+    const heroBtn = document.getElementById('heroResumeBtnToggle');
+    const heroMenu = document.getElementById('heroResumeMenu');
+    const linktreeBtn = document.getElementById('linktreeResumeBtnToggle');
+    const linktreeMenu = document.getElementById('linktreeResumeMenu');
+
+    function toggleMenu(btn, menu) {
+        if (!btn || !menu) return;
+        const isActive = menu.classList.contains('active');
+        
+        // Close other dropdowns first
+        closeAll();
+
+        if (!isActive) {
+            btn.classList.add('active');
+            menu.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    function closeAll() {
+        if (heroBtn) {
+            heroBtn.classList.remove('active');
+            heroBtn.setAttribute('aria-expanded', 'false');
+        }
+        if (heroMenu) heroMenu.classList.remove('active');
+        
+        if (linktreeBtn) {
+            linktreeBtn.classList.remove('active');
+            linktreeBtn.setAttribute('aria-expanded', 'false');
+        }
+        if (linktreeMenu) linktreeMenu.classList.remove('active');
+    }
+
+    if (heroBtn && heroMenu) {
+        heroBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu(heroBtn, heroMenu);
+        });
+    }
+
+    if (linktreeBtn && linktreeMenu) {
+        linktreeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu(linktreeBtn, linktreeMenu);
+        });
+    }
+
+    // Close on click outside
+    document.addEventListener('click', () => {
+        closeAll();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAll();
+    });
 }

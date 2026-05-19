@@ -730,6 +730,90 @@ img{max-width:100%;display:block}
   border-style: dashed;
 }
 
+/* ===== CV / RESUME DROPDOWN STYLES ===== */
+.resume-dropdown,
+.linktree-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.linktree-dropdown {
+  width: 100%;
+}
+
+.resume-dropdown-menu,
+.linktree-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 210px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card), 0 10px 25px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.5rem 0;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.linktree-dropdown-menu {
+  width: 100%;
+}
+
+.resume-dropdown-menu.active,
+.linktree-dropdown-menu.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.resume-dropdown-item,
+.linktree-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.resume-dropdown-item svg,
+.linktree-dropdown-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+.resume-dropdown-item:hover,
+.linktree-dropdown-item:hover {
+  background: var(--bg-secondary);
+  color: var(--accent-light);
+}
+.resume-dropdown-item:hover svg,
+.linktree-dropdown-item:hover svg {
+  color: var(--accent-light);
+  transform: scale(1.1);
+}
+
+.btn-resume .btn-chevron,
+.linktree-btn--resume .linktree-chevron {
+  width: 14px;
+  height: 14px;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+  color: inherit;
+}
+.btn-resume.active .btn-chevron,
+.linktree-btn--resume.active .linktree-chevron {
+  transform: rotate(180deg);
+}
+
 /* ===== ANIMATE HOVER MICRO INTERACTIONS ===== */
 .animate-hover {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;

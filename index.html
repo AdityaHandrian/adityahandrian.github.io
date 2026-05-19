@@ -63,8 +63,24 @@
 
                     <div class="hero-cta">
                         <a href="#contact" class="btn btn--primary"><i data-lucide="send" class="btn-icon"></i><span data-lang-en="Get in Touch" data-lang-id="Hubungi Saya">Get in Touch</span></a>
-                        <a href="assets/resume.pdf" target="_blank" class="btn btn--outline"><i data-lucide="eye" class="btn-icon"></i><span data-lang-en="View CV" data-lang-id="Lihat CV">View CV</span></a>
-                        <a href="assets/resume.pdf" download="Muhammad_Aditya_Handrian_Resume.pdf" class="btn btn--outline"><i data-lucide="download" class="btn-icon"></i><span data-lang-en="Download CV" data-lang-id="Unduh CV">Download CV</span></a>
+                        <a href="#experience" class="btn btn--outline"><i data-lucide="briefcase" class="btn-icon"></i><span data-lang-en="View Experience" data-lang-id="Lihat Pengalaman">View Experience</span></a>
+                        <div class="resume-dropdown" id="heroResumeDropdown">
+                            <button class="btn btn--outline btn-resume animate-hover" id="heroResumeBtnToggle" aria-haspopup="true" aria-expanded="false">
+                                <i data-lucide="file-text" class="btn-icon"></i>
+                                <span data-lang-en="Resume / CV" data-lang-id="CV / Resume">Resume / CV</span>
+                                <i data-lucide="chevron-down" class="btn-chevron"></i>
+                            </button>
+                            <div class="resume-dropdown-menu" id="heroResumeMenu">
+                                <a href="assets/resume.pdf" target="_blank" class="resume-dropdown-item">
+                                    <i data-lucide="eye"></i>
+                                    <span data-lang-en="View Resume" data-lang-id="Lihat CV (Tanpa Unduh)">View Resume</span>
+                                </a>
+                                <a href="assets/resume.pdf" download="Muhammad_Aditya_Handrian_Resume.pdf" class="resume-dropdown-item">
+                                    <i data-lucide="download"></i>
+                                    <span data-lang-en="Download Resume" data-lang-id="Unduh CV">Download Resume</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="about-stats-modern">
@@ -400,10 +416,23 @@
                         <i data-lucide="wallet"></i>
                         <span data-lang-en="MONA (Featured Project)" data-lang-id="MONA (Proyek Utama)">MONA (Featured Project)</span>
                     </a>
-                    <a href="assets/resume.pdf" download="Muhammad_Aditya_Handrian_Resume.pdf" class="linktree-btn linktree-btn--resume animate-hover">
-                        <i data-lucide="download"></i>
-                        <span data-lang-en="Download CV / Resume" data-lang-id="Unduh CV / Resume">Download CV / Resume</span>
-                    </a>
+                    <div class="linktree-dropdown" id="linktreeResumeDropdown">
+                        <button class="linktree-btn linktree-btn--resume linktree-dropdown-toggle animate-hover" id="linktreeResumeBtnToggle">
+                            <i data-lucide="file-text"></i>
+                            <span data-lang-en="CV / Resume" data-lang-id="CV / Resume">CV / Resume</span>
+                            <i data-lucide="chevron-down" class="linktree-chevron"></i>
+                        </button>
+                        <div class="linktree-dropdown-menu" id="linktreeResumeMenu">
+                            <a href="assets/resume.pdf" target="_blank" class="linktree-dropdown-item">
+                                <i data-lucide="eye"></i>
+                                <span data-lang-en="View Resume" data-lang-id="Lihat CV (Tanpa Unduh)">View Resume</span>
+                            </a>
+                            <a href="assets/resume.pdf" download="Muhammad_Aditya_Handrian_Resume.pdf" class="linktree-dropdown-item">
+                                <i data-lucide="download"></i>
+                                <span data-lang-en="Download Resume" data-lang-id="Unduh CV">Download Resume</span>
+                            </a>
+                        </div>
+                    </div>
                     <a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer" class="linktree-btn">
                         <i data-lucide="instagram"></i>
                         <span>Instagram</span>
