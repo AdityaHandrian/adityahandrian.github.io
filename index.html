@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,116 +25,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <link rel="stylesheet" href="style.css?v=2.6">
-    <style>
-        /* Dropdown Layout & Aesthetic Fixes */
-        .hero-cta {
-            position: relative !important;
-            z-index: 10 !important;
-        }
-        .resume-dropdown, .linktree-dropdown {
-            position: relative;
-            display: inline-block;
-            z-index: 5;
-        }
-        .resume-dropdown.active, .linktree-dropdown.active {
-            z-index: 9999 !important;
-        }
-        .linktree-dropdown {
-            width: 100%;
-        }
-        .resume-dropdown-menu, .linktree-dropdown-menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            min-width: 220px;
-            background: rgba(15, 23, 42, 0.85) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 12px !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2) !important;
-            backdrop-filter: blur(20px) !important;
-            -webkit-backdrop-filter: blur(20px) !important;
-            padding: 0.5rem 0 !important;
-            z-index: 1000 !important;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-8px);
-            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 0 !important;
-        }
-        .linktree-dropdown-menu {
-            width: 100%;
-        }
-        .resume-dropdown-menu.active, .linktree-dropdown-menu.active {
-            opacity: 1 !important;
-            visibility: visible !important;
-            transform: translateY(0) !important;
-            pointer-events: auto !important;
-        }
-        .resume-dropdown-item, .linktree-dropdown-item {
-            display: flex !important;
-            align-items: center !important;
-            gap: 0.75rem !important;
-            padding: 0.8rem 1.25rem !important;
-            color: rgba(255, 255, 255, 0.75) !important;
-            text-decoration: none !important;
-            font-size: 0.9rem !important;
-            font-weight: 500 !important;
-            transition: all 0.2s ease !important;
-            cursor: pointer !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-            background: transparent !important;
-            border: none !important;
-            border-radius: 0 !important;
-            justify-content: flex-start !important;
-        }
-        .resume-dropdown-item svg, .linktree-dropdown-item svg {
-            width: 16px !important;
-            height: 16px !important;
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
-        .resume-dropdown-item:hover, .linktree-dropdown-item:hover {
-            background: rgba(255, 255, 255, 0.06) !important;
-            color: #60a5fa !important;
-        }
-        .resume-dropdown-item:hover svg, .linktree-dropdown-item:hover svg {
-            color: #60a5fa !important;
-        }
-        /* Light theme overrides */
-        [data-theme="light"] .resume-dropdown-menu,
-        [data-theme="light"] .linktree-dropdown-menu {
-            background: rgba(255, 255, 255, 0.85) !important;
-            border-color: rgba(0, 0, 0, 0.08) !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-        }
-        [data-theme="light"] .resume-dropdown-item,
-        [data-theme="light"] .linktree-dropdown-item {
-            color: rgba(15, 23, 42, 0.75) !important;
-        }
-        [data-theme="light"] .resume-dropdown-item svg,
-        [data-theme="light"] .linktree-dropdown-item svg {
-            color: rgba(15, 23, 42, 0.5) !important;
-        }
-        [data-theme="light"] .resume-dropdown-item:hover,
-        [data-theme="light"] .linktree-dropdown-item:hover {
-            background: rgba(0, 0, 0, 0.03) !important;
-            color: #2563eb !important;
-        }
-        [data-theme="light"] .resume-dropdown-item:hover svg,
-        [data-theme="light"] .linktree-dropdown-item:hover svg {
-            color: #2563eb !important;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
 <body>
-    <!-- GLOBAL BACKGROUND GRID & GLOWS -->
-    <div class="hero-bg-grid"></div>
-    <div class="hero-glow hero-glow--1"></div>
-    <div class="hero-glow hero-glow--2"></div>
-    <div class="interactive-glow" id="interactiveGlow"></div>
 
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
@@ -150,13 +43,11 @@
                 <li><a href="#contact" class="nav-link" data-lang-en="Contact" data-lang-id="Kontak">Contact</a></li>
             </ul>
             <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <button class="lang-toggle" id="langToggle" aria-label="Switch language" style="background: none; border: 1px solid var(--border); cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; padding: 0.35rem 0.65rem; border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; transition: var(--transition);">
-                    EN
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+                <button class="share-btn-nav" id="shareBtnNav" aria-label="Share profile" title="Share Profile">
+                    <i data-lucide="share-2" style="width: 18px; height: 18px;"></i>
                 </button>
-                <button class="share-btn-nav" id="shareBtnNav" aria-label="Share profile" title="Share Profile" style="background: none; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
-                    <i data-lucide="share-2" style="width: 20px; height: 20px;"></i>
-                </button>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" style="background: none; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i data-lucide="moon" class="icon-moon"></i>
                     <i data-lucide="sun" class="icon-sun" style="display: none;"></i>
                 </button>
@@ -165,19 +56,18 @@
         </div>
     </nav>
 
-    <!-- ABOUT / HERO MERGED -->
+    <!-- ABOUT / HERO -->
     <section class="about-hero page-section" id="about">
         <div class="container relative">
             <div class="about-hero-grid">
-                <!-- Left: Text content -->
                 <div class="about-hero-content">
                     <div class="hero-badge"><span class="badge-dot"></span><span data-lang-en="Open to Opportunities" data-lang-id="Terbuka untuk Peluang">Open to Opportunities</span></div>
                     <h1 class="hero-name">Muhammad Aditya<br><span class="hero-name--accent">Handrian</span></h1>
                     <p class="hero-title"><span data-lang-en="Undergraduate Informatics Engineering Student at" data-lang-id="Mahasiswa S1 Teknik Informatika di">Undergraduate Informatics Engineering Student at</span> <span class="text-accent">ITS</span></p>
                     
                     <div class="about-text-modern">
-                        <p data-lang-en="I'm Aditya, an Informatics Engineering student at &lt;strong&gt;Institut Teknologi Sepuluh Nopember (ITS)&lt;/strong&gt;. I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations." data-lang-id="Saya Aditya, mahasiswa Teknik Informatika di &lt;strong&gt;Institut Teknologi Sepuluh Nopember (ITS)&lt;/strong&gt;. Saya tertarik pada titik temu antara teknologi dan dampak dunia nyata, menerjemahkan konsep teknis menjadi solusi yang benar-benar membantu orang dan organisasi.">I'm Aditya, an Informatics Engineering student at <strong>Institut Teknologi Sepuluh Nopember (ITS)</strong>. I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations.</p>
-                        <p data-lang-en="What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a &lt;strong&gt;Business Analyst Intern&lt;/strong&gt;, a &lt;strong&gt;Teaching Assistant&lt;/strong&gt;, and a &lt;strong&gt;Frontend Web Engineer&lt;/strong&gt;. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives." data-lang-id="Yang paling membuat saya bersemangat adalah kesempatan untuk bekerja dengan tim yang beragam di mana setiap anggota membawa sesuatu yang unik. Saya telah memperoleh pengalaman langsung sebagai &lt;strong&gt;Magang Business Analyst&lt;/strong&gt;, &lt;strong&gt;Asisten Dosen&lt;/strong&gt;, dan &lt;strong&gt;Frontend Web Engineer&lt;/strong&gt;. Peran-peran ini telah mengajarkan saya pentingnya empati, komunikasi yang jelas, dan melihat masalah dari berbagai perspektif.">What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a <strong>Business Analyst Intern</strong>, a <strong>Teaching Assistant</strong>, and a <strong>Frontend Web Engineer</strong>. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives.</p>
+                        <p data-lang-en="I'm Aditya, an Informatics Engineering student at <strong>Institut Teknologi Sepuluh Nopember (ITS)</strong>. I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations." data-lang-id="Saya Aditya, mahasiswa Teknik Informatika di <strong>Institut Teknologi Sepuluh Nopember (ITS)</strong>. Saya tertarik pada titik temu antara teknologi dan dampak dunia nyata, menerjemahkan konsep teknis menjadi solusi yang benar-benar membantu orang dan organisasi.">I'm Aditya, an Informatics Engineering student at <strong>Institut Teknologi Sepuluh Nopember (ITS)</strong>. I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations.</p>
+                        <p data-lang-en="What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a <strong>Business Analyst Intern</strong>, a <strong>Teaching Assistant</strong>, and a <strong>Frontend Web Engineer</strong>. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives." data-lang-id="Yang paling membuat saya bersemangat adalah kesempatan untuk bekerja dengan tim yang beragam di mana setiap anggota membawa sesuatu yang unik. Saya telah memperoleh pengalaman langsung sebagai <strong>Magang Business Analyst</strong>, <strong>Asisten Dosen</strong>, dan <strong>Frontend Web Engineer</strong>. Peran-peran ini telah mengajarkan saya pentingnya empati, komunikasi yang jelas, dan melihat masalah dari berbagai perspektif.">What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a <strong>Business Analyst Intern</strong>, a <strong>Teaching Assistant</strong>, and a <strong>Frontend Web Engineer</strong>. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives.</p>
                         <p data-lang-en="I believe the best outcomes come from collaborative teamwork and a willingness to adapt. I'm always looking for opportunities to contribute, learn alongside others, and dive into new frameworks to expand my skill set." data-lang-id="Saya percaya hasil terbaik datang dari kerja sama tim yang kolaboratif dan kesediaan untuk beradaptasi. Saya selalu mencari peluang untuk berkontribusi, belajar bersama orang lain, dan mendalami framework baru untuk memperluas keahlian saya.">I believe the best outcomes come from collaborative teamwork and a willingness to adapt. I'm always looking for opportunities to contribute, learn alongside others, and dive into new frameworks to expand my skill set.</p>
                     </div>
 
@@ -185,7 +75,7 @@
                         <a href="#contact" class="btn btn--primary"><i data-lucide="send" class="btn-icon"></i><span data-lang-en="Get in Touch" data-lang-id="Hubungi Saya">Get in Touch</span></a>
                         <a href="#experience" class="btn btn--outline"><i data-lucide="briefcase" class="btn-icon"></i><span data-lang-en="View Experience" data-lang-id="Lihat Pengalaman">View Experience</span></a>
                         <div class="resume-dropdown" id="heroResumeDropdown">
-                            <button class="btn btn--outline btn-resume animate-hover" id="heroResumeBtnToggle" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btn--outline btn-resume" id="heroResumeBtnToggle" aria-haspopup="true" aria-expanded="false">
                                 <i data-lucide="file-text" class="btn-icon"></i>
                                 <span data-lang-en="Resume / CV" data-lang-id="CV / Resume">Resume / CV</span>
                                 <i data-lucide="chevron-down" class="btn-chevron"></i>
@@ -210,8 +100,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Profile Picture -->
-                <div class="about-image-wrapper" style="animation: fadeInUp 0.8s ease 0.4s both;">
+                <div class="about-image-wrapper">
                     <div class="about-image-container">
                         <div class="about-image-fallback">
                             <span class="fallback-initials">AH</span>
@@ -242,8 +131,8 @@
                         <div class="timeline-tags"><span class="tag" data-lang-en="Business Analysis" data-lang-id="Analisis Bisnis">Business Analysis</span><span class="tag" data-lang-en="Stakeholder Management" data-lang-id="Manajemen Stakeholder">Stakeholder Management</span><span class="tag" data-lang-en="Documentation" data-lang-id="Dokumentasi">Documentation</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Event Staff" data-lang-id="Staf Acara">Event Staff</h3><p class="timeline-company">PM-BEM BERDAMPAK 2025 | Ministry of Education & Culture</p></div><span class="timeline-date">Jul - Dec 2025</span></div>
-                        <p class="timeline-desc" data-lang-en="Supported event coordination for a national-level education initiative under Indonesia's Ministry of Education and Culture, contributing to impactful programs that reached communities across East Java." data-lang-id="Mendukung koordinasi acara untuk inisiatif pendidikan tingkat nasional di bawah Kementerian Pendidikan & Kebudayaan RI, berkontribusi pada program-program berdampak yang menjangkau masyarakat di seluruh Jawa Timur.">Supported event coordination for a national-level education initiative under Indonesia's Ministry of Education and Culture, contributing to impactful programs that reached communities across East Java.</p>
+                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Event Staff" data-lang-id="Staf Acara">Event Staff</h3><p class="timeline-company">PM-BEM BERDAMPAK 2025 | Ministry of Education &amp; Culture</p></div><span class="timeline-date">Jul - Dec 2025</span></div>
+                        <p class="timeline-desc" data-lang-en="Supported event coordination for a national-level education initiative under Indonesia's Ministry of Education and Culture, contributing to impactful programs that reached communities across East Java." data-lang-id="Mendukung koordinasi acara untuk inisiatif pendidikan tingkat nasional di bawah Kementerian Pendidikan &amp; Kebudayaan RI, berkontribusi pada program-program berdampak yang menjangkau masyarakat di seluruh Jawa Timur.">Supported event coordination for a national-level education initiative under Indonesia's Ministry of Education and Culture, contributing to impactful programs that reached communities across East Java.</p>
                         <div class="timeline-tags"><span class="tag" data-lang-en="Government" data-lang-id="Pemerintah">Government</span><span class="tag" data-lang-en="Event Coordination" data-lang-id="Koordinasi Acara">Event Coordination</span><span class="tag" data-lang-en="Education" data-lang-id="Pendidikan">Education</span></div>
                     </div></div>
                 </div>
@@ -252,10 +141,10 @@
             <!-- Academic Tab -->
             <div class="exp-content" id="tab-academic">
                 <div class="timeline">
-                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card" style="border-left: 3px solid var(--accent);">
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
                         <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Bachelor of Informatics Engineering (B.S.)" data-lang-id="S1 Teknik Informatika">Bachelor of Informatics Engineering (B.S.)</h3><p class="timeline-company">Institut Teknologi Sepuluh Nopember (ITS)</p></div><span class="timeline-date" data-lang-en="2023 - Present" data-lang-id="2023 - Sekarang">2023 - Present</span></div>
                         <p class="timeline-desc" data-lang-en="Pursuing an undergraduate degree in Informatics Engineering with a focus on software engineering, database design, and systems analysis. Maintained active involvement in academic labs and student-led engineering initiatives." data-lang-id="Menempuh pendidikan sarjana S1 Teknik Informatika dengan fokus pada rekayasa perangkat lunak, perancangan basis data, dan analisis sistem. Aktif berpartisipasi dalam laboratorium akademik dan inisiatif rekayasa mahasiswa.">Pursuing an undergraduate degree in Informatics Engineering with a focus on software engineering, database design, and systems analysis. Maintained active involvement in academic labs and student-led engineering initiatives.</p>
-                        <div class="timeline-tags"><span class="tag" data-lang-en="ITS Surabaya" data-lang-id="ITS Surabaya">ITS Surabaya</span><span class="tag" data-lang-en="Software Engineering" data-lang-id="Rekayasa Perangkat Lunak">Software Engineering</span><span class="tag" data-lang-en="Database Systems" data-lang-id="Sistem Basis Data">Database Systems</span><span class="tag" data-lang-en="Algorithms &amp; Data Structures" data-lang-id="Algoritma &amp; Struktur Data">Algorithms & Data Structures</span></div>
+                        <div class="timeline-tags"><span class="tag">ITS Surabaya</span><span class="tag" data-lang-en="Software Engineering" data-lang-id="Rekayasa Perangkat Lunak">Software Engineering</span><span class="tag" data-lang-en="Database Systems" data-lang-id="Sistem Basis Data">Database Systems</span><span class="tag" data-lang-en="Algorithms &amp; Data Structures" data-lang-id="Algoritma &amp; Struktur Data">Algorithms &amp; Data Structures</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
                         <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Teaching Assistant - Software Development Concepts" data-lang-id="Asisten Dosen - Konsep Pengembangan Perangkat Lunak">Teaching Assistant - Software Development Concepts</h3><p class="timeline-company">Institut Teknologi Sepuluh Nopember (ITS)</p></div><span class="timeline-date" data-lang-en="Aug 2025 - Jan 2026" data-lang-id="Agt 2025 - Jan 2026">Aug 2025 - Jan 2026</span></div>
@@ -269,7 +158,7 @@
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
                         <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Guest Speaker" data-lang-id="Pembicara Tamu">Guest Speaker</h3><p class="timeline-company">ITS CAMP 2025</p></div><span class="timeline-date" data-lang-en="Aug 2025" data-lang-id="Agt 2025">Aug 2025</span></div>
-                        <p class="timeline-desc" data-lang-en="Presented a session on &quot;Digital Ethics &amp; Wise Communication in the Technology Era&quot; to inspire and educate new students on responsible digital behavior and effective communication." data-lang-id="Mempresentasikan sesi tentang &quot;Etika Digital &amp; Komunikasi Bijak di Era Teknologi&quot; untuk menginspirasi dan mengedukasi mahasiswa baru tentang perilaku digital yang bertanggung jawab dan komunikasi yang efektif.">Presented a session on "Digital Ethics & Wise Communication in the Technology Era" to inspire and educate new students on responsible digital behavior and effective communication.</p>
+                        <p class="timeline-desc" data-lang-en='Presented a session on "Digital Ethics &amp; Wise Communication in the Technology Era" to inspire and educate new students on responsible digital behavior and effective communication.' data-lang-id='Mempresentasikan sesi tentang "Etika Digital &amp; Komunikasi Bijak di Era Teknologi" untuk menginspirasi dan mengedukasi mahasiswa baru tentang perilaku digital yang bertanggung jawab dan komunikasi yang efektif.'>Presented a session on "Digital Ethics &amp; Wise Communication in the Technology Era" to inspire and educate new students on responsible digital behavior and effective communication.</p>
                         <div class="timeline-tags"><span class="tag" data-lang-en="Public Speaking" data-lang-id="Presentasi Publik">Public Speaking</span><span class="tag" data-lang-en="Digital Ethics" data-lang-id="Etika Digital">Digital Ethics</span><span class="tag" data-lang-en="Communication" data-lang-id="Komunikasi">Communication</span></div>
                     </div></div>
                 </div>
@@ -279,8 +168,8 @@
             <div class="exp-content" id="tab-organization">
                 <div class="timeline">
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Staff of Social &amp; Community Affairs Ministry" data-lang-id="Staf Kementerian Sosial &amp; Pengabdian Masyarakat">Staff of Social & Community Affairs Ministry</h3><p class="timeline-company">BEM ITS</p></div><span class="timeline-date" data-lang-en="Mar 2025 - Apr 2026" data-lang-id="Mar 2025 - Apr 2026">Mar 2025 - Apr 2026</span></div>
-                        <p class="timeline-desc" data-lang-en="Contributed to social impact programs under the Student Executive Board of ITS, including serving as &lt;strong&gt;Project Officer for SOCARE 2025&lt;/strong&gt; and &lt;strong&gt;Head of Consumption Division for ITS Mengajar for Indonesia 2025&lt;/strong&gt;." data-lang-id="Berkontribusi pada program dampak sosial di bawah Badan Eksekutif Mahasiswa (BEM) ITS, termasuk menjabat sebagai &lt;strong&gt;Project Officer SOCARE 2025&lt;/strong&gt; dan &lt;strong&gt;Ketua Divisi Konsumsi ITS Mengajar untuk Indonesia 2025&lt;/strong&gt;.">Contributed to social impact programs under the Student Executive Board of ITS, including serving as <strong>Project Officer for SOCARE 2025</strong> and <strong>Head of Consumption Division for ITS Mengajar for Indonesia 2025</strong>.</p>
+                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Staff of Social &amp; Community Affairs Ministry" data-lang-id="Staf Kementerian Sosial &amp; Pengabdian Masyarakat">Staff of Social &amp; Community Affairs Ministry</h3><p class="timeline-company">BEM ITS</p></div><span class="timeline-date">Mar 2025 - Apr 2026</span></div>
+                        <p class="timeline-desc" data-lang-en="Contributed to social impact programs under the Student Executive Board of ITS, including serving as <strong>Project Officer for SOCARE 2025</strong> and <strong>Head of Consumption Division for ITS Mengajar for Indonesia 2025</strong>." data-lang-id="Berkontribusi pada program dampak sosial di bawah Badan Eksekutif Mahasiswa (BEM) ITS, termasuk menjabat sebagai <strong>Project Officer SOCARE 2025</strong> dan <strong>Ketua Divisi Konsumsi ITS Mengajar untuk Indonesia 2025</strong>.">Contributed to social impact programs under the Student Executive Board of ITS, including serving as <strong>Project Officer for SOCARE 2025</strong> and <strong>Head of Consumption Division for ITS Mengajar for Indonesia 2025</strong>.</p>
                         <div class="timeline-tags"><span class="tag" data-lang-en="Social Impact" data-lang-id="Dampak Sosial">Social Impact</span><span class="tag" data-lang-en="Project Management" data-lang-id="Manajemen Proyek">Project Management</span><span class="tag" data-lang-en="Community Service" data-lang-id="Pengabdian Masyarakat">Community Service</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
@@ -289,17 +178,17 @@
                         <div class="timeline-tags"><span class="tag" data-lang-en="Leadership" data-lang-id="Kepemimpinan">Leadership</span><span class="tag" data-lang-en="Event Planning" data-lang-id="Perencanaan Acara">Event Planning</span><span class="tag" data-lang-en="Team Empowerment" data-lang-id="Pemberdayaan Tim">Team Empowerment</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Staff of Student Social Development &amp; Mentor" data-lang-id="Staf Pengembangan Sosial Mahasiswa &amp; Mentor">Staff of Student Social Development & Mentor</h3><p class="timeline-company">HMTC ITS</p></div><span class="timeline-date" data-lang-en="Feb 2025 - Feb 2026" data-lang-id="Feb 2025 - Feb 2026">Feb 2025 - Feb 2026</span></div>
-                        <p class="timeline-desc" data-lang-en="Actively contributed to student development programs, including mentoring for &lt;strong&gt;Nawasena&lt;/strong&gt; and organizing &lt;strong&gt;HGTS (HMTC Goes to School) 2025&lt;/strong&gt;, an outreach initiative introducing high school students to computer science." data-lang-id="Berkontribusi aktif dalam program pengembangan mahasiswa, termasuk mentoring untuk &lt;strong&gt;Nawasena&lt;/strong&gt; dan mengorganisir &lt;strong&gt;HGTS (HMTC Goes to School) 2025&lt;/strong&gt;, sebuah inisiatif penjangkauan untuk memperkenalkan ilmu komputer kepada siswa SMA.">Actively contributed to student development programs, including mentoring for <strong>Nawasena</strong> and organizing <strong>HGTS (HMTC Goes to School) 2025</strong>, an outreach initiative introducing high school students to computer science.</p>
+                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Staff of Student Social Development &amp; Mentor" data-lang-id="Staf Pengembangan Sosial Mahasiswa &amp; Mentor">Staff of Student Social Development &amp; Mentor</h3><p class="timeline-company">HMTC ITS</p></div><span class="timeline-date">Feb 2025 - Feb 2026</span></div>
+                        <p class="timeline-desc" data-lang-en="Actively contributed to student development programs, including mentoring for <strong>Nawasena</strong> and organizing <strong>HGTS (HMTC Goes to School) 2025</strong>, an outreach initiative introducing high school students to computer science." data-lang-id="Berkontribusi aktif dalam program pengembangan mahasiswa, termasuk mentoring untuk <strong>Nawasena</strong> dan mengorganisir <strong>HGTS (HMTC Goes to School) 2025</strong>, sebuah inisiatif penjangkauan untuk memperkenalkan ilmu komputer kepada siswa SMA.">Actively contributed to student development programs, including mentoring for <strong>Nawasena</strong> and organizing <strong>HGTS (HMTC Goes to School) 2025</strong>, an outreach initiative introducing high school students to computer science.</p>
                         <div class="timeline-tags"><span class="tag" data-lang-en="Mentoring" data-lang-id="Bimbingan">Mentoring</span><span class="tag" data-lang-en="Student Outreach" data-lang-id="Sosialisasi Siswa">Student Outreach</span><span class="tag" data-lang-en="Community" data-lang-id="Komunitas">Community</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Public Relations Staff &amp; MC" data-lang-id="Staf Hubungan Masyarakat &amp; MC">Public Relations Staff & MC</h3><p class="timeline-company">Schematics ITS</p></div><span class="timeline-date" data-lang-en="Mar - Nov 2024" data-lang-id="Mar - Nov 2024">Mar - Nov 2024</span></div>
-                        <p class="timeline-desc" data-lang-en="Managed public communications and served as Master of Ceremonies for the Bootcamp &amp; Seminar of Technology - Basic, connecting audiences with technology insights through engaging presentations." data-lang-id="Mengelola komunikasi publik dan bertindak sebagai Master of Ceremonies untuk Bootcamp &amp; Seminar Teknologi - Basic, menghubungkan audiens dengan wawasan teknologi melalui presentasi yang menarik.">Managed public communications and served as Master of Ceremonies for the Bootcamp & Seminar of Technology - Basic, connecting audiences with technology insights through engaging presentations.</p>
+                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Public Relations Staff &amp; MC" data-lang-id="Staf Hubungan Masyarakat &amp; MC">Public Relations Staff &amp; MC</h3><p class="timeline-company">Schematics ITS</p></div><span class="timeline-date" data-lang-en="Mar - Nov 2024" data-lang-id="Mar - Nov 2024">Mar - Nov 2024</span></div>
+                        <p class="timeline-desc" data-lang-en="Managed public communications and served as Master of Ceremonies for the Bootcamp &amp; Seminar of Technology - Basic, connecting audiences with technology insights through engaging presentations." data-lang-id="Mengelola komunikasi publik dan bertindak sebagai Master of Ceremonies untuk Bootcamp &amp; Seminar Teknologi - Basic, menghubungkan audiens dengan wawasan teknologi melalui presentasi yang menarik.">Managed public communications and served as Master of Ceremonies for the Bootcamp &amp; Seminar of Technology - Basic, connecting audiences with technology insights through engaging presentations.</p>
                         <div class="timeline-tags"><span class="tag" data-lang-en="Public Relations" data-lang-id="Hubungan Masyarakat">Public Relations</span><span class="tag">MC</span><span class="tag" data-lang-en="Communication" data-lang-id="Komunikasi">Communication</span></div>
                     </div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-card">
-                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Event Staff" data-lang-id="Staf Acara">Event Staff</h3><p class="timeline-company">BEM FTEIC ITS & PAMMITS</p></div><span class="timeline-date" data-lang-en="Mar - Dec 2024" data-lang-id="Mar - Dec 2024">Mar - Dec 2024</span></div>
+                        <div class="timeline-header"><div><h3 class="timeline-role" data-lang-en="Event Staff" data-lang-id="Staf Acara">Event Staff</h3><p class="timeline-company">BEM FTEIC ITS &amp; PAMMITS</p></div><span class="timeline-date">Mar - Dec 2024</span></div>
                         <p class="timeline-desc" data-lang-en="Supported event execution for ELITEXPESRAF 2024, Inclenation 2024, and PAMMITS, gaining valuable experience in logistics, coordination, and teamwork across multiple large-scale campus events." data-lang-id="Mendukung pelaksanaan acara untuk ELITEXPESRAF 2024, Inclenation 2024, dan PAMMITS, memperoleh pengalaman berharga dalam logistik, koordinasi, dan kerja tim di berbagai acara kampus skala besar.">Supported event execution for ELITEXPESRAF 2024, Inclenation 2024, and PAMMITS, gaining valuable experience in logistics, coordination, and teamwork across multiple large-scale campus events.</p>
                         <div class="timeline-tags"><span class="tag" data-lang-en="Event Management" data-lang-id="Manajemen Acara">Event Management</span><span class="tag" data-lang-en="Logistics" data-lang-id="Logistik">Logistics</span><span class="tag" data-lang-en="Teamwork" data-lang-id="Kerja Tim">Teamwork</span></div>
                     </div></div>
@@ -313,8 +202,8 @@
         <div class="container">
             <div class="section-header"><span class="section-label">03 / Projects</span><h2 class="section-title" data-lang-en="Things I've Built" data-lang-id="Karya Saya">Things I've Built</h2></div>
             <div class="projects-grid">
+                <!-- MONA -->
                 <div class="project-card project-card--featured">
-                    <div class="project-card__glow"></div>
                     <div class="project-card__image-container">
                         <div class="browser-mockup">
                             <div class="browser-mockup__header">
@@ -344,15 +233,16 @@
                         <h3 class="project-card__title">MONA <span class="project-card__title--sub">(Money Assistant)</span></h3>
                         <p class="project-card__subtitle" data-lang-en="Your Intelligent Personal Finance Companion" data-lang-id="Asisten Finansial Pribadi Cerdas Anda">Your Intelligent Personal Finance Companion</p>
                         <p class="project-card__desc" data-lang-en="MONA is an intelligent personal finance companion designed to help users take complete control of their financial future. Built with modern technology and user-centric design, MONA makes managing money simple, secure, and insightful. Contributed as a Frontend Web Engineer, crafting the interface that brings complex financial data to life." data-lang-id="MONA adalah asisten keuangan pribadi cerdas yang dirancang untuk membantu pengguna mengendalikan masa depan finansial mereka. Dibangun dengan teknologi modern dan desain yang berpusat pada pengguna, MONA membuat pengelolaan uang menjadi sederhana, aman, dan berwawasan luas. Berkontribusi sebagai Frontend Web Engineer, merancang antarmuka yang menghidupkan data keuangan yang kompleks.">MONA is an intelligent personal finance companion designed to help users take complete control of their financial future. Built with modern technology and user-centric design, MONA makes managing money simple, secure, and insightful. Contributed as a Frontend Web Engineer, crafting the interface that brings complex financial data to life.</p>
-                        <div class="project-card__tech"><span class="tech-badge" data-lang-en="Frontend Engineering" data-lang-id="Rekayasa Frontend">Frontend Engineering</span><span class="tech-badge" data-lang-en="AI Integration" data-lang-id="Integrasi AI">AI Integration</span><span class="tech-badge" data-lang-en="UI/UX Design" data-lang-id="Desain UI/UX">UI/UX Design</span><span class="tech-badge">FinTech</span></div>
+                        <div class="project-card__tech"><span class="tech-badge" data-lang-en="Frontend Engineering" data-lang-id="Rekayasa Frontend">Frontend Engineering</span><span class="tech-badge" data-lang-en="AI Integration" data-lang-id="Integrasi AI">AI Integration</span><span class="tech-badge">UI/UX Design</span><span class="tech-badge">FinTech</span></div>
                         <div class="project-card__bottom">
                             <div class="project-card__role"><i data-lucide="user" class="role-icon"></i><span data-lang-en="Role: Frontend Web Engineer" data-lang-id="Peran: Frontend Web Engineer">Role: Frontend Web Engineer</span></div>
                             <a href="https://senopati.its.ac.id/mona" target="_blank" rel="noopener noreferrer" class="project-card__link"><i data-lucide="external-link"></i><span data-lang-en="Visit Platform" data-lang-id="Kunjungi Platform">Visit Platform</span></a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Pelita -->
                 <div class="project-card project-card--featured">
-                    <div class="project-card__glow" style="background: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent 70%);"></div>
                     <div class="project-card__image-container">
                         <div class="phone-mockup">
                             <div class="phone-mockup__speaker"></div>
@@ -385,7 +275,7 @@
                         <div class="project-card__tech">
                             <span class="tech-badge">Flutter</span>
                             <span class="tech-badge">Dart</span>
-                            <span class="tech-badge" data-lang-en="TFLite (Edge AI)" data-lang-id="TFLite (Edge AI)">TFLite (Edge AI)</span>
+                            <span class="tech-badge">TFLite (Edge AI)</span>
                             <span class="tech-badge">Google ML Kit</span>
                             <span class="tech-badge">Riverpod</span>
                             <span class="tech-badge">Isar DB</span>
@@ -403,6 +293,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Product Recommendation System -->
                 <div class="project-card">
                     <div class="project-card__image-container">
                         <div class="browser-mockup">
@@ -432,7 +324,7 @@
                         <div class="project-card__top"><div class="project-card__icon"><i data-lucide="shopping-bag"></i></div><span class="project-card__label" data-lang-en="Machine Learning" data-lang-id="Pembelajaran Mesin">Machine Learning</span></div>
                         <h3 class="project-card__title" data-lang-en="Product Recommendation System" data-lang-id="Sistem Rekomendasi Produk">Product Recommendation System</h3>
                         <p class="project-card__subtitle" data-lang-en="Comparative ML Recommendation Platform" data-lang-id="Platform Rekomendasi ML Komparatif">Comparative ML Recommendation Platform</p>
-                        <p class="project-card__desc" data-lang-en="A comparative web platform benchmarking four recommendation algorithms (KNN, SVD++, NCF, and CBF) in real-time using Lazada review datasets. Features personalized and contextual recommendations (e.g., &quot;because you viewed this&quot;) alongside an AI-powered sentiment analysis module for automated customer review processing." data-lang-id="Platform web komparatif yang membandingkan empat algoritma rekomendasi (KNN, SVD++, NCF, dan CBF) secara real-time menggunakan dataset ulasan Lazada. Fitur rekomendasi yang dipersonalisasi dan kontekstual (misal, &quot;karena Anda melihat ini&quot;) serta modul analisis sentimen berbasis AI untuk pemrosesan ulasan pelanggan secara otomatis.">A comparative web platform benchmarking four recommendation algorithms (KNN, SVD++, NCF, and CBF) in real-time using Lazada review datasets. Features personalized and contextual recommendations (e.g., "because you viewed this") alongside an AI-powered sentiment analysis module for automated customer review processing.</p>
+                        <p class="project-card__desc" data-lang-en='A comparative web platform benchmarking four recommendation algorithms (KNN, SVD++, NCF, and CBF) in real-time using Lazada review datasets. Features personalized and contextual recommendations (e.g., "because you viewed this") alongside an AI-powered sentiment analysis module for automated customer review processing.' data-lang-id='Platform web komparatif yang membandingkan empat algoritma rekomendasi (KNN, SVD++, NCF, dan CBF) secara real-time menggunakan dataset ulasan Lazada. Fitur rekomendasi yang dipersonalisasi dan kontekstual (misal, "karena Anda melihat ini") serta modul analisis sentimen berbasis AI untuk pemrosesan ulasan pelanggan secara otomatis.'>A comparative web platform benchmarking four recommendation algorithms (KNN, SVD++, NCF, and CBF) in real-time using Lazada review datasets. Features personalized and contextual recommendations (e.g., "because you viewed this") alongside an AI-powered sentiment analysis module for automated customer review processing.</p>
                         <div class="project-card__tech"><span class="tech-badge" data-lang-en="Machine Learning" data-lang-id="Pembelajaran Mesin">Machine Learning</span><span class="tech-badge" data-lang-en="Frontend Engineering" data-lang-id="Rekayasa Frontend">Frontend Engineering</span><span class="tech-badge" data-lang-en="Sentiment Analysis" data-lang-id="Analisis Sentimen">Sentiment Analysis</span><span class="tech-badge" data-lang-en="Recommendation Systems" data-lang-id="Sistem Rekomendasi">Recommendation Systems</span></div>
                         <div class="project-card__bottom">
                             <div class="project-card__role"><i data-lucide="user" class="role-icon"></i><span data-lang-en="Role: ML/Frontend Engineer" data-lang-id="Peran: ML/Frontend Engineer">Role: ML/Frontend Engineer</span></div>
@@ -447,7 +339,7 @@
     <!-- SKILLS & CERTIFICATIONS -->
     <section class="section section--alt page-section" id="skills">
         <div class="container">
-            <div class="section-header"><span class="section-label">04 / Skills & Certifications</span><h2 class="section-title" data-lang-en="What I Work With" data-lang-id="Keahlian &amp; Sertifikasi">What I Work With</h2></div>
+            <div class="section-header"><span class="section-label">04 / Skills &amp; Certifications</span><h2 class="section-title" data-lang-en="What I Work With" data-lang-id="Keahlian &amp; Sertifikasi">What I Work With</h2></div>
             <div class="skills-grid">
                 <div class="skill-category">
                     <div class="skill-category__header"><i data-lucide="cpu" class="skill-category__icon"></i><h3 data-lang-en="Hard Skills" data-lang-id="Keahlian Teknis">Hard Skills</h3></div>
@@ -479,15 +371,15 @@
             <div class="certs-section">
                 <div class="skill-category__header" style="margin-bottom:2rem"><i data-lucide="badge-check" class="skill-category__icon"></i><h3 data-lang-en="Certifications" data-lang-id="Sertifikasi Resmi">Certifications</h3></div>
                 <div class="certs-grid">
-                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="cloud"></i></div><div class="cert-card__info"><h4 data-lang-en="Cloud Security Builder" data-lang-id="Cloud Security Builder">Cloud Security Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
-                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="globe"></i></div><div class="cert-card__info"><h4 data-lang-en="Cloud Web Application Builder" data-lang-id="Cloud Web Application Builder">Cloud Web Application Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
-                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="git-branch"></i></div><div class="cert-card__info"><h4 data-lang-en="Microservices &amp; CI/CD Pipeline Builder" data-lang-id="Microservices &amp; CI/CD Pipeline Builder">Microservices & CI/CD Pipeline Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
-                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="database"></i></div><div class="cert-card__info"><h4 data-lang-en="Data Engineering" data-lang-id="Data Engineering">Data Engineering</h4><p>AWS Academy · Jan 2026</p></div></div>
-                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="brain"></i></div><div class="cert-card__info"><h4 data-lang-en="Machine Learning Foundations" data-lang-id="Dasar Machine Learning">Machine Learning Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
-                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="sparkles"></i></div><div class="cert-card__info"><h4 data-lang-en="Generative AI Foundations" data-lang-id="Dasar Generative AI">Generative AI Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
-                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="shield"></i></div><div class="cert-card__info"><h4 data-lang-en="Cloud Security Foundations" data-lang-id="Dasar Keamanan Cloud">Cloud Security Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
-                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--palo"><i data-lucide="shield-check"></i></div><div class="cert-card__info"><h4 data-lang-en="Security Operations Fundamentals" data-lang-id="Dasar Operasi Keamanan">Security Operations Fundamentals</h4><p>Palo Alto Networks · Jan 2026</p></div></div>
-                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--palo"><i data-lucide="lock"></i></div><div class="cert-card__info"><h4 data-lang-en="Cybersecurity Foundation" data-lang-id="Dasar Keamanan Siber">Cybersecurity Foundation</h4><p>Palo Alto Networks · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="cloud"></i></div><div class="cert-card__info"><h4>Cloud Security Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="globe"></i></div><div class="cert-card__info"><h4>Cloud Web Application Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="git-branch"></i></div><div class="cert-card__info"><h4>Microservices &amp; CI/CD Pipeline Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="database"></i></div><div class="cert-card__info"><h4>Data Engineering</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="brain"></i></div><div class="cert-card__info"><h4>Machine Learning Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="sparkles"></i></div><div class="cert-card__info"><h4>Generative AI Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="shield"></i></div><div class="cert-card__info"><h4>Cloud Security Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--palo"><i data-lucide="shield-check"></i></div><div class="cert-card__info"><h4>Security Operations Fundamentals</h4><p>Palo Alto Networks · Jan 2026</p></div></div>
+                    <div class="cert-card"><div class="cert-card__logo cert-card__logo--palo"><i data-lucide="lock"></i></div><div class="cert-card__info"><h4>Cybersecurity Foundation</h4><p>Palo Alto Networks · Jan 2026</p></div></div>
                 </div>
             </div>
         </div>
@@ -498,73 +390,59 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">05 / Gallery</span>
-                <h2 class="section-title" data-lang-en="Life &amp; Activities" data-lang-id="Galeri &amp; Kegiatan">Life & Activities</h2>
+                <h2 class="section-title" data-lang-en="Life &amp; Activities" data-lang-id="Galeri &amp; Kegiatan">Life &amp; Activities</h2>
+            </div>
             <div class="gallery-grid">
-                <!-- Card 1: Business Analyst Intern DOT -->
-                <div class="gallery-card animate-hover" data-gallery-category="dot">
+                <div class="gallery-card" data-gallery-category="dot">
                     <img src="assets/gallery/BUSINESS%20ANALYST%20DOT/Business%20Analyst%20Intern%20DOT.jpg" alt="Business Analyst Internship" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4 data-lang-en="Business Analyst Internship" data-lang-id="Magang Business Analyst">Business Analyst Internship</h4>
                         <p data-lang-en="Working as a Business Analyst Intern at DOT Indonesia, analyzing requirements and designing solutions." data-lang-id="Bekerja sebagai Magang Business Analyst di DOT Indonesia, menganalisis kebutuhan dan merancang solusi.">Working as a Business Analyst Intern at DOT Indonesia, analyzing requirements and designing solutions.</p>
                     </div>
                 </div>
-
-                <!-- Card 2: BEM ITS -->
-                <div class="gallery-card animate-hover" data-gallery-category="bem-its">
+                <div class="gallery-card" data-gallery-category="bem-its">
                     <img src="assets/gallery/BEM%20ITS/IMG_0945.JPG" alt="BEM ITS Leadership" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4 data-lang-en="BEM ITS (Student Presidency)" data-lang-id="BEM ITS (Badan Eksekutif Mahasiswa)">BEM ITS (Student Presidency)</h4>
                         <p data-lang-en="Leading student organization initiatives and collaborating with various departments." data-lang-id="Memimpin inisiatif organisasi mahasiswa dan berkolaborasi dengan berbagai departemen.">Leading student organization initiatives and collaborating with various departments.</p>
                     </div>
                 </div>
-
-                <!-- Card 3: HMTC -->
-                <div class="gallery-card animate-hover" data-gallery-category="hmtc">
+                <div class="gallery-card" data-gallery-category="hmtc">
                     <img src="assets/gallery/HMTC/IMG_4915.JPG" alt="HMTC Informatics Student Association" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4 data-lang-en="HMTC Informatics Association" data-lang-id="Himpunan Mahasiswa HMTC">HMTC Informatics Association</h4>
                         <p data-lang-en="Organizing student activities, academic workshops, and student development programs at ITS." data-lang-id="Mengorganisir kegiatan mahasiswa, lokakarya akademis, dan program pengembangan di ITS.">Organizing student activities, academic workshops, and student development programs at ITS.</p>
                     </div>
                 </div>
-
-                <!-- Card 4: HMTC Berbakti -->
-                <div class="gallery-card animate-hover" data-gallery-category="hmtc-berbakti">
+                <div class="gallery-card" data-gallery-category="hmtc-berbakti">
                     <img src="assets/gallery/HMTC%20Berbakti/DSCF9264.JPG" alt="HMTC Berbakti Social Responsibility" class="gallery-img">
                     <div class="gallery-overlay">
-                        <h4 data-lang-en="HMTC Berbakti" data-lang-id="HMTC Berbakti">HMTC Berbakti</h4>
+                        <h4>HMTC Berbakti</h4>
                         <p data-lang-en="Engaging in community outreach and development initiatives under HMTC's social responsibility programs." data-lang-id="Terlibat dalam pengabdian masyarakat dan program tanggung jawab sosial dari HMTC.">Engaging in community outreach and development initiatives under HMTC's social responsibility programs.</p>
                     </div>
                 </div>
-
-                <!-- Card 5: ITS Mengajar -->
-                <div class="gallery-card animate-hover" data-gallery-category="its-mengajar">
+                <div class="gallery-card" data-gallery-category="its-mengajar">
                     <img src="assets/gallery/ITS%20MENGAJAR/DSC00940.JPG" alt="ITS Mengajar Volunteer" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4 data-lang-en="ITS Mengajar Volunteer" data-lang-id="Relawan ITS Mengajar">ITS Mengajar Volunteer</h4>
                         <p data-lang-en="Volunteering to teach and mentor students in local communities to support education." data-lang-id="Menjadi relawan untuk mengajar dan membimbing siswa di komunitas lokal guna mendukung pendidikan.">Volunteering to teach and mentor students in local communities to support education.</p>
                     </div>
                 </div>
-
-                <!-- Card 6: Mahasiswa Berdampak -->
-                <div class="gallery-card animate-hover" data-gallery-category="mahasiswa-berdampak">
+                <div class="gallery-card" data-gallery-category="mahasiswa-berdampak">
                     <img src="assets/gallery/Mahasiswa%20Berdampak/IMG_9810.JPG" alt="Mahasiswa Berdampak" class="gallery-img">
                     <div class="gallery-overlay">
-                        <h4 data-lang-en="Mahasiswa Berdampak" data-lang-id="Mahasiswa Berdampak">Mahasiswa Berdampak</h4>
+                        <h4>Mahasiswa Berdampak</h4>
                         <p data-lang-en="Participating in youth impact campaigns, social movements, and positive student initiatives." data-lang-id="Berpartisipasi dalam kampanye dampak kepemudaan, gerakan sosial, dan inisiatif mahasiswa positif.">Participating in youth impact campaigns, social movements, and positive student initiatives.</p>
                     </div>
                 </div>
-
-                <!-- Card 7: Rumah Pengabdian -->
-                <div class="gallery-card animate-hover" data-gallery-category="rumah-pengabdian">
+                <div class="gallery-card" data-gallery-category="rumah-pengabdian">
                     <img src="assets/gallery/Rumah%20Pengabdian%202%20BEM%20FTEIC%20X%20HMTC/IMG_3062.JPG" alt="Rumah Pengabdian Community Service" class="gallery-img">
                     <div class="gallery-overlay">
-                        <h4 data-lang-en="Rumah Pengabdian 2 (FTEIC x HMTC)" data-lang-id="Rumah Pengabdian 2 (FTEIC x HMTC)">Rumah Pengabdian 2 (FTEIC x HMTC)</h4>
+                        <h4>Rumah Pengabdian 2 (FTEIC x HMTC)</h4>
                         <p data-lang-en="Community service collaboration between BEM FTEIC and HMTC, developing local village facilities." data-lang-id="Kolaborasi pengabdian masyarakat antara BEM FTEIC dan HMTC, membangun fasilitas desa setempat.">Community service collaboration between BEM FTEIC and HMTC, developing local village facilities.</p>
                     </div>
                 </div>
-
-                <!-- Card 8: SoCare -->
-                <div class="gallery-card animate-hover" data-gallery-category="socare">
+                <div class="gallery-card" data-gallery-category="socare">
                     <img src="assets/gallery/SOCARE/SOCARE%201.jpg" alt="SoCare Community Service" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4 data-lang-en="SoCare Community Service" data-lang-id="Bakti Sosial SoCare">SoCare Community Service</h4>
@@ -575,7 +453,7 @@
         </div>
     </section>
 
-    <!-- GALLERY MODAL (ALBUM GRID) -->
+    <!-- GALLERY MODAL -->
     <div class="gallery-modal" id="galleryModal">
         <div class="gallery-modal__overlay" id="galleryModalOverlay"></div>
         <div class="gallery-modal__container">
@@ -587,13 +465,12 @@
                     <h3 class="gallery-modal__title" id="galleryModalTitle"></h3>
                     <p class="gallery-modal__desc" id="galleryModalDesc"></p>
                 </div>
-                <!-- Scrollable grid of all photos in this album -->
                 <div class="gallery-modal__grid" id="galleryModalGrid"></div>
             </div>
         </div>
     </div>
 
-    <!-- FULLSCREEN LIGHTBOX FOR DETAILED VIEW -->
+    <!-- LIGHTBOX -->
     <div class="lightbox-viewer" id="lightboxViewer">
         <div class="lightbox-viewer__overlay" id="lightboxViewerOverlay"></div>
         <button class="lightbox-viewer__close" id="lightboxViewerClose" aria-label="Close viewer">
@@ -613,7 +490,7 @@
         <div class="lightbox-viewer__counter" id="lightboxViewerCounter"></div>
     </div>
 
-    <!-- LINK TREE MINI -->
+    <!-- LINKS -->
     <section class="section page-section" id="links">
         <div class="container container--narrow">
             <div class="linktree-card">
@@ -623,31 +500,26 @@
                         <img src="assets/profile.jpg" alt="Muhammad Aditya Handrian" class="linktree-img" onload="this.previousElementSibling.style.display='none';" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
                     </div>
                     <h3 class="linktree-name">Muhammad Aditya Handrian</h3>
-                    <p class="linktree-title" data-lang-en="Informatics Student &amp; Business Analyst" data-lang-id="Mahasiswa Informatika &amp; Business Analyst">Informatics Student & Business Analyst</p>
+                    <p class="linktree-title" data-lang-en="Informatics Student &amp; Business Analyst" data-lang-id="Mahasiswa Informatika &amp; Business Analyst">Informatics Student &amp; Business Analyst</p>
                 </div>
                 <div class="linktree-links">
                     <a href="mailto:adityahandriann@gmail.com" class="linktree-btn">
-                        <i data-lucide="mail"></i>
-                        <span>Email</span>
+                        <i data-lucide="mail"></i><span>Email</span>
                     </a>
                     <a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="linkedin"></i>
-                        <span>LinkedIn</span>
+                        <i data-lucide="linkedin"></i><span>LinkedIn</span>
                     </a>
                     <a href="https://github.com/AdityaHandrian" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="github"></i>
-                        <span>GitHub</span>
+                        <i data-lucide="github"></i><span>GitHub</span>
                     </a>
                     <a href="https://senopati.its.ac.id/mona" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="wallet"></i>
-                        <span data-lang-en="MONA (Featured Project)" data-lang-id="MONA (Proyek Utama)">MONA (Featured Project)</span>
+                        <i data-lucide="wallet"></i><span data-lang-en="MONA (Featured Project)" data-lang-id="MONA (Proyek Utama)">MONA (Featured Project)</span>
                     </a>
                     <a href="https://github.com/AdityaHandrian/Pelita.git" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="accessibility"></i>
-                        <span data-lang-en="Pelita (Featured Project)" data-lang-id="Pelita (Proyek Utama)">Pelita (Featured Project)</span>
+                        <i data-lucide="accessibility"></i><span data-lang-en="Pelita (Featured Project)" data-lang-id="Pelita (Proyek Utama)">Pelita (Featured Project)</span>
                     </a>
                     <div class="linktree-dropdown" id="linktreeResumeDropdown">
-                        <button class="linktree-btn linktree-btn--resume linktree-dropdown-toggle animate-hover" id="linktreeResumeBtnToggle">
+                        <button class="linktree-btn linktree-btn--resume linktree-dropdown-toggle" id="linktreeResumeBtnToggle">
                             <i data-lucide="file-text"></i>
                             <span data-lang-en="CV / Resume" data-lang-id="CV / Resume">CV / Resume</span>
                             <i data-lucide="chevron-down" class="linktree-chevron"></i>
@@ -664,16 +536,13 @@
                         </div>
                     </div>
                     <button class="linktree-btn" id="linktreeShareBtn" style="font-family: inherit;">
-                        <i data-lucide="share-2"></i>
-                        <span data-lang-en="Share Profile" data-lang-id="Bagikan Profil">Share Profile</span>
+                        <i data-lucide="share-2"></i><span data-lang-en="Share Profile" data-lang-id="Bagikan Profil">Share Profile</span>
                     </button>
                     <a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="instagram"></i>
-                        <span>Instagram</span>
+                        <i data-lucide="instagram"></i><span>Instagram</span>
                     </a>
                     <a href="https://x.com/adtyhn" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="twitter"></i>
-                        <span>Twitter / X</span>
+                        <i data-lucide="twitter"></i><span>Twitter / X</span>
                     </a>
                 </div>
             </div>
@@ -685,7 +554,6 @@
         <div class="container">
             <div class="section-header"><span class="section-label">06 / Contact</span><h2 class="section-title" data-lang-en="Let's Connect" data-lang-id="Hubungi Saya">Let's Connect</h2></div>
             <div class="contact-grid-layout">
-                <!-- Left: Collab Info -->
                 <div class="contact-info-panel">
                     <h3 class="contact-subtitle" data-lang-en="Let's build something great together." data-lang-id="Mari berkarya bersama menciptakan sesuatu yang luar biasa.">Let's build something great together.</h3>
                     <p class="contact-desc" data-lang-en="I'm always open to discussing new opportunities, collaborations, creative ideas, or peer learning. Feel free to reach out on any of the platforms or drop an email directly!" data-lang-id="Saya selalu terbuka untuk mendiskusikan peluang baru, kolaborasi, ide kreatif, atau belajar bersama. Jangan ragu untuk menghubungi saya melalui platform manapun atau kirim email langsung!">I'm always open to discussing new opportunities, collaborations, creative ideas, or peer learning. Feel free to reach out on any of the platforms or drop an email directly!</p>
@@ -694,12 +562,11 @@
                         <span class="status-indicator"></span>
                         <div class="status-details">
                             <strong data-lang-en="Availability Status" data-lang-id="Status Ketersediaan">Availability Status</strong>
-                            <p data-lang-en="Open for Internship &amp; Part-time roles" data-lang-id="Terbuka untuk Magang &amp; Peran Paruh Waktu">Open for Internship & Part-time roles</p>
+                            <p data-lang-en="Open for Internship &amp; Part-time roles" data-lang-id="Terbuka untuk Magang &amp; Peran Paruh Waktu">Open for Internship &amp; Part-time roles</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Cards Grid -->
                 <div class="contact-cards-grid">
                     <a href="mailto:adityahandriann@gmail.com" class="contact-card" id="contact-email">
                         <div class="contact-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
@@ -736,9 +603,6 @@
         </div>
     </footer>
 
-    <!-- Interactive Background Glow -->
-    <div class="interactive-glow" id="interactiveGlow"></div>
-
     <!-- Background Music Player -->
     <div class="music-player" id="musicPlayer">
         <audio id="bgAudio" loop src="assets/bg-music.mp3?v=1.2"></audio>
@@ -748,10 +612,7 @@
                 <i data-lucide="volume-x" class="music-icon hidden" id="musicIconMuted"></i>
             </div>
             <div class="music-waves" id="musicWaves">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span><span></span>
             </div>
         </button>
         <div class="music-tooltip" id="musicTooltip">
@@ -759,7 +620,7 @@
         </div>
     </div>
 
-    <!-- Share Profile Modal -->
+    <!-- Share Modal -->
     <div class="share-modal" id="shareModal">
         <div class="share-modal__overlay" id="shareModalOverlay"></div>
         <div class="share-modal__container">
@@ -770,7 +631,6 @@
                 <h3 class="share-modal__title" data-lang-en="Share Portfolio" data-lang-id="Bagikan Portofolio">Share Portfolio</h3>
                 <p class="share-modal__desc" data-lang-en="Scan the QR code or copy the link to share this profile." data-lang-id="Pindai kode QR atau salin tautan untuk membagikan profil ini.">Scan the QR code or copy the link to share this profile.</p>
                 
-                <!-- Profile Card inside Share Modal -->
                 <div class="share-card">
                     <div class="share-card__avatar">
                         <div class="about-image-fallback" style="font-size: 1.5rem;">AH</div>
@@ -786,7 +646,6 @@
                     </div>
                 </div>
                 
-                <!-- Share Actions -->
                 <div class="share-actions">
                     <div class="share-copy-wrapper">
                         <input type="text" id="shareLinkInput" class="share-copy-input" readonly>
@@ -811,6 +670,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=2.6"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>
