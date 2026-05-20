@@ -428,7 +428,8 @@ img{max-width:100%;display:block}
 .browser-mockup {
   width: 100%;
   max-width: 440px;
-  height: 100%;
+  max-height: 100%;
+  aspect-ratio: 1.58 / 1;
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
@@ -514,8 +515,10 @@ img{max-width:100%;display:block}
 
 /* Phone Mockup */
 .phone-mockup {
-  width: 175px;
   height: 100%;
+  max-height: 320px;
+  max-width: 100%;
+  aspect-ratio: 9 / 19.5;
   background: #0f172a;
   border: 7px solid #1e293b;
   border-radius: 24px;
