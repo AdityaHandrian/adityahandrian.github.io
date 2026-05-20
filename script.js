@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackgroundMusic();
     initGalleryModal();
     initResumeDropdowns();
+    initCustomCursor();
+    initShareModal();
 });
 
 // ===== Theme Toggle =====
@@ -181,7 +183,21 @@ function initLanguage() {
     function updateLanguage(lang) {
         currentLang = lang;
         localStorage.setItem('lang', lang);
-        langToggle.textContent = lang.toUpperCase();
+        
+        const flagSvg = lang === 'en' 
+            ? `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-right: 6px; display: inline-block; flex-shrink: 0; position: relative; top: -1px;">
+                <rect x="1" y="1" width="14" height="10" rx="1" />
+                <line x1="1" y1="1" x2="15" y2="11" stroke-width="1" opacity="0.4" />
+                <line x1="15" y1="1" x2="1" y2="11" stroke-width="1" opacity="0.4" />
+                <line x1="8" y1="1" x2="8" y2="11" stroke-width="1.8" />
+                <line x1="1" y1="6" x2="15" y2="6" stroke-width="1.8" />
+               </svg>`
+            : `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-right: 6px; display: inline-block; flex-shrink: 0; position: relative; top: -1px;">
+                <rect x="1" y="1" width="14" height="5" fill="currentColor" opacity="0.8" rx="0.5" />
+                <rect x="1" y="1" width="14" height="10" rx="1" />
+               </svg>`;
+               
+        langToggle.innerHTML = flagSvg + lang.toUpperCase();
 
         document.querySelectorAll('[data-lang-en]').forEach(el => {
             const enText = el.getAttribute('data-lang-en');
@@ -702,4 +718,176 @@ function initResumeDropdowns() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeAll();
     });
+}
+
+// ===== Custom Cursor with Hover Blend =====
+function initCustomCursor() {
+    const dot = document.querySelector('.custom-cursor-dot');
+    const outline = document.querySelector('.custom-cursor-outline');
+    
+    if (!dot || !outline) return;
+
+    // Check if device supports hover (desktop with mouse)
+    const isHoverSupported = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!isHoverSupported) {
+        dot.style.display = 'none';
+        outline.style.display = 'none';
+        return;
+    }
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let outlineX = 0;
+    let outlineY = 0;
+    
+    // Mouse movement
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        dot.style.left = mouseX + 'px';
+        dot.style.top = mouseY + 'px';
+    });
+
+    // Animate outer circle trailing behind
+    function animateOutline() {
+        outlineX += (mouseX - outlineX) * 0.15;
+        outlineY += (mouseY - outlineY) * 0.15;
+        
+        outline.style.left = outlineX + 'px';
+        outline.style.top = outlineY + 'px';
+        
+        requestAnimationFrame(animateOutline);
+    }
+    requestAnimationFrame(animateOutline);
+
+    // Hover effect on interactive elements
+    const interactiveSelectors = 'a, button, select, input, textarea, [role="button"], .resume-dropdown-item, .linktree-btn, .tab-btn, .gallery-card, .gallery-modal__thumbnail, .lightbox-viewer__btn';
+    
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(interactiveSelectors)) {
+            document.body.classList.add('cursor-hovered');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (!e.target.closest(interactiveSelectors)) {
+            document.body.classList.remove('cursor-hovered');
+        }
+    });
+
+    // Click effect
+    window.addEventListener('mousedown', () => {
+        document.body.classList.add('cursor-clicked');
+    });
+
+    window.addEventListener('mouseup', () => {
+        document.body.classList.remove('cursor-clicked');
+    });
+}
+
+// ===== Share Profile Modal & QR Code =====
+function initShareModal() {
+    const modal = document.getElementById('shareModal');
+    const overlay = document.getElementById('shareModalOverlay');
+    const closeBtn = document.getElementById('shareModalClose');
+    const shareBtnNav = document.getElementById('shareBtnNav');
+    const linktreeShareBtn = document.getElementById('linktreeShareBtn');
+    
+    const qrImage = document.getElementById('shareModalQrCode');
+    const linkInput = document.getElementById('shareLinkInput');
+    const copyBtn = document.getElementById('shareCopyBtn');
+    const copyIcon = document.getElementById('shareCopyIcon');
+    const copyText = document.getElementById('shareCopyText');
+    
+    const waBtn = document.getElementById('shareWaBtn');
+    const linkedinBtn = document.getElementById('shareLinkedinBtn');
+
+    if (!modal) return;
+
+    // Get live site URL: use current host or fall back to github.io URL
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const currentUrl = isLocalhost ? 'https://adityahandrian.github.io/' : window.location.href.split('#')[0];
+    
+    // Set copy input value
+    if (linkInput) {
+        linkInput.value = currentUrl;
+    }
+
+    // Generate QR Code URL using free & secure qrserver API
+    if (qrImage) {
+        qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}`;
+    }
+
+    // Configure social sharing links
+    if (waBtn) {
+        waBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent('Check out ' + document.title + ' portfolio: ' + currentUrl)}`;
+    }
+    if (linkedinBtn) {
+        linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`;
+    }
+
+    function openShare() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeShare() {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Reset copy button
+        if (copyBtn) {
+            copyBtn.classList.remove('copied');
+            copyBtn.style.backgroundColor = '';
+            if (copyIcon) {
+                copyIcon.setAttribute('data-lucide', 'copy');
+                lucide.createIcons();
+            }
+            if (copyText) {
+                copyText.textContent = currentLang === 'en' ? 'Copy' : 'Salin';
+            }
+        }
+    }
+
+    // Event listeners
+    if (shareBtnNav) shareBtnNav.addEventListener('click', openShare);
+    if (linktreeShareBtn) linktreeShareBtn.addEventListener('click', openShare);
+    if (closeBtn) closeBtn.addEventListener('click', closeShare);
+    if (overlay) overlay.addEventListener('click', closeShare);
+
+    // Copy to clipboard
+    if (copyBtn && linkInput) {
+        copyBtn.addEventListener('click', () => {
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999); // For mobile devices
+            
+            navigator.clipboard.writeText(linkInput.value).then(() => {
+                copyBtn.classList.add('copied');
+                copyBtn.style.backgroundColor = '#10b981'; // Green color on success
+                if (copyIcon) {
+                    copyIcon.setAttribute('data-lucide', 'check');
+                    lucide.createIcons();
+                }
+                if (copyText) {
+                    copyText.textContent = currentLang === 'en' ? 'Copied!' : 'Disalin!';
+                }
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                    copyBtn.style.backgroundColor = '';
+                    if (copyIcon) {
+                        copyIcon.setAttribute('data-lucide', 'copy');
+                        lucide.createIcons();
+                    }
+                    if (copyText) {
+                        copyText.textContent = currentLang === 'en' ? 'Copy' : 'Salin';
+                    }
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    }
 }

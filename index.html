@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <link rel="stylesheet" href="style.css?v=2.1">
+    <link rel="stylesheet" href="style.css?v=2.3">
     <style>
         /* Dropdown Layout & Aesthetic Fixes */
         .hero-cta {
@@ -137,6 +137,9 @@
             <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <button class="lang-toggle" id="langToggle" aria-label="Switch language" style="background: none; border: 1px solid var(--border); cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; padding: 0.35rem 0.65rem; border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; transition: var(--transition);">
                     EN
+                </button>
+                <button class="share-btn-nav" id="shareBtnNav" aria-label="Share profile" title="Share Profile" style="background: none; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="share-2" style="width: 20px; height: 20px;"></i>
                 </button>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" style="background: none; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
                     <i data-lucide="moon" class="icon-moon"></i>
@@ -535,6 +538,10 @@
                             </a>
                         </div>
                     </div>
+                    <button class="linktree-btn" id="linktreeShareBtn" style="font-family: inherit;">
+                        <i data-lucide="share-2"></i>
+                        <span data-lang-en="Share Profile" data-lang-id="Bagikan Profil">Share Profile</span>
+                    </button>
                     <a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer" class="linktree-btn">
                         <i data-lucide="instagram"></i>
                         <span>Instagram</span>
@@ -627,6 +634,62 @@
         </div>
     </div>
 
-    <script src="script.js?v=2.1"></script>
+    <!-- Share Profile Modal -->
+    <div class="share-modal" id="shareModal">
+        <div class="share-modal__overlay" id="shareModalOverlay"></div>
+        <div class="share-modal__container">
+            <button class="share-modal__close" id="shareModalClose" aria-label="Close Share Modal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="share-modal__content">
+                <h3 class="share-modal__title" data-lang-en="Share Portfolio" data-lang-id="Bagikan Portofolio">Share Portfolio</h3>
+                <p class="share-modal__desc" data-lang-en="Scan the QR code or copy the link to share this profile." data-lang-id="Pindai kode QR atau salin tautan untuk membagikan profil ini.">Scan the QR code or copy the link to share this profile.</p>
+                
+                <!-- Profile Card inside Share Modal -->
+                <div class="share-card">
+                    <div class="share-card__avatar">
+                        <div class="about-image-fallback" style="font-size: 1.5rem;">AH</div>
+                        <img src="assets/profile.jpg" alt="Muhammad Aditya Handrian" class="share-card__img" onload="this.previousElementSibling.style.display='none';" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
+                    </div>
+                    <div class="share-card__info">
+                        <h4 class="share-card__name">Muhammad Aditya Handrian</h4>
+                        <p class="share-card__title" data-lang-en="Informatics Student &amp; Business Analyst" data-lang-id="Mahasiswa Informatika &amp; Business Analyst">Informatics Student &amp; Business Analyst</p>
+                    </div>
+                    
+                    <div class="share-card__qr-wrapper">
+                        <img id="shareModalQrCode" src="" alt="QR Code" class="share-card__qr" loading="lazy">
+                    </div>
+                </div>
+                
+                <!-- Share Actions -->
+                <div class="share-actions">
+                    <div class="share-copy-wrapper">
+                        <input type="text" id="shareLinkInput" class="share-copy-input" readonly>
+                        <button class="share-copy-btn" id="shareCopyBtn">
+                            <i data-lucide="copy" id="shareCopyIcon"></i>
+                            <span id="shareCopyText" data-lang-en="Copy" data-lang-id="Salin">Copy</span>
+                        </button>
+                    </div>
+                    
+                    <div class="share-social-grid">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="share-social-btn share-social-btn--wa" id="shareWaBtn">
+                            <i data-lucide="message-square"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="share-social-btn share-social-btn--linkedin" id="shareLinkedinBtn">
+                            <i data-lucide="linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-outline"></div>
+
+    <script src="script.js?v=2.3"></script>
 </body>
 </html>
