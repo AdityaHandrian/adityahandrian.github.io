@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <link rel="stylesheet" href="style.css?v=2.5">
+    <link rel="stylesheet" href="style.css?v=2.6">
     <style>
         /* Dropdown Layout & Aesthetic Fixes */
         .hero-cta {
@@ -327,6 +327,39 @@
                         </div>
                     </div>
                 </div>
+                <div class="project-card project-card--featured">
+                    <div class="project-card__glow" style="background: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent 70%);"></div>
+                    <div class="project-card__content">
+                        <div class="project-card__top">
+                            <div class="project-card__icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                                <i data-lucide="accessibility"></i>
+                            </div>
+                            <span class="project-card__label" data-lang-en="Featured Project" data-lang-id="Proyek Utama">Featured Project</span>
+                        </div>
+                        <h3 class="project-card__title">Pelita <span class="project-card__title--sub">(Accessibility Superapp)</span></h3>
+                        <p class="project-card__subtitle" data-lang-en="Voice &amp; Haptic Guided Assistant for Visually Impaired" data-lang-id="Asisten Panduan Suara &amp; Haptic untuk Tunanetra">Voice &amp; Haptic Guided Assistant for Visually Impaired</p>
+                        <p class="project-card__desc" data-lang-en="An accessibility superapp designed for visually impaired users. Features a custom tactile GestureShell loop navigation engine, on-device Edge AI using TensorFlow Lite for real-time object detection (Quantized MobileNet SSD) and Google ML Kit for Text/Banknote Recognition, and a telemetry-based safety service that uses accelerometer sensors to detect falls or panic states to trigger emergency GPS messages." data-lang-id="Superapp aksesibilitas yang dirancang untuk pengguna tunanetra. Menampilkan mesin navigasi loop taktil GestureShell kustom, Edge AI langsung di perangkat menggunakan TensorFlow Lite untuk deteksi objek real-time (Quantized MobileNet SSD) dan Google ML Kit untuk Pengenalan Teks/Uang Kertas, serta layanan keselamatan berbasis telemetri yang menggunakan sensor akselerometer untuk mendeteksi jatuh atau kondisi panik guna memicu pesan GPS darurat.">An accessibility superapp designed for visually impaired users. Features a custom tactile GestureShell loop navigation engine, on-device Edge AI using TensorFlow Lite for real-time object detection (Quantized MobileNet SSD) and Google ML Kit for Text/Banknote Recognition, and a telemetry-based safety service that uses accelerometer sensors to detect falls or panic states to trigger emergency GPS messages.</p>
+                        <div class="project-card__tech">
+                            <span class="tech-badge">Flutter</span>
+                            <span class="tech-badge">Dart</span>
+                            <span class="tech-badge" data-lang-en="TFLite (Edge AI)" data-lang-id="TFLite (Edge AI)">TFLite (Edge AI)</span>
+                            <span class="tech-badge">Google ML Kit</span>
+                            <span class="tech-badge">Riverpod</span>
+                            <span class="tech-badge">Isar DB</span>
+                            <span class="tech-badge" data-lang-en="Sensor Telemetry" data-lang-id="Telemetri Sensor">Sensor Telemetry</span>
+                        </div>
+                        <div class="project-card__bottom">
+                            <div class="project-card__role">
+                                <i data-lucide="user" class="role-icon"></i>
+                                <span data-lang-en="Role: Lead Mobile &amp; AI Developer" data-lang-id="Peran: Pengembang Mobile &amp; AI Utama">Role: Lead Mobile &amp; AI Developer</span>
+                            </div>
+                            <a href="https://github.com/AdityaHandrian/Pelita.git" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                                <i data-lucide="github"></i>
+                                <span data-lang-en="Source Code" data-lang-id="Kode Sumber">Source Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="project-card">
                     <div class="project-card__content">
                         <div class="project-card__top"><div class="project-card__icon"><i data-lucide="shopping-bag"></i></div><span class="project-card__label" data-lang-en="Machine Learning" data-lang-id="Pembelajaran Mesin">Machine Learning</span></div>
@@ -542,6 +575,10 @@
                         <i data-lucide="wallet"></i>
                         <span data-lang-en="MONA (Featured Project)" data-lang-id="MONA (Proyek Utama)">MONA (Featured Project)</span>
                     </a>
+                    <a href="https://github.com/AdityaHandrian/Pelita.git" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                        <i data-lucide="accessibility"></i>
+                        <span data-lang-en="Pelita (Featured Project)" data-lang-id="Pelita (Proyek Utama)">Pelita (Featured Project)</span>
+                    </a>
                     <div class="linktree-dropdown" id="linktreeResumeDropdown">
                         <button class="linktree-btn linktree-btn--resume linktree-dropdown-toggle animate-hover" id="linktreeResumeBtnToggle">
                             <i data-lucide="file-text"></i>
@@ -707,6 +744,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=2.5"></script>
+    <script src="script.js?v=2.6"></script>
 </body>
 </html>
