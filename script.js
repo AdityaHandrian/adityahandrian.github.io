@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryModal();
     initResumeDropdowns();
     initShareModal();
+    initProjectSliders();
 });
 
 // ===== Theme Toggle =====
@@ -481,6 +482,37 @@ function initGalleryModal() {
             ],
             descEn: 'Participating in community service programs to foster social awareness and support.',
             descId: 'Berpartisipasi dalam program bakti sosial untuk menumbuhkan kepedulian sosial dan memberikan bantuan.'
+        },
+        'project-mona': {
+            titleEn: 'MONA (Money Assistant)',
+            titleId: 'MONA (Money Assistant)',
+            images: [
+                'assets/Project/Mona/image.png',
+                'assets/Project/Mona/image (1).png'
+            ],
+            descEn: 'MONA is an intelligent personal finance companion designed to help users take complete control of their financial future. Built with modern technology and user-centric design, MONA makes managing money simple, secure, and insightful.',
+            descId: 'MONA adalah asisten keuangan pribadi cerdas yang dirancang untuk membantu pengguna mengendalikan masa depan finansial mereka. Dibangun dengan teknologi modern dan desain yang berpusat pada pengguna, MONA membuat pengelolaan uang menjadi sederhana, aman, dan berwawasan luas.'
+        },
+        'project-pelita': {
+            titleEn: 'Pelita (Accessibility Superapp)',
+            titleId: 'Pelita (Superapp Aksesibilitas)',
+            images: [
+                'assets/Project/Pelita/d7e94b10-2734-49cf-8708-bcc07bcc9039.jpg',
+                'assets/Project/Pelita/b0dc643f-a807-4aff-bc85-608408d337e7.jpg',
+                'assets/Project/Pelita/8415ea43-351f-4734-b07c-0012fa416c3e.jpg'
+            ],
+            descEn: 'An accessibility superapp designed for visually impaired users. Features a custom tactile GestureShell loop navigation engine, on-device Edge AI using TensorFlow Lite for real-time object detection (Quantized MobileNet SSD) and Google ML Kit for Text/Banknote Recognition, and a telemetry-based safety service that uses accelerometer sensors to detect falls or panic states to trigger emergency GPS messages.',
+            descId: 'Superapp aksesibilitas yang dirancang untuk pengguna tunanetra. Menampilkan mesin navigasi loop taktil GestureShell kustom, Edge AI langsung di perangkat menggunakan TensorFlow Lite untuk deteksi objek real-time (Quantized MobileNet SSD) dan Google ML Kit untuk Pengenalan Teks/Uang Kertas, serta layanan keselamatan berbasis telemetri yang menggunakan sensor akselerometer untuk mendeteksi jatuh atau kondisi panik guna memicu pesan GPS darurat.'
+        },
+        'project-rec': {
+            titleEn: 'Product Recommendation System',
+            titleId: 'Sistem Rekomendasi Produk',
+            images: [
+                'assets/Project/Product Recommendation System/0.png',
+                'assets/Project/Product Recommendation System/0 (1).png'
+            ],
+            descEn: 'A comparative web platform benchmarking four recommendation algorithms (KNN, SVD++, NCF, and CBF) in real-time using Lazada review datasets. Features personalized and contextual recommendations (e.g., "because you viewed this") alongside an AI-powered sentiment analysis module for automated customer review processing.',
+            descId: 'Platform web komparatif yang membandingkan empat algoritma rekomendasi (KNN, SVD++, NCF, dan CBF) secara real-time menggunakan dataset ulasan Lazada. Fitur rekomendasi yang dipersonalisasi dan kontekstual (misal, "karena Anda melihat ini") serta modul analisis sentimen berbasis AI untuk pemrosesan ulasan pelanggan secara otomatis.'
         }
     };
 
@@ -581,6 +613,23 @@ function initGalleryModal() {
             const category = card.getAttribute('data-gallery-category');
             if (category) openModal(category);
         });
+    });
+
+    // Listen to project screenshot clicks to open lightbox directly
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('[data-gallery-category]:not(.gallery-card)');
+        if (trigger) {
+            e.preventDefault();
+            e.stopPropagation();
+            const category = trigger.getAttribute('data-gallery-category');
+            const indexAttr = trigger.getAttribute('data-image-index');
+            const index = indexAttr ? parseInt(indexAttr, 10) : 0;
+            
+            // Open lightbox directly
+            currentCategory = category;
+            openLightbox(index);
+            document.body.style.overflow = 'hidden'; // Lock scroll
+        }
     });
 
     // Close listeners
@@ -824,4 +873,54 @@ function initShareModal() {
             });
         });
     }
+}
+
+// ===== Project Slider =====
+function initProjectSliders() {
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+        const container = card.querySelector('.project-card__image-container');
+        if (!container) return;
+
+        const slidesContainer = container.querySelector('.project-card__slides');
+        const slides = container.querySelectorAll('.project-card__slide');
+        const prevBtn = container.querySelector('.project-slider-btn--prev');
+        const nextBtn = container.querySelector('.project-slider-btn--next');
+        const dots = container.querySelectorAll('.project-slider-dot');
+
+        if (!slidesContainer || slides.length <= 1) return;
+
+        let currentIndex = 0;
+
+        function goToSlide(index) {
+            currentIndex = (index + slides.length) % slides.length;
+            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentIndex);
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                goToSlide(currentIndex - 1);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                goToSlide(currentIndex + 1);
+            });
+        }
+
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                goToSlide(idx);
+            });
+        });
+    });
 }
