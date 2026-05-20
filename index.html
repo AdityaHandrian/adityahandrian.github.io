@@ -149,16 +149,16 @@
                 <li><a href="#links" class="nav-link" data-lang-en="Links" data-lang-id="Tautan">Links</a></li>
                 <li><a href="#contact" class="nav-link" data-lang-en="Contact" data-lang-id="Kontak">Contact</a></li>
             </ul>
-            <div class="nav-actions" role="group" aria-label="Navigation actions">
-                <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language" style="background: none; border: 1px solid var(--border); cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; padding: 0.35rem 0.65rem; border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; transition: var(--transition);">
                     EN
                 </button>
-                <button class="share-btn-nav" id="shareBtnNav" aria-label="Share profile" title="Share Profile">
-                    <i data-lucide="share-2"></i>
+                <button class="share-btn-nav" id="shareBtnNav" aria-label="Share profile" title="Share Profile" style="background: none; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="share-2" style="width: 20px; height: 20px;"></i>
                 </button>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" style="background: none; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
                     <i data-lucide="moon" class="icon-moon"></i>
-                    <i data-lucide="sun" class="icon-sun"></i>
+                    <i data-lucide="sun" class="icon-sun" style="display: none;"></i>
                 </button>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
             </div>
