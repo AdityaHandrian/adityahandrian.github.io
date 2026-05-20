@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackgroundMusic();
     initGalleryModal();
     initResumeDropdowns();
-    initCustomCursor();
     initShareModal();
 });
 
@@ -720,71 +719,6 @@ function initResumeDropdowns() {
     });
 }
 
-// ===== Custom Cursor with Hover Blend =====
-function initCustomCursor() {
-    const dot = document.querySelector('.custom-cursor-dot');
-    const outline = document.querySelector('.custom-cursor-outline');
-    
-    if (!dot || !outline) return;
-
-    // Check if device supports hover (desktop with mouse)
-    const isHoverSupported = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (!isHoverSupported) {
-        dot.style.display = 'none';
-        outline.style.display = 'none';
-        return;
-    }
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let outlineX = 0;
-    let outlineY = 0;
-    
-    // Mouse movement
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        dot.style.left = mouseX + 'px';
-        dot.style.top = mouseY + 'px';
-    });
-
-    // Animate outer circle trailing behind
-    function animateOutline() {
-        outlineX += (mouseX - outlineX) * 0.15;
-        outlineY += (mouseY - outlineY) * 0.15;
-        
-        outline.style.left = outlineX + 'px';
-        outline.style.top = outlineY + 'px';
-        
-        requestAnimationFrame(animateOutline);
-    }
-    requestAnimationFrame(animateOutline);
-
-    // Hover effect on interactive elements
-    const interactiveSelectors = 'a, button, select, input, textarea, [role="button"], .resume-dropdown-item, .linktree-btn, .tab-btn, .gallery-card, .gallery-modal__thumbnail, .lightbox-viewer__btn';
-    
-    document.addEventListener('mouseover', (e) => {
-        if (e.target.closest(interactiveSelectors)) {
-            document.body.classList.add('cursor-hovered');
-        }
-    });
-
-    document.addEventListener('mouseout', (e) => {
-        if (!e.target.closest(interactiveSelectors)) {
-            document.body.classList.remove('cursor-hovered');
-        }
-    });
-
-    // Click effect
-    window.addEventListener('mousedown', () => {
-        document.body.classList.add('cursor-clicked');
-    });
-
-    window.addEventListener('mouseup', () => {
-        document.body.classList.remove('cursor-clicked');
-    });
-}
 
 // ===== Share Profile Modal & QR Code =====
 function initShareModal() {

@@ -1526,69 +1526,6 @@ img{max-width:100%;display:block}
   }
 }
 
-/* ===== CUSTOM CURSOR ===== */
-@media (hover: hover) and (pointer: fine) {
-  /* Hide native cursor for interactive experience */
-  html, body, a, button, select, input, textarea, .gallery-modal__close, .lightbox-viewer__close, .lightbox-viewer__btn, .share-modal__close {
-    cursor: none !important;
-  }
-  
-  .custom-cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--accent-light);
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 99999;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-  }
-  
-  .custom-cursor-outline {
-    width: 24px;
-    height: 24px;
-    border: 2px solid var(--accent-light);
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 99998;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-                height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-                background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-                border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  }
-  
-  /* Hover state on interactive elements */
-  body.cursor-hovered .custom-cursor-dot {
-    opacity: 0;
-    width: 0px;
-    height: 0px;
-  }
-  
-  body.cursor-hovered .custom-cursor-outline {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 1);
-    border-color: rgba(255, 255, 255, 1);
-    mix-blend-mode: difference;
-  }
-  
-  /* Click state */
-  body.cursor-clicked .custom-cursor-outline {
-    transform: translate(-50%, -50%) scale(0.85);
-    background-color: var(--accent-light);
-    border-color: var(--accent-light);
-    mix-blend-mode: normal;
-    opacity: 0.8;
-  }
-}
-
 /* ===== SHARE PROFILE MODAL ===== */
 .share-modal {
   position: fixed;
