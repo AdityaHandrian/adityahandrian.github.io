@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initResumeDropdowns();
     initShareModal();
     initProjectSliders();
+    initProjectFilters();
+    initLayoutMode();
 });
 
 // ===== Theme Toggle =====
@@ -180,7 +182,7 @@ function initLanguage() {
 
     let currentLang = localStorage.getItem('lang') || 'en';
 
-    function updateLanguage(lang) {
+    function updateLanguage(lang, animate = false) {
         currentLang = lang;
         localStorage.setItem('lang', lang);
         
@@ -197,22 +199,48 @@ function initLanguage() {
                 <rect x="1" y="1" width="14" height="10" rx="1" />
                </svg>`;
                
-        langToggle.innerHTML = flagSvg + lang.toUpperCase();
+        const newToggleContent = flagSvg + lang.toUpperCase();
 
-        document.querySelectorAll('[data-lang-en]').forEach(el => {
-            const enText = el.getAttribute('data-lang-en');
-            const idText = el.getAttribute('data-lang-id');
-            // Support raw HTML tag rendering (e.g. strong tag) inside translation strings
-            el.innerHTML = lang === 'en' ? enText : idText;
-        });
+        if (animate) {
+            // Animate language toggle button scale & spin
+            langToggle.style.transform = 'scale(0.85) rotate(-8deg)';
+            langToggle.style.opacity = '0.6';
+            
+            // Fade and blur translatable elements
+            const translatableElements = document.querySelectorAll('[data-lang-en]');
+            translatableElements.forEach(el => {
+                el.classList.add('lang-changing');
+            });
+
+            // Swap contents after half the transition time
+            setTimeout(() => {
+                langToggle.innerHTML = newToggleContent;
+                langToggle.style.transform = '';
+                langToggle.style.opacity = '';
+
+                translatableElements.forEach(el => {
+                    const enText = el.getAttribute('data-lang-en');
+                    const idText = el.getAttribute('data-lang-id');
+                    el.innerHTML = lang === 'en' ? enText : idText;
+                    el.classList.remove('lang-changing');
+                });
+            }, 220);
+        } else {
+            langToggle.innerHTML = newToggleContent;
+            document.querySelectorAll('[data-lang-en]').forEach(el => {
+                const enText = el.getAttribute('data-lang-en');
+                const idText = el.getAttribute('data-lang-id');
+                el.innerHTML = lang === 'en' ? enText : idText;
+            });
+        }
     }
 
-    // Initialize with saved or default language
-    updateLanguage(currentLang);
+    // Initialize with saved or default language (no animation)
+    updateLanguage(currentLang, false);
 
     langToggle.addEventListener('click', () => {
         const nextLang = currentLang === 'en' ? 'id' : 'en';
-        updateLanguage(nextLang);
+        updateLanguage(nextLang, true);
     });
 }
 
@@ -923,4 +951,182 @@ function initProjectSliders() {
             });
         });
     });
+}
+
+// ===== Project Filters =====
+function initProjectFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    if (!filterBtns.length || !projectCards.length) return;
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filterValue = btn.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                const categoryAttr = card.getAttribute('data-project-category');
+                if (!categoryAttr) return;
+                
+                const categories = categoryAttr.split(' ');
+                if (filterValue === 'all' || categories.includes(filterValue)) {
+                    card.style.display = '';
+                    card.classList.add('visible');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
+// ===== Toggle Layout Mode (Tabbed vs Scroll View) =====
+function initLayoutMode() {
+    const layoutToggle = document.getElementById('layoutToggle');
+    const iconScroll = document.querySelector('.icon-scroll');
+    const iconTab = document.querySelector('.icon-tab');
+    const progressBar = document.getElementById('scrollProgress');
+    const mainContent = document.getElementById('mainContent');
+    const dotNav = document.getElementById('verticalDotNav');
+    const dots = document.querySelectorAll('.dot-item');
+    const sections = document.querySelectorAll('section.page-section');
+    
+    if (!layoutToggle || !iconScroll || !iconTab) return;
+    
+    const savedLayout = localStorage.getItem('layoutMode') || 'tab';
+    
+    function updateLayoutUI(mode, applyScroll = true) {
+        const currentLang = localStorage.getItem('lang') || 'en';
+        if (mode === 'scroll') {
+            document.body.classList.add('layout-scroll');
+            iconScroll.style.display = 'none';
+            iconTab.style.display = 'block';
+            layoutToggle.setAttribute('title', currentLang === 'en' ? 'Switch to Tabbed View' : 'Ubah ke Tampilan Tab');
+            
+            // Scroll to the active section if switching from tab to scroll
+            if (applyScroll) {
+                const activeLink = document.querySelector('.nav-link.active');
+                if (activeLink) {
+                    const targetId = activeLink.getAttribute('href').replace('#', '');
+                    const targetSec = document.getElementById(targetId);
+                    if (targetSec) {
+                        setTimeout(() => {
+                            targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 50);
+                    }
+                }
+            }
+        } else {
+            document.body.classList.remove('layout-scroll');
+            iconScroll.style.display = 'block';
+            iconTab.style.display = 'none';
+            layoutToggle.setAttribute('title', currentLang === 'en' ? 'Switch to Scroll View' : 'Ubah ke Tampilan Scroll');
+            if (progressBar) progressBar.style.width = '0%';
+            
+            // Revert back to the active page's color accent when returning to Tab Mode
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) {
+                const targetId = activeLink.getAttribute('href').replace('#', '') || 'about';
+                document.body.setAttribute('data-active-page', targetId);
+            }
+        }
+    }
+    
+    // Set initial layout without scroll jump
+    updateLayoutUI(savedLayout, false);
+    
+    // Toggle click event with premium transition
+    layoutToggle.addEventListener('click', () => {
+        if (mainContent) mainContent.classList.add('layout-changing');
+        if (dotNav) dotNav.style.opacity = '0';
+        
+        setTimeout(() => {
+            const isScroll = document.body.classList.contains('layout-scroll');
+            const nextMode = isScroll ? 'tab' : 'scroll';
+            localStorage.setItem('layoutMode', nextMode);
+            updateLayoutUI(nextMode);
+            
+            setTimeout(() => {
+                if (mainContent) mainContent.classList.remove('layout-changing');
+                if (dotNav) dotNav.style.opacity = '';
+            }, 50);
+        }, 320); // Sync with CSS transition duration
+    });
+    
+    // Floating Dot Navigation Click Handlers
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const targetId = dot.getAttribute('data-target');
+            const targetSec = document.getElementById(targetId);
+            if (targetSec) {
+                targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    
+    // Scroll Spy & Progress calculation
+    let scrollTicking = false;
+    window.addEventListener('scroll', () => {
+        if (document.body.classList.contains('layout-scroll')) {
+            if (!scrollTicking) {
+                requestAnimationFrame(() => {
+                    const scrollPosition = window.scrollY;
+                    const winHeight = window.innerHeight;
+                    const docHeight = document.documentElement.scrollHeight;
+                    
+                    // 1. Progress Bar Update
+                    const height = docHeight - winHeight;
+                    const scrolled = height > 0 ? (scrollPosition / height) * 100 : 0;
+                    if (progressBar) {
+                        progressBar.style.width = scrolled + '%';
+                    }
+                    
+                    // 2. Scroll Spy: Update Active Section, Accent Colors, and Dots
+                    let currentSectionId = 'about';
+                    
+                    // Check which section is currently focused in the viewport
+                    sections.forEach(sec => {
+                        const secTop = sec.offsetTop;
+                        
+                        // Section is active if scroll position is past 1/3 of the screen height into the section
+                        if (scrollPosition >= (secTop - winHeight / 2.5)) {
+                            currentSectionId = sec.id;
+                        }
+                    });
+                    
+                    // Update theme accent color dynamically
+                    const currentActivePage = document.body.getAttribute('data-active-page');
+                    if (currentActivePage !== currentSectionId) {
+                        document.body.setAttribute('data-active-page', currentSectionId);
+                    }
+                    
+                    // Update active dot in navigation
+                    dots.forEach(dot => {
+                        if (dot.getAttribute('data-target') === currentSectionId) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                    
+                    scrollTicking = false;
+                });
+                scrollTicking = true;
+            }
+        }
+    });
+
+    // Update layout title translations dynamically when language is changed
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            setTimeout(() => {
+                const isScroll = document.body.classList.contains('layout-scroll');
+                updateLayoutUI(isScroll ? 'scroll' : 'tab', false);
+            }, 250); // Match language transition fade duration
+        });
+    }
 }

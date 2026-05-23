@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <link rel="stylesheet" href="style.css?v=2.6">
+    <link rel="stylesheet" href="style.css?v=3.1">
     <style>
         /* Dropdown Layout & Aesthetic Fixes */
         .hero-cta {
@@ -146,12 +146,16 @@
                 <li><a href="#projects" class="nav-link" data-lang-en="Projects" data-lang-id="Proyek">Projects</a></li>
                 <li><a href="#skills" class="nav-link" data-lang-en="Skills" data-lang-id="Keahlian">Skills</a></li>
                 <li><a href="#gallery" class="nav-link" data-lang-en="Gallery" data-lang-id="Galeri">Gallery</a></li>
-                <li><a href="#links" class="nav-link" data-lang-en="Links" data-lang-id="Tautan">Links</a></li>
+                <li><a href="#blog" class="nav-link" data-lang-en="Blog" data-lang-id="Blog">Blog</a></li>
                 <li><a href="#contact" class="nav-link" data-lang-en="Contact" data-lang-id="Kontak">Contact</a></li>
             </ul>
             <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <button class="lang-toggle" id="langToggle" aria-label="Switch language" style="background: none; border: 1px solid var(--border); cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; padding: 0.35rem 0.65rem; border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; transition: var(--transition);">
                     EN
+                </button>
+                <button class="layout-toggle" id="layoutToggle" aria-label="Toggle layout mode" title="Switch View" style="background: none; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="scroll" class="icon-scroll"></i>
+                    <i data-lucide="layers" class="icon-tab" style="display: none;"></i>
                 </button>
                 <button class="share-btn-nav" id="shareBtnNav" aria-label="Share profile" title="Share Profile" style="background: none; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
                     <i data-lucide="share-2" style="width: 20px; height: 20px;"></i>
@@ -163,10 +167,12 @@
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
             </div>
         </div>
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
     </nav>
 
     <!-- ABOUT / HERO MERGED -->
-    <section class="about-hero page-section" id="about">
+    <main id="mainContent">
+        <section class="about-hero page-section" id="about">
         <div class="container relative">
             <div class="about-hero-grid">
                 <!-- Left: Text content -->
@@ -312,8 +318,24 @@
     <section class="section page-section" id="projects">
         <div class="container">
             <div class="section-header"><span class="section-label">03 / Projects</span><h2 class="section-title" data-lang-en="Things I've Built" data-lang-id="Karya Saya">Things I've Built</h2></div>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <span data-lang-en="All" data-lang-id="Semua">All</span>
+                </button>
+                <button class="filter-btn" data-filter="web">
+                    <span data-lang-en="Web Dev" data-lang-id="Web Dev">Web Dev</span>
+                </button>
+                <button class="filter-btn" data-filter="mobile">
+                    <span data-lang-en="Mobile App" data-lang-id="Aplikasi Mobile">Mobile App</span>
+                </button>
+                <button class="filter-btn" data-filter="ai-ml">
+                    <span data-lang-en="AI / ML" data-lang-id="AI / ML">AI / ML</span>
+                </button>
+            </div>
+
             <div class="projects-grid">
-                <div class="project-card project-card--featured">
+                <div class="project-card project-card--featured" data-project-category="web ai-ml">
                     <div class="project-card__glow"></div>
                     <div class="project-card__image-container">
                         <div class="browser-mockup">
@@ -351,7 +373,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card project-card--featured">
+                <div class="project-card project-card--featured" data-project-category="mobile ai-ml">
                     <div class="project-card__glow" style="background: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent 70%);"></div>
                     <div class="project-card__image-container">
                         <div class="phone-mockup">
@@ -397,13 +419,13 @@
                                 <span data-lang-en="Role: Lead Mobile &amp; AI Developer" data-lang-id="Peran: Pengembang Mobile &amp; AI Utama">Role: Lead Mobile &amp; AI Developer</span>
                             </div>
                             <a href="https://github.com/AdityaHandrian/Pelita.git" target="_blank" rel="noopener noreferrer" class="project-card__link">
-                                <i data-lucide="github"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
                                 <span data-lang-en="Source Code" data-lang-id="Kode Sumber">Source Code</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-project-category="web ai-ml">
                     <div class="project-card__image-container">
                         <div class="browser-mockup">
                             <div class="browser-mockup__header">
@@ -477,8 +499,10 @@
                 </div>
             </div>
             <div class="certs-section">
-                <div class="skill-category__header" style="margin-bottom:2rem"><i data-lucide="badge-check" class="skill-category__icon"></i><h3 data-lang-en="Certifications" data-lang-id="Sertifikasi Resmi">Certifications</h3></div>
-                <div class="certs-grid">
+                <div class="skill-category__header" style="margin-bottom:2rem"><i data-lucide="badge-check" class="skill-category__icon"></i><h3 data-lang-en="Professional Certifications" data-lang-id="Sertifikasi Profesional">Professional Certifications</h3></div>
+                
+                <h4 class="certs-group-title"><i data-lucide="cloud" style="width: 18px; height: 18px; color: #ff9900; margin-right: 0.5rem; vertical-align: middle;"></i> AWS Academy Specialty</h4>
+                <div class="certs-grid" style="margin-bottom: 2.5rem;">
                     <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="cloud"></i></div><div class="cert-card__info"><h4 data-lang-en="Cloud Security Builder" data-lang-id="Cloud Security Builder">Cloud Security Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
                     <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="globe"></i></div><div class="cert-card__info"><h4 data-lang-en="Cloud Web Application Builder" data-lang-id="Cloud Web Application Builder">Cloud Web Application Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
                     <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="git-branch"></i></div><div class="cert-card__info"><h4 data-lang-en="Microservices &amp; CI/CD Pipeline Builder" data-lang-id="Microservices &amp; CI/CD Pipeline Builder">Microservices & CI/CD Pipeline Builder</h4><p>AWS Academy · Jan 2026</p></div></div>
@@ -486,6 +510,10 @@
                     <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="brain"></i></div><div class="cert-card__info"><h4 data-lang-en="Machine Learning Foundations" data-lang-id="Dasar Machine Learning">Machine Learning Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
                     <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="sparkles"></i></div><div class="cert-card__info"><h4 data-lang-en="Generative AI Foundations" data-lang-id="Dasar Generative AI">Generative AI Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
                     <div class="cert-card"><div class="cert-card__logo cert-card__logo--aws"><i data-lucide="shield"></i></div><div class="cert-card__info"><h4 data-lang-en="Cloud Security Foundations" data-lang-id="Dasar Keamanan Cloud">Cloud Security Foundations</h4><p>AWS Academy · Jan 2026</p></div></div>
+                </div>
+
+                <h4 class="certs-group-title"><i data-lucide="shield" style="width: 18px; height: 18px; color: #00b478; margin-right: 0.5rem; vertical-align: middle;"></i> Palo Alto Networks Cybersecurity</h4>
+                <div class="certs-grid">
                     <div class="cert-card"><div class="cert-card__logo cert-card__logo--palo"><i data-lucide="shield-check"></i></div><div class="cert-card__info"><h4 data-lang-en="Security Operations Fundamentals" data-lang-id="Dasar Operasi Keamanan">Security Operations Fundamentals</h4><p>Palo Alto Networks · Jan 2026</p></div></div>
                     <div class="cert-card"><div class="cert-card__logo cert-card__logo--palo"><i data-lucide="lock"></i></div><div class="cert-card__info"><h4 data-lang-en="Cybersecurity Foundation" data-lang-id="Dasar Keamanan Siber">Cybersecurity Foundation</h4><p>Palo Alto Networks · Jan 2026</p></div></div>
                 </div>
@@ -499,6 +527,7 @@
             <div class="section-header">
                 <span class="section-label">05 / Gallery</span>
                 <h2 class="section-title" data-lang-en="Life &amp; Activities" data-lang-id="Galeri &amp; Kegiatan">Life & Activities</h2>
+            </div>
             <div class="gallery-grid">
                 <!-- Card 1: Business Analyst Intern DOT -->
                 <div class="gallery-card animate-hover" data-gallery-category="dot">
@@ -613,67 +642,56 @@
         <div class="lightbox-viewer__counter" id="lightboxViewerCounter"></div>
     </div>
 
-    <!-- LINK TREE MINI -->
-    <section class="section page-section" id="links">
-        <div class="container container--narrow">
-            <div class="linktree-card">
-                <div class="linktree-profile">
-                    <div class="linktree-avatar">
-                        <div class="about-image-fallback" style="font-size: 2rem;">AH</div>
-                        <img src="assets/profile.jpg" alt="Muhammad Aditya Handrian" class="linktree-img" onload="this.previousElementSibling.style.display='none';" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
-                    </div>
-                    <h3 class="linktree-name">Muhammad Aditya Handrian</h3>
-                    <p class="linktree-title" data-lang-en="Informatics Student &amp; Business Analyst" data-lang-id="Mahasiswa Informatika &amp; Business Analyst">Informatics Student & Business Analyst</p>
-                </div>
-                <div class="linktree-links">
-                    <a href="mailto:adityahandriann@gmail.com" class="linktree-btn">
-                        <i data-lucide="mail"></i>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/AdityaHandrian" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://senopati.its.ac.id/mona" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="wallet"></i>
-                        <span data-lang-en="MONA (Featured Project)" data-lang-id="MONA (Proyek Utama)">MONA (Featured Project)</span>
-                    </a>
-                    <a href="https://github.com/AdityaHandrian/Pelita.git" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="accessibility"></i>
-                        <span data-lang-en="Pelita (Featured Project)" data-lang-id="Pelita (Proyek Utama)">Pelita (Featured Project)</span>
-                    </a>
-                    <div class="linktree-dropdown" id="linktreeResumeDropdown">
-                        <button class="linktree-btn linktree-btn--resume linktree-dropdown-toggle animate-hover" id="linktreeResumeBtnToggle">
-                            <i data-lucide="file-text"></i>
-                            <span data-lang-en="CV / Resume" data-lang-id="CV / Resume">CV / Resume</span>
-                            <i data-lucide="chevron-down" class="linktree-chevron"></i>
-                        </button>
-                        <div class="linktree-dropdown-menu" id="linktreeResumeMenu">
-                            <a href="assets/resume.pdf" target="_blank" class="linktree-dropdown-item">
-                                <i data-lucide="eye"></i>
-                                <span data-lang-en="View Resume" data-lang-id="Lihat CV (Tanpa Unduh)">View Resume</span>
-                            </a>
-                            <a href="assets/resume.pdf" download="Muhammad_Aditya_Handrian_Resume.pdf" class="linktree-dropdown-item">
-                                <i data-lucide="download"></i>
-                                <span data-lang-en="Download Resume" data-lang-id="Unduh CV">Download Resume</span>
-                            </a>
+    <!-- BLOG -->
+    <section class="section section--alt page-section" id="blog">
+        <div class="container">
+            <div class="section-header"><span class="section-label">06 / Blog</span><h2 class="section-title" data-lang-en="Thoughts &amp; Writings" data-lang-id="Tulisan &amp; Pemikiran">Thoughts & Writings</h2></div>
+            <div class="blog-grid">
+                <!-- Article 1: Busy Beaver -->
+                <div class="blog-card animate-hover">
+                    <div class="blog-card__header">
+                        <div class="blog-card__icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
+                            <i data-lucide="activity"></i>
                         </div>
+                        <span class="blog-card__tag" data-lang-en="Computation Theory" data-lang-id="Teori Komputasi">Computation Theory</span>
                     </div>
-                    <button class="linktree-btn" id="linktreeShareBtn" style="font-family: inherit;">
-                        <i data-lucide="share-2"></i>
-                        <span data-lang-en="Share Profile" data-lang-id="Bagikan Profil">Share Profile</span>
-                    </button>
-                    <a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="instagram"></i>
-                        <span>Instagram</span>
+                    <h3 class="blog-card__title">Busy Beaver Problem</h3>
+                    <p class="blog-card__desc" data-lang-en="Exploring the Busy Beaver problem, a fascinating boundary of computability theory that defines the limits of what computers can solve." data-lang-id="Menjelajahi masalah Busy Beaver, batas teori komputabilitas yang menarik yang mendefinisikan batas kemampuan yang dapat diselesaikan oleh komputer.">Exploring the Busy Beaver problem, a fascinating boundary of computability theory that defines the limits of what computers can solve.</p>
+                    <a href="https://medium.com/@adityahandriann/busy-beaver-problem-5f76e144af4b" target="_blank" rel="noopener noreferrer" class="blog-card__link">
+                        <span data-lang-en="Read on Medium" data-lang-id="Baca di Medium">Read on Medium</span>
+                        <i data-lucide="arrow-up-right"></i>
                     </a>
-                    <a href="https://x.com/adtyhn" target="_blank" rel="noopener noreferrer" class="linktree-btn">
-                        <i data-lucide="twitter"></i>
-                        <span>Twitter / X</span>
+                </div>
+
+                <!-- Article 2: Church-Turing Thesis -->
+                <div class="blog-card animate-hover">
+                    <div class="blog-card__header">
+                        <div class="blog-card__icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                            <i data-lucide="terminal"></i>
+                        </div>
+                        <span class="blog-card__tag" data-lang-en="Computer Science" data-lang-id="Ilmu Komputer">Computer Science</span>
+                    </div>
+                    <h3 class="blog-card__title">Church-Turing Thesis &amp; Bahasa Pemrograman</h3>
+                    <p class="blog-card__desc" data-lang-en="An in-depth look at the Church-Turing Thesis and its profound connection to modern programming languages and computability." data-lang-id="Tinjauan mendalam tentang Tesis Church-Turing dan kaitannya yang erat dengan bahasa pemrograman modern serta komputabilitas.">An in-depth look at the Church-Turing Thesis and its profound connection to modern programming languages and computability.</p>
+                    <a href="https://medium.com/@adityahandriann/church-turing-thesis-dan-kaitannya-dengan-bahasa-pemrograman-08ec3c6032fe" target="_blank" rel="noopener noreferrer" class="blog-card__link">
+                        <span data-lang-en="Read on Medium" data-lang-id="Baca di Medium">Read on Medium</span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+                </div>
+
+                <!-- Article 3: Diabetes Dataset Management -->
+                <div class="blog-card animate-hover">
+                    <div class="blog-card__header">
+                        <div class="blog-card__icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                            <i data-lucide="database"></i>
+                        </div>
+                        <span class="blog-card__tag" data-lang-en="Data Science" data-lang-id="Sains Data">Data Science</span>
+                    </div>
+                    <h3 class="blog-card__title" data-lang-en="Diabetes Dataset Management &amp; Analytics" data-lang-id="Manajemen &amp; Analisis Dataset Diabetes">Diabetes Dataset Management &amp; Analytics</h3>
+                    <p class="blog-card__desc" data-lang-en="Implementing data management and predictive analytics on the Diabetes dataset using Python and SQL for Teaching Assistant selection." data-lang-id="Menerapkan manajemen data dan analisis prediktif pada dataset Diabetes menggunakan Python dan SQL untuk seleksi Asisten Dosen.">Implementing data management and predictive analytics on the Diabetes dataset using Python and SQL for Teaching Assistant selection.</p>
+                    <a href="https://medium.com/@adityahandriann/manajemen-dan-analisis-data-pada-dataset-diabetes-menggunakan-python-sql-tugas-oprec-asisten-98bc63bc01ca" target="_blank" rel="noopener noreferrer" class="blog-card__link">
+                        <span data-lang-en="Read on Medium" data-lang-id="Baca di Medium">Read on Medium</span>
+                        <i data-lucide="arrow-up-right"></i>
                     </a>
                 </div>
             </div>
@@ -683,7 +701,7 @@
     <!-- CONTACT -->
     <section class="section page-section" id="contact">
         <div class="container">
-            <div class="section-header"><span class="section-label">06 / Contact</span><h2 class="section-title" data-lang-en="Let's Connect" data-lang-id="Hubungi Saya">Let's Connect</h2></div>
+            <div class="section-header"><span class="section-label">07 / Contact</span><h2 class="section-title" data-lang-en="Let's Connect" data-lang-id="Hubungi Saya">Let's Connect</h2></div>
             <div class="contact-grid-layout">
                 <!-- Left: Collab Info -->
                 <div class="contact-info-panel">
@@ -699,32 +717,82 @@
                     </div>
                 </div>
 
-                <!-- Right: Cards Grid -->
-                <div class="contact-cards-grid">
-                    <a href="mailto:adityahandriann@gmail.com" class="contact-card" id="contact-email">
-                        <div class="contact-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
-                        <div class="contact-card__info"><h4>Email</h4><p>adityahandriann@gmail.com</p></div>
-                        <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-linkedin">
-                        <div class="contact-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></div>
-                        <div class="contact-card__info"><h4>LinkedIn</h4><p>linkedin.com/in/adityahandrian</p></div>
-                        <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
-                    </a>
-                    <a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-instagram">
-                        <div class="contact-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
-                        <div class="contact-card__info"><h4>Instagram</h4><p>@adityahandrian</p></div>
-                        <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
-                    </a>
-                    <a href="https://x.com/adtyhn" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-twitter">
-                        <div class="contact-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></div>
-                        <div class="contact-card__info"><h4>Twitter / X</h4><p>@adtyhn</p></div>
-                        <i data-lucide="arrow-up-right" class="contact-card__arrow"></i>
-                    </a>
+                <!-- Right: Merged Linktree Card -->
+                <div class="linktree-card animate-hover" style="width: 100%;">
+                    <div class="linktree-profile">
+                        <div class="linktree-avatar">
+                            <div class="about-image-fallback" style="font-size: 2rem;">AH</div>
+                            <img src="assets/profile.jpg" alt="Muhammad Aditya Handrian" class="linktree-img" onload="this.previousElementSibling.style.display='none';" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
+                        </div>
+                        <h3 class="linktree-name">Muhammad Aditya Handrian</h3>
+                        <p class="linktree-title" data-lang-en="Informatics Student &amp; Business Analyst" data-lang-id="Mahasiswa Informatika &amp; Business Analyst">Informatics Student & Business Analyst</p>
+                    </div>
+                    <div class="linktree-links" style="width: 100%; display: flex; flex-direction: column; gap: 1.5rem;">
+                        <!-- Group 1: Contacts and Social Media -->
+                        <div class="linktree-group" style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
+                            <a href="mailto:adityahandriann@gmail.com" class="linktree-btn">
+                                <i data-lucide="mail"></i>
+                                <span>Email</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/AdityaHandrian" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://x.com/adtyhn" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="lucide-x-logo"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                                <span>Twitter / X</span>
+                            </a>
+                        </div>
+                        
+                        <!-- Group 2: CV / Resume & Share Profile -->
+                        <div class="linktree-group" style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
+                            <div class="linktree-dropdown" id="linktreeResumeDropdown" style="width: 100%;">
+                                <button class="linktree-btn linktree-btn--resume linktree-dropdown-toggle animate-hover" id="linktreeResumeBtnToggle" style="width: 100%;">
+                                    <i data-lucide="file-text"></i>
+                                    <span data-lang-en="CV / Resume" data-lang-id="CV / Resume">CV / Resume</span>
+                                    <i data-lucide="chevron-down" class="linktree-chevron"></i>
+                                </button>
+                                <div class="linktree-dropdown-menu" id="linktreeResumeMenu" style="width: 100%;">
+                                    <a href="assets/resume.pdf" target="_blank" class="linktree-dropdown-item">
+                                        <i data-lucide="eye"></i>
+                                        <span data-lang-en="View Resume" data-lang-id="Lihat CV (Tanpa Unduh)">View Resume</span>
+                                    </a>
+                                    <a href="assets/resume.pdf" download="Muhammad_Aditya_Handrian_Resume.pdf" class="linktree-dropdown-item">
+                                        <i data-lucide="download"></i>
+                                        <span data-lang-en="Download Resume" data-lang-id="Unduh CV">Download Resume</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="linktree-btn" id="linktreeShareBtn" style="font-family: inherit;">
+                                <i data-lucide="share-2"></i>
+                                <span data-lang-en="Share Profile" data-lang-id="Bagikan Profil">Share Profile</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    </main>
+
+    <!-- FLOATING VERTICAL DOT NAVIGATION -->
+    <div class="vertical-dot-nav" id="verticalDotNav" aria-label="Section Navigation">
+        <button class="dot-item active" data-target="about" aria-label="About"><span class="dot-tooltip" data-lang-en="About" data-lang-id="Tentang">About</span></button>
+        <button class="dot-item" data-target="experience" aria-label="Experience"><span class="dot-tooltip" data-lang-en="Experience" data-lang-id="Pengalaman">Experience</span></button>
+        <button class="dot-item" data-target="projects" aria-label="Projects"><span class="dot-tooltip" data-lang-en="Projects" data-lang-id="Proyek">Projects</span></button>
+        <button class="dot-item" data-target="skills" aria-label="Skills"><span class="dot-tooltip" data-lang-en="Skills" data-lang-id="Keahlian">Skills</span></button>
+        <button class="dot-item" data-target="gallery" aria-label="Gallery"><span class="dot-tooltip" data-lang-en="Gallery" data-lang-id="Galeri">Gallery</span></button>
+        <button class="dot-item" data-target="blog" aria-label="Blog"><span class="dot-tooltip" data-lang-en="Blog" data-lang-id="Blog">Blog</span></button>
+        <button class="dot-item" data-target="contact" aria-label="Contact"><span class="dot-tooltip" data-lang-en="Contact" data-lang-id="Kontak">Contact</span></button>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -798,11 +866,11 @@
                     
                     <div class="share-social-grid">
                         <a href="#" target="_blank" rel="noopener noreferrer" class="share-social-btn share-social-btn--wa" id="shareWaBtn">
-                            <i data-lucide="message-square"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-whatsapp"><path d="M22 11.08c0 4.9-4 8.9-8.9 8.9-1.5 0-3-.4-4.3-1.1L3 21l2.2-5.4C4.4 14.3 4 12.7 4 11.08 4 6.2 8 2.2 13 2.2c4.9 0 9 4 9 8.88z" /><path d="M9 8c-.3.6-.3 1.2.2 1.9.6.9 1.6 1.9 2.5 2.5.7.5 1.3.5 1.9.2.6-.3 1-.7 1.2-1.2.2-.3-.1-.7-.4-.9-.3-.2-1.3-.7-1.5-.8-.2-.1-.4 0-.6.2-.2.3-.5.7-.7.9-.2.2-.5.1-.7-.1-.3-.2-1.3-1.3-1.5-1.5-.2-.2-.3-.5-.1-.7.2-.2.6-.5.9-.7.1-.2.1-.4 0-.6-.1-.2-.6-1.5-.8-1.7-.2-.3-.6-.2-.9.2z" /></svg>
                             <span>WhatsApp</span>
                         </a>
                         <a href="#" target="_blank" rel="noopener noreferrer" class="share-social-btn share-social-btn--linkedin" id="shareLinkedinBtn">
-                            <i data-lucide="linkedin"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                             <span>LinkedIn</span>
                         </a>
                     </div>
