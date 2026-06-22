@@ -996,7 +996,7 @@ function initLayoutMode() {
     
     if (!layoutToggle || !iconScroll || !iconTab) return;
     
-    const savedLayout = localStorage.getItem('layoutMode') || 'tab';
+    const savedLayout = localStorage.getItem('layoutMode') || 'scroll';
     
     function updateLayoutUI(mode, applyScroll = true) {
         const currentLang = localStorage.getItem('lang') || 'en';
