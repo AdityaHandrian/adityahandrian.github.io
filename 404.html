@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Page not found — Aditya Handrian</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        try {
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="/style.css?v=4.2">
+    <style>
+        .notfound {
+            min-height: 100vh;
+            display: grid;
+            align-content: center;
+            gap: 1.5rem;
+            padding-block: 4rem;
+        }
+
+        .notfound h1 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(3rem, 9vw, 6.5rem);
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+        }
+
+        .notfound h1 em {
+            color: var(--accent);
+        }
+
+        .notfound p {
+            color: var(--ink-2);
+            max-width: 40ch;
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap notfound">
+        <p class="mono" style="color: var(--accent)">404</p>
+        <h1>Nothing <em>here.</em></h1>
+        <p>This page doesn't exist, or it moved. / Halaman ini tidak ada atau sudah dipindah.</p>
+        <p><a href="/">← Aditya Handrian</a></p>
+    </main>
+</body>
+</html>
