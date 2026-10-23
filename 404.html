@@ -8,14 +8,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         try {
             var t = localStorage.getItem('theme');
             if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
         } catch (e) {}
     </script>
-    <link rel="stylesheet" href="/style.css?v=4.2">
+    <link rel="stylesheet" href="/style.css?v=6.0">
     <style>
         .notfound {
             min-height: 100vh;
@@ -26,8 +26,8 @@
         }
 
         .notfound h1 {
-            font-family: var(--serif);
-            font-weight: 400;
+            font-family: var(--display);
+            font-weight: 500;
             font-size: clamp(3rem, 9vw, 6.5rem);
             line-height: 0.95;
             letter-spacing: -0.02em;
@@ -38,15 +38,15 @@
         }
 
         .notfound p {
-            color: var(--ink-2);
+            color: var(--soft);
             max-width: 40ch;
         }
     </style>
 </head>
 <body>
     <main class="wrap notfound">
-        <p class="mono" style="color: var(--accent)">404</p>
-        <h1>Nothing <em>here.</em></h1>
+        <p class="mono" style="color: var(--accent-ink); letter-spacing: .15em">[404]</p>
+        <h1>nothing <em>here.</em></h1>
         <p>This page doesn't exist, or it moved. / Halaman ini tidak ada atau sudah dipindah.</p>
         <p><a href="/">← Aditya Handrian</a></p>
     </main>

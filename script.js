@@ -181,6 +181,18 @@ const SCREENSHOTS = {
             'assets/research/attribute-trends.jpg'
         ]
     },
+    'project-rbsm': {
+        titleEn: 'Chain Transfer RBSM',
+        titleId: 'Chain Transfer RBSM',
+        descEn: 'Slides from our Operations Research presentation (in Indonesian).',
+        descId: 'Slide dari presentasi Riset Operasi kami.',
+        images: [
+            'assets/Project/RBSM/slide-20.jpg',
+            'assets/Project/RBSM/slide-13.jpg',
+            'assets/Project/RBSM/slide-17.jpg',
+            'assets/Project/RBSM/slide-18.jpg'
+        ]
+    },
     'project-rec': {
         titleEn: 'Product Recommendation System',
         titleId: 'Sistem Rekomendasi Produk',
@@ -211,18 +223,156 @@ function pick(obj, field) {
 document.addEventListener('DOMContentLoaded', () => {
     renderAlbums();
     buildCertSet();
+    buildDatasetSet();
     initLanguage();
     initTheme();
     initHeader();
     initSectionSpy();
     initLightbox();
     initCertPeek();
+    initShare();
     initCopyEmail();
     initResumeLinks();
+    initHeroTyping();
+    initReveal();
+    initScrollProgress();
+    initCursorLabel();
 
     const year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
 });
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ===== Hero: type the code lines out once =====
+function initHeroTyping() {
+    const box = document.getElementById('heroCode');
+    if (!box || prefersReducedMotion) return;
+
+    // Reserve the final height so nothing below jumps while typing
+    box.style.minHeight = box.offsetHeight + 'px';
+
+    const walker = document.createTreeWalker(box, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) {
+        const node = walker.currentNode;
+        // Skip the indentation between lines; it never renders
+        if (node.parentElement === box) continue;
+        nodes.push({ node, full: node.data });
+    }
+    nodes.forEach(n => { n.node.data = ''; });
+
+    let i = 0;
+    let j = 0;
+    let timer = null;
+
+    function finish() {
+        clearTimeout(timer);
+        nodes.forEach(n => { n.node.data = n.full; });
+        box.style.minHeight = '';
+    }
+
+    function tick() {
+        if (i >= nodes.length) {
+            box.style.minHeight = '';
+            return;
+        }
+        const n = nodes[i];
+        j += 1;
+        n.node.data = n.full.slice(0, j);
+        if (j >= n.full.length) {
+            i += 1;
+            j = 0;
+        }
+        // Markup characters fly by; prose types at reading pace
+        const inProse = n.node.parentElement && n.node.parentElement.closest('.tx, .cv');
+        timer = setTimeout(tick, inProse ? 16 : 6);
+    }
+
+    timer = setTimeout(tick, 650);
+    // Swapping language rewrites the prose, so jump to the end instead of typing stale text
+    document.addEventListener('langchange', finish, { once: true });
+}
+
+// ===== Reveal on scroll =====
+function initReveal() {
+    if (!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('js');
+
+    const targets = document.querySelectorAll(
+        '.section-head, .about-grid, .group-title, .entry, .thesis, .project, ' +
+        '.skill-rows > div, .certs, .album, .posts li, .contact-email, .contact-list'
+    );
+    targets.forEach(el => el.classList.add('rv'));
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach(el => observer.observe(el));
+}
+
+// ===== Thin progress bar along the bottom edge =====
+function initScrollProgress() {
+    const fill = document.getElementById('scrollFill');
+    if (!fill) return;
+    let queued = false;
+    const update = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        fill.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+        queued = false;
+    };
+    window.addEventListener('scroll', () => {
+        if (!queued) {
+            queued = true;
+            requestAnimationFrame(update);
+        }
+    }, { passive: true });
+    update();
+}
+
+// ===== Small label that follows the mouse over clickable media =====
+function initCursorLabel() {
+    const cur = document.getElementById('cur');
+    if (!cur) return;
+
+    const labels = {
+        view: { en: 'view', id: 'lihat' },
+        open: { en: 'open album', id: 'buka album' }
+    };
+
+    let active = null;
+
+    document.addEventListener('pointerover', e => {
+        if (e.pointerType !== 'mouse') return;
+        const el = e.target.closest('[data-cursor]');
+        if (el === active) return;
+        active = el;
+        if (!el) {
+            cur.classList.remove('is-visible');
+            return;
+        }
+        const label = labels[el.dataset.cursor] || labels.view;
+        cur.textContent = label[currentLang()] || label.en;
+        cur.classList.add('is-visible');
+    });
+
+    document.addEventListener('pointermove', e => {
+        if (!active || e.pointerType !== 'mouse') return;
+        cur.style.transform = `translate(${e.clientX + 18}px, ${e.clientY - 34}px)`;
+    }, { passive: true });
+
+    document.addEventListener('pointerdown', () => cur.classList.remove('is-visible'));
+    window.addEventListener('scroll', () => {
+        if (!active) return;
+        active = null;
+        cur.classList.remove('is-visible');
+    }, { passive: true });
+}
 
 // ===== Theme =====
 // No saved choice means "follow the system"; the button pins an explicit choice.
@@ -321,6 +471,7 @@ function renderAlbums() {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'album';
+        btn.dataset.cursor = 'open';
         btn.dataset.album = key;
         btn.dataset.index = '0';
 
@@ -456,6 +607,21 @@ function initLightbox() {
     });
 }
 
+// ===== Thesis dataset samples =====
+function buildDatasetSet() {
+    const buttons = document.querySelectorAll('.thesis-sample');
+    if (!buttons.length) return;
+    SCREENSHOTS.dataset = { images: [], items: [] };
+    buttons.forEach(btn => {
+        SCREENSHOTS.dataset.images.push(btn.dataset.sampleImg);
+        SCREENSHOTS.dataset.items.push({
+            title: btn.dataset.sampleBrand + ' — ' + btn.dataset.sampleSeason,
+            desc: 'Vogue Runway',
+            url: ''
+        });
+    });
+}
+
 // ===== Certificates =====
 // One lightbox set built from the table rows, so prev/next steps through every certificate.
 function buildCertSet() {
@@ -544,6 +710,66 @@ function initCertPeek() {
     window.addEventListener('scroll', () => {
         if (Math.abs(window.scrollY - shownAtY) > 40) hide();
     }, { passive: true });
+}
+
+// ===== Share =====
+// Phones get the native share sheet; elsewhere the button opens a small menu.
+const SITE_URL = 'https://adityahandrian.github.io/';
+
+function initShare() {
+    const btn = document.getElementById('shareBtn');
+    const menu = document.getElementById('shareMenu');
+
+    // "Copy link" buttons live both in the menu and in the contact list
+    document.querySelectorAll('.js-copy-link').forEach(copy => {
+        if (!navigator.clipboard) {
+            copy.hidden = true;
+            return;
+        }
+        copy.addEventListener('click', () => {
+            navigator.clipboard.writeText(SITE_URL).then(() => {
+                copy.textContent = currentLang() === 'id' ? 'Tautan disalin' : 'Link copied';
+                setTimeout(() => {
+                    copy.textContent = copy.getAttribute(currentLang() === 'id' ? 'data-lang-id' : 'data-lang-en');
+                }, 1800);
+            });
+        });
+    });
+
+    if (!btn || !menu) return;
+
+    const setOpen = open => {
+        menu.hidden = !open;
+        btn.setAttribute('aria-expanded', String(open));
+    };
+
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+
+    btn.addEventListener('click', e => {
+        e.stopPropagation();
+        if (navigator.share && isTouch) {
+            navigator.share({
+                title: 'Muhammad Aditya Handrian',
+                text: currentLang() === 'id' ? 'Portofolio Muhammad Aditya Handrian' : 'Portfolio of Muhammad Aditya Handrian',
+                url: SITE_URL
+            }).catch(() => { /* dismissed */ });
+            return;
+        }
+        setOpen(menu.hidden);
+    });
+
+    menu.addEventListener('click', e => {
+        // Let the copy confirmation show before closing; links close right away
+        if (e.target.closest('a')) setOpen(false);
+        e.stopPropagation();
+    });
+    document.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !menu.hidden) {
+            setOpen(false);
+            btn.focus();
+        }
+    });
 }
 
 // ===== Copy email =====

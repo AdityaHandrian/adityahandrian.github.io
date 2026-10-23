@@ -26,7 +26,7 @@
     <link rel="canonical" href="https://adityahandrian.github.io/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
         // Apply saved theme before paint to avoid a flash
         try {
@@ -34,15 +34,16 @@
             if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
         } catch (e) {}
     </script>
-    <link rel="stylesheet" href="style.css?v=4.6">
+    <link rel="stylesheet" href="style.css?v=6.1">
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" id="siteHeader">
         <div class="wrap header-inner">
-            <a href="#top" class="wordmark">Aditya Handrian</a>
+            <a href="#top" class="wordmark">Aditya <span aria-hidden="true">•</span> Handrian</a>
             <nav class="site-nav" aria-label="Sections">
+                <a href="#about" data-lang-en="About" data-lang-id="Tentang">About</a>
                 <a href="#experience" data-lang-en="Experience" data-lang-id="Pengalaman">Experience</a>
                 <a href="#research" data-lang-en="Research" data-lang-id="Riset">Research</a>
                 <a href="#projects" data-lang-en="Projects" data-lang-id="Proyek">Projects</a>
@@ -56,6 +57,16 @@
                     <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
                     <button type="button" data-set-lang="id" aria-pressed="false">ID</button>
                 </div>
+                <div class="share">
+                    <button type="button" class="share-btn mono" id="shareBtn" aria-haspopup="true" aria-expanded="false" aria-controls="shareMenu" data-lang-en="Share" data-lang-id="Bagikan">Share</button>
+                    <div class="share-menu" id="shareMenu" hidden>
+                        <button type="button" class="js-copy-link" data-lang-en="Copy link" data-lang-id="Salin tautan">Copy link</button>
+                        <a href="https://wa.me/?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio%3A%20https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                        <a href="https://x.com/intent/post?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio&amp;url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">X ↗</a>
+                        <a href="mailto:?subject=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio&amp;body=https%3A%2F%2Fadityahandrian.github.io%2F">Email</a>
+                    </div>
+                </div>
                 <button type="button" class="theme-btn" id="themeToggle" aria-label="Toggle dark mode">
                     <span class="theme-btn__dot" aria-hidden="true"></span>
                 </button>
@@ -65,49 +76,58 @@
 
     <main id="main">
 
-        <!-- INTRO -->
-        <section class="intro wrap" id="top">
-            <div class="intro-text">
-                <p class="kicker mono" data-lang-en="Informatics Engineering · ITS Surabaya" data-lang-id="Teknik Informatika · ITS Surabaya">Informatics Engineering · ITS Surabaya</p>
-                <h1 class="intro-name">Muhammad Aditya <em>Handrian</em></h1>
-                <p class="intro-lead" data-lang-en="I turn business needs into requirements at DOT Indonesia, and I build software on the side — most recently &lt;em&gt;Pelita&lt;/em&gt;, a mobile assistant for visually impaired people that runs object detection entirely on the phone." data-lang-id="Saya menerjemahkan kebutuhan bisnis menjadi requirement di DOT Indonesia, dan membangun perangkat lunak di sela-selanya — terbaru &lt;em&gt;Pelita&lt;/em&gt;, asisten mobile untuk penyandang tunanetra yang menjalankan deteksi objek sepenuhnya di ponsel.">I turn business needs into requirements at DOT Indonesia, and I build software on the side — most recently <em>Pelita</em>, a mobile assistant for visually impaired people that runs object detection entirely on the phone.</p>
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <div class="hero-stage wrap">
+                <h1 class="hero-name">Muhammad Aditya Handrian</h1>
+                <div class="hero-code" id="heroCode">
+                    <p class="cl"><span class="ct">&lt;p&gt;</span><span class="tx" data-lang-en="Informatics student at ITS, working where business needs meet the software that answers them." data-lang-id="Mahasiswa Informatika ITS, bekerja di titik temu antara kebutuhan bisnis dan perangkat lunak yang menjawabnya.">Informatics student at ITS, working where business needs meet the software that answers them.</span><span class="ct">&lt;/p&gt;</span></p>
+                    <p class="cl"><span class="ct">&lt;output</span> <span class="cp">name</span>=<span class="cs">"currently"</span><span class="ct">&gt;</span><span class="tx" data-lang-en="Business Analyst Intern, DOT Indonesia." data-lang-id="Magang Business Analyst, DOT Indonesia.">Business Analyst Intern, DOT Indonesia.</span><span class="ct">&lt;/output&gt;</span></p>
+                    <p class="cl"><span class="ct">&lt;a</span> <span class="cp">href</span>=<span class="cs">"resume.pdf"</span><span class="ct">&gt;</span><a class="cv js-resume-view" href="assets/resume.pdf" target="_blank" data-lang-en="view cv" data-lang-id="lihat cv">view cv</a><span class="ct">&lt;/a&gt;</span><span class="caret" aria-hidden="true"></span></p>
+                </div>
+            </div>
+            <a class="hero-scroll" href="#about" data-lang-en="scroll" data-lang-id="gulir">scroll</a>
+        </section>
 
+        <!-- ABOUT -->
+        <section class="section wrap" id="about">
+            <header class="section-head">
+                <span class="sec-eyebrow" data-lang-en="About" data-lang-id="Tentang">About</span>
+                <h2 data-lang-en="hello, i'm aditya." data-lang-id="halo, saya aditya.">hello, i'm aditya.</h2>
+            </header>
+            <div class="about-grid">
+                <figure class="portrait">
+                    <img src="assets/profile.jpg" alt="Portrait of Muhammad Aditya Handrian" width="480" height="600" loading="lazy">
+                </figure>
+                <div class="about-body">
+                    <p class="about-lead" data-lang-en="I turn business needs into requirements at DOT Indonesia, and I build software on the side — most recently &lt;em&gt;Pelita&lt;/em&gt;, a mobile assistant for visually impaired people that runs object detection entirely on the phone." data-lang-id="Saya menerjemahkan kebutuhan bisnis menjadi requirement di DOT Indonesia, dan membangun perangkat lunak di sela-selanya — terbaru &lt;em&gt;Pelita&lt;/em&gt;, asisten mobile untuk penyandang tunanetra yang menjalankan deteksi objek sepenuhnya di ponsel.">I turn business needs into requirements at DOT Indonesia, and I build software on the side — most recently <em>Pelita</em>, a mobile assistant for visually impaired people that runs object detection entirely on the phone.</p>
+                <p data-lang-en="I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations." data-lang-id="Saya tertarik pada titik temu antara teknologi dan dampak dunia nyata, menerjemahkan konsep teknis menjadi solusi yang benar-benar membantu orang dan organisasi.">I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations.</p>
+                <p data-lang-en="What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a &lt;strong&gt;Business Analyst Intern&lt;/strong&gt;, a &lt;strong&gt;Teaching Assistant&lt;/strong&gt;, and a &lt;strong&gt;Frontend Web Engineer&lt;/strong&gt;. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives." data-lang-id="Yang paling membuat saya bersemangat adalah kesempatan untuk bekerja dengan tim yang beragam di mana setiap anggota membawa sesuatu yang unik. Saya telah memperoleh pengalaman langsung sebagai &lt;strong&gt;Magang Business Analyst&lt;/strong&gt;, &lt;strong&gt;Asisten Dosen&lt;/strong&gt;, dan &lt;strong&gt;Frontend Web Engineer&lt;/strong&gt;. Peran-peran ini telah mengajarkan saya pentingnya empati, komunikasi yang jelas, dan melihat masalah dari berbagai perspektif.">What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a <strong>Business Analyst Intern</strong>, a <strong>Teaching Assistant</strong>, and a <strong>Frontend Web Engineer</strong>. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives.</p>
+                <p data-lang-en="I believe the best outcomes come from collaborative teamwork and a willingness to adapt. I'm always looking for opportunities to contribute, learn alongside others, and dive into new frameworks to expand my skill set." data-lang-id="Saya percaya hasil terbaik datang dari kerja sama tim yang kolaboratif dan kesediaan untuk beradaptasi. Saya selalu mencari peluang untuk berkontribusi, belajar bersama orang lain, dan mendalami framework baru untuk memperluas keahlian saya.">I believe the best outcomes come from collaborative teamwork and a willingness to adapt. I'm always looking for opportunities to contribute, learn alongside others, and dive into new frameworks to expand my skill set.</p>
                 <dl class="facts">
                     <div><dt data-lang-en="Now" data-lang-id="Sekarang">Now</dt><dd data-lang-en="Business Analyst Intern, DOT Indonesia" data-lang-id="Magang Business Analyst, DOT Indonesia">Business Analyst Intern, DOT Indonesia</dd></div>
                     <div><dt data-lang-en="Studying" data-lang-id="Studi">Studying</dt><dd data-lang-en="B.S. Informatics Engineering, ITS — since 2023" data-lang-id="S1 Teknik Informatika, ITS — sejak 2023">B.S. Informatics Engineering, ITS — since 2023</dd></div>
                     <div><dt data-lang-en="Researching" data-lang-id="Riset">Researching</dt><dd data-lang-en="Fashion trends from runway images with vision-language models (thesis)" data-lang-id="Tren fesyen dari gambar runway dengan vision-language models (TA)">Fashion trends from runway images with vision-language models (thesis)</dd></div>
                     <div><dt data-lang-en="Open to" data-lang-id="Terbuka untuk">Open to</dt><dd data-lang-en="Internship &amp; part-time roles" data-lang-id="Magang &amp; peran paruh waktu">Internship &amp; part-time roles</dd></div>
                 </dl>
-
                 <p class="intro-links">
                     <a href="mailto:adityahandriann@gmail.com">Email</a>
                     <a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
                     <a href="https://github.com/AdityaHandrian" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                     <a href="assets/resume.pdf" target="_blank" class="js-resume-view" data-lang-en="Resume (PDF) ↗" data-lang-id="CV (PDF) ↗">Resume (PDF) ↗</a>
                 </p>
-            </div>
-
-            <figure class="portrait">
-                <img src="assets/profile.jpg" alt="Portrait of Muhammad Aditya Handrian" width="480" height="600">
-            </figure>
-        </section>
-
-        <section class="about wrap">
-            <div class="about-body">
-                <p data-lang-en="I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations." data-lang-id="Saya tertarik pada titik temu antara teknologi dan dampak dunia nyata, menerjemahkan konsep teknis menjadi solusi yang benar-benar membantu orang dan organisasi.">I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations.</p>
-                <p data-lang-en="What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a &lt;strong&gt;Business Analyst Intern&lt;/strong&gt;, a &lt;strong&gt;Teaching Assistant&lt;/strong&gt;, and a &lt;strong&gt;Frontend Web Engineer&lt;/strong&gt;. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives." data-lang-id="Yang paling membuat saya bersemangat adalah kesempatan untuk bekerja dengan tim yang beragam di mana setiap anggota membawa sesuatu yang unik. Saya telah memperoleh pengalaman langsung sebagai &lt;strong&gt;Magang Business Analyst&lt;/strong&gt;, &lt;strong&gt;Asisten Dosen&lt;/strong&gt;, dan &lt;strong&gt;Frontend Web Engineer&lt;/strong&gt;. Peran-peran ini telah mengajarkan saya pentingnya empati, komunikasi yang jelas, dan melihat masalah dari berbagai perspektif.">What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a <strong>Business Analyst Intern</strong>, a <strong>Teaching Assistant</strong>, and a <strong>Frontend Web Engineer</strong>. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives.</p>
-                <p data-lang-en="I believe the best outcomes come from collaborative teamwork and a willingness to adapt. I'm always looking for opportunities to contribute, learn alongside others, and dive into new frameworks to expand my skill set." data-lang-id="Saya percaya hasil terbaik datang dari kerja sama tim yang kolaboratif dan kesediaan untuk beradaptasi. Saya selalu mencari peluang untuk berkontribusi, belajar bersama orang lain, dan mendalami framework baru untuk memperluas keahlian saya.">I believe the best outcomes come from collaborative teamwork and a willingness to adapt. I'm always looking for opportunities to contribute, learn alongside others, and dive into new frameworks to expand my skill set.</p>
+                </div>
             </div>
         </section>
 
         <!-- EXPERIENCE -->
         <section class="section wrap" id="experience">
             <header class="section-head">
-                <span class="section-num mono">01</span>
-                <h2 data-lang-en="Experience" data-lang-id="Pengalaman">Experience</h2>
+                <span class="sec-eyebrow" data-lang-en="Experience" data-lang-id="Pengalaman">Experience</span>
+                <h2 data-lang-en="where i've worked." data-lang-id="tempat saya berkontribusi.">where i've worked.</h2>
             </header>
 
-            <h3 class="group-title mono" data-lang-en="Work" data-lang-id="Kerja">Work</h3>
+            <h3 class="group-title group-title--work mono" data-lang-en="Work" data-lang-id="Kerja">Work</h3>
             <ol class="entries">
                 <li class="entry">
                     <p class="entry-date mono" data-lang-en="Feb 2026 — now" data-lang-id="Feb 2026 — sekarang">Feb 2026 — now</p>
@@ -127,7 +147,7 @@
                 </li>
             </ol>
 
-            <h3 class="group-title mono" data-lang-en="Academic" data-lang-id="Akademik">Academic</h3>
+            <h3 class="group-title group-title--academic mono" data-lang-en="Academic" data-lang-id="Akademik">Academic</h3>
             <ol class="entries">
                 <li class="entry">
                     <p class="entry-date mono" data-lang-en="2023 — now" data-lang-id="2023 — sekarang">2023 — now</p>
@@ -163,7 +183,7 @@
                 </li>
             </ol>
 
-            <h3 class="group-title mono" data-lang-en="Organizations" data-lang-id="Organisasi">Organizations</h3>
+            <h3 class="group-title group-title--org mono" data-lang-en="Organizations" data-lang-id="Organisasi">Organizations</h3>
             <ol class="entries">
                 <li class="entry">
                     <p class="entry-date mono" data-lang-en="Mar 2025 — Apr 2026" data-lang-id="Mar 2025 — Apr 2026">Mar 2025 — Apr 2026</p>
@@ -207,13 +227,38 @@
         <!-- RESEARCH -->
         <section class="section wrap" id="research">
             <header class="section-head">
-                <span class="section-num mono">02</span>
-                <h2 data-lang-en="Research" data-lang-id="Riset">Research</h2>
+                <span class="sec-eyebrow" data-lang-en="Research" data-lang-id="Riset">Research</span>
+                <h2 data-lang-en="what i'm researching." data-lang-id="yang sedang saya teliti.">what i'm researching.</h2>
             </header>
 
             <article class="thesis">
-                <p class="thesis-status mono"><span data-lang-en="Undergraduate thesis" data-lang-id="Tugas Akhir">Undergraduate thesis</span><span data-lang-en="Proposal stage · Oct 2026" data-lang-id="Tahap proposal · Okt 2026">Proposal stage · Oct 2026</span></p>
-                <h3 class="thesis-title" data-lang-en="Temporal and seasonal fashion trend identification from runway images, using zero-shot attribute extraction with vision-language models and style clustering" data-lang-id="Identifikasi tren fesyen temporal dan musiman dari gambar runway menggunakan ekstraksi atribut zero-shot berbasis vision-language models dan klasterisasi gaya">Temporal and seasonal fashion trend identification from runway images, using zero-shot attribute extraction with vision-language models and style clustering</h3>
+                <div class="thesis-head">
+                    <div class="thesis-head__text">
+                        <p class="thesis-status mono"><span data-lang-en="Undergraduate thesis" data-lang-id="Tugas Akhir">Undergraduate thesis</span><span data-lang-en="Proposal stage · Oct 2026" data-lang-id="Tahap proposal · Okt 2026">Proposal stage · Oct 2026</span></p>
+                        <h3 class="thesis-title" data-lang-en="Temporal and seasonal fashion trend identification from runway images, using zero-shot attribute extraction with vision-language models and style clustering" data-lang-id="Identifikasi tren fesyen temporal dan musiman dari gambar runway menggunakan ekstraksi atribut zero-shot berbasis vision-language models dan klasterisasi gaya">Temporal and seasonal fashion trend identification from runway images, using zero-shot attribute extraction with vision-language models and style clustering</h3>
+                    </div>
+                    <figure class="thesis-samples">
+                        <div class="thesis-samples__row">
+                            <button type="button" class="thesis-sample" data-cursor="view" data-album="dataset" data-index="0" data-sample-img="assets/research/sample-spring.jpg" data-sample-brand="Alberta Ferretti" data-sample-season="Spring 2021">
+                                <img src="assets/research/sample-spring.jpg" alt="Alberta Ferretti, Spring 2021 — runway look" loading="lazy" width="480" height="720">
+                                <span class="mono">Spring</span>
+                            </button>
+                            <button type="button" class="thesis-sample" data-cursor="view" data-album="dataset" data-index="1" data-sample-img="assets/research/sample-fall.jpg" data-sample-brand="Jil Sander" data-sample-season="Fall 2023">
+                                <img src="assets/research/sample-fall.jpg" alt="Jil Sander, Fall 2023 — runway look" loading="lazy" width="480" height="720">
+                                <span class="mono">Fall</span>
+                            </button>
+                            <button type="button" class="thesis-sample" data-cursor="view" data-album="dataset" data-index="2" data-sample-img="assets/research/sample-resort.jpg" data-sample-brand="Max Mara" data-sample-season="Resort 2023">
+                                <img src="assets/research/sample-resort.jpg" alt="Max Mara, Resort 2023 — runway look" loading="lazy" width="480" height="720">
+                                <span class="mono">Resort</span>
+                            </button>
+                            <button type="button" class="thesis-sample" data-cursor="view" data-album="dataset" data-index="3" data-sample-img="assets/research/sample-prefall.jpg" data-sample-brand="Christian Dior" data-sample-season="Pre-Fall 2022">
+                                <img src="assets/research/sample-prefall.jpg" alt="Christian Dior, Pre-Fall 2022 — runway look" loading="lazy" width="480" height="720">
+                                <span class="mono">Pre-Fall</span>
+                            </button>
+                        </div>
+                        <figcaption class="mono" data-lang-en="Dataset samples, one per season · Vogue Runway" data-lang-id="Contoh dataset, satu per musim · Vogue Runway">Dataset samples, one per season · Vogue Runway</figcaption>
+                    </figure>
+                </div>
 
                 <div class="thesis-body">
                     <p data-lang-en="Runway images carry rich visual design information, but there are far too many of them to analyze by hand without bias. This research identifies fashion trends automatically: a vision-language model reads design attributes straight from the images without task-specific training, the results are grouped into style clusters, and each attribute and style is tracked across seasons." data-lang-id="Gambar runway menyimpan informasi desain visual yang kaya, tetapi jumlahnya terlalu besar untuk dianalisis manual tanpa bias. Riset ini mengidentifikasi tren fesyen secara otomatis: vision-language model membaca atribut desain langsung dari gambar tanpa pelatihan khusus, hasilnya dikelompokkan menjadi klaster gaya, lalu setiap atribut dan gaya dilacak lintas musim.">Runway images carry rich visual design information, but there are far too many of them to analyze by hand without bias. This research identifies fashion trends automatically: a vision-language model reads design attributes straight from the images without task-specific training, the results are grouped into style clusters, and each attribute and style is tracked across seasons.</p>
@@ -249,11 +294,11 @@
 
                 <div class="thesis-figures">
                     <p class="thesis-figures__label mono" data-lang-en="Preliminary results" data-lang-id="Hasil awal">Preliminary results</p>
-                    <button type="button" class="thesis-thumb" data-album="research" data-index="0">
+                    <button type="button" class="thesis-thumb" data-cursor="view" data-album="research" data-index="0">
                         <img src="assets/research/style-clusters.jpg" alt="" loading="lazy">
                         <span data-lang-en="Style clusters on UMAP — PCA + K-Means, 17 clusters" data-lang-id="Klaster gaya pada UMAP — PCA + K-Means, 17 klaster">Style clusters on UMAP — PCA + K-Means, 17 clusters</span>
                     </button>
-                    <button type="button" class="thesis-thumb" data-album="research" data-index="1">
+                    <button type="button" class="thesis-thumb" data-cursor="view" data-album="research" data-index="1">
                         <img src="assets/research/cluster-trends.jpg" alt="" loading="lazy">
                         <span data-lang-en="Cluster popularity per year, 2019–2023" data-lang-id="Popularitas klaster per tahun, 2019–2023">Cluster popularity per year, 2019–2023</span>
                     </button>
@@ -265,15 +310,15 @@
         <!-- PROJECTS -->
         <section class="section wrap" id="projects">
             <header class="section-head">
-                <span class="section-num mono">03</span>
-                <h2 data-lang-en="Projects" data-lang-id="Proyek">Projects</h2>
+                <span class="sec-eyebrow" data-lang-en="Projects" data-lang-id="Proyek">Projects</span>
+                <h2 data-lang-en="things i've built." data-lang-id="yang pernah saya bangun.">things i've built.</h2>
             </header>
 
             <article class="project">
                 <div class="project-shots project-shots--phone">
-                    <button type="button" class="shot" data-album="project-pelita" data-index="0"><img src="assets/Project/Pelita/d7e94b10-2734-49cf-8708-bcc07bcc9039.jpg" alt="Pelita app screenshot 1" loading="lazy"></button>
-                    <button type="button" class="shot" data-album="project-pelita" data-index="1"><img src="assets/Project/Pelita/b0dc643f-a807-4aff-bc85-608408d337e7.jpg" alt="Pelita app screenshot 2" loading="lazy"></button>
-                    <button type="button" class="shot" data-album="project-pelita" data-index="2"><img src="assets/Project/Pelita/8415ea43-351f-4734-b07c-0012fa416c3e.jpg" alt="Pelita app screenshot 3" loading="lazy"></button>
+                    <button type="button" class="shot" data-cursor="view" data-album="project-pelita" data-index="0"><img src="assets/Project/Pelita/d7e94b10-2734-49cf-8708-bcc07bcc9039.jpg" alt="Pelita app screenshot 1" loading="lazy"></button>
+                    <button type="button" class="shot" data-cursor="view" data-album="project-pelita" data-index="1"><img src="assets/Project/Pelita/b0dc643f-a807-4aff-bc85-608408d337e7.jpg" alt="Pelita app screenshot 2" loading="lazy"></button>
+                    <button type="button" class="shot" data-cursor="view" data-album="project-pelita" data-index="2"><img src="assets/Project/Pelita/8415ea43-351f-4734-b07c-0012fa416c3e.jpg" alt="Pelita app screenshot 3" loading="lazy"></button>
                 </div>
                 <div class="project-text">
                     <p class="project-meta mono"><span>Flutter</span><span data-lang-en="Mobile · Edge AI" data-lang-id="Mobile · Edge AI">Mobile · Edge AI</span></p>
@@ -291,8 +336,8 @@
 
             <article class="project">
                 <div class="project-shots project-shots--wide">
-                    <button type="button" class="shot" data-album="project-mona" data-index="0"><img src="assets/Project/Mona/image.png" alt="MONA dashboard screenshot" loading="lazy"></button>
-                    <button type="button" class="shot" data-album="project-mona" data-index="1"><img src="assets/Project/Mona/image (1).png" alt="MONA screenshot" loading="lazy"></button>
+                    <button type="button" class="shot" data-cursor="view" data-album="project-mona" data-index="0"><img src="assets/Project/Mona/image.png" alt="MONA dashboard screenshot" loading="lazy"></button>
+                    <button type="button" class="shot" data-cursor="view" data-album="project-mona" data-index="1"><img src="assets/Project/Mona/image (1).png" alt="MONA screenshot" loading="lazy"></button>
                 </div>
                 <div class="project-text">
                     <p class="project-meta mono"><span>2025</span><span data-lang-en="Web · AI" data-lang-id="Web · AI">Web · AI</span></p>
@@ -310,8 +355,8 @@
 
             <article class="project">
                 <div class="project-shots project-shots--wide">
-                    <button type="button" class="shot" data-album="project-rec" data-index="0"><img src="assets/Project/Product Recommendation System/0.png" alt="Recommendation system screenshot 1" loading="lazy"></button>
-                    <button type="button" class="shot" data-album="project-rec" data-index="1"><img src="assets/Project/Product Recommendation System/0 (1).png" alt="Recommendation system screenshot 2" loading="lazy"></button>
+                    <button type="button" class="shot" data-cursor="view" data-album="project-rec" data-index="0"><img src="assets/Project/Product Recommendation System/0.png" alt="Recommendation system screenshot 1" loading="lazy"></button>
+                    <button type="button" class="shot" data-cursor="view" data-album="project-rec" data-index="1"><img src="assets/Project/Product Recommendation System/0 (1).png" alt="Recommendation system screenshot 2" loading="lazy"></button>
                 </div>
                 <div class="project-text">
                     <p class="project-meta mono"><span>Web</span><span data-lang-en="Machine learning" data-lang-id="Pembelajaran mesin">Machine learning</span></p>
@@ -326,13 +371,31 @@
                     <a class="project-link" href="https://github.com/AdityaHandrian/kelompokfprsbp" target="_blank" rel="noopener noreferrer" data-lang-en="Source on GitHub ↗" data-lang-id="Kode sumber di GitHub ↗">Source on GitHub ↗</a>
                 </div>
             </article>
+
+            <article class="project">
+                <div class="project-shots project-shots--wide">
+                    <button type="button" class="shot" data-cursor="view" data-album="project-rbsm" data-index="0"><img src="assets/Project/RBSM/slide-20.jpg" alt="Slide comparing original RBSM (total cost 995) with Chain Transfer RBSM (835)" loading="lazy" width="1467" height="825"></button>
+                    <button type="button" class="shot" data-cursor="view" data-album="project-rbsm" data-index="1"><img src="assets/Project/RBSM/slide-13.jpg" alt="Slide explaining the chain transfer idea: ER to S to NS" loading="lazy" width="1467" height="825"></button>
+                </div>
+                <div class="project-text">
+                    <p class="project-meta mono"><span>2026</span><span data-lang-en="Operations research · C++" data-lang-id="Riset operasi · C++">Operations research · C++</span></p>
+                    <h3>Chain Transfer RBSM <span class="project-sub" data-lang-en="Transportation problem heuristic" data-lang-id="Heuristik masalah transportasi">Transportation problem heuristic</span></h3>
+                    <p class="project-tagline" data-lang-en="One extra move that lets RBSM reach the optimal cost far more often." data-lang-id="Satu langkah tambahan yang membuat RBSM jauh lebih sering mencapai biaya optimal.">One extra move that lets RBSM reach the optimal cost far more often.</p>
+                    <p data-lang-en="RBSM only moves excess units straight from an over-allocated row to an under-allocated one, so it sometimes has to pay for an expensive move. Our modification lets an already-satisfied row act as a go-between (ER → S → NS across two columns) when that path is cheaper. We then rewrote the search so the extra step runs in O(m²·n) per iteration, the same class as the original, instead of O(m³·n²)." data-lang-id="RBSM hanya memindahkan kelebihan langsung dari baris ER ke baris NS, sehingga kadang terpaksa memilih pemindahan yang mahal. Modifikasi kami membolehkan baris yang sudah Satisfied menjadi perantara (ER → S → NS lewat dua kolom) jika jalur itu lebih murah. Pencariannya lalu kami tulis ulang sehingga langkah tambahan ini berjalan dalam O(m²·n) per iterasi, sekelas dengan RBSM asli, bukan O(m³·n²).">RBSM only moves excess units straight from an over-allocated row to an under-allocated one, so it sometimes has to pay for an expensive move. Our modification lets an already-satisfied row act as a go-between (ER → S → NS across two columns) when that path is cheaper. We then rewrote the search so the extra step runs in O(m²·n) per iteration, the same class as the original, instead of O(m³·n²).</p>
+                    <dl class="project-details">
+                        <div><dt data-lang-en="Result" data-lang-id="Hasil">Result</dt><dd data-lang-en="On 3,000 random problems, optimal solutions rose from 25.6% to 74.6% and mean gap to optimal fell from 6.58% to 0.64%" data-lang-id="Pada 3.000 soal acak, soal yang optimal naik dari 25,6% ke 74,6% dan rata-rata selisih dari optimal turun dari 6,58% ke 0,64%">On 3,000 random problems, optimal solutions rose from 25.6% to 74.6% and mean gap to optimal fell from 6.58% to 0.64%</dd></div>
+                        <div><dt data-lang-en="Speed" data-lang-id="Kecepatan">Speed</dt><dd data-lang-en="100×100 problems: 112 ms → 10.3 ms after optimization (original RBSM: 5.2 ms)" data-lang-id="Soal 100×100: 112 ms → 10,3 ms setelah optimasi (RBSM asli: 5,2 ms)">100×100 problems: 112 ms → 10.3 ms after optimization (original RBSM: 5.2 ms)</dd></div>
+                        <div><dt data-lang-en="Team" data-lang-id="Tim">Team</dt><dd data-lang-en="Group of four · Operations Research, ITS" data-lang-id="Kelompok empat orang · Riset Operasi, ITS">Group of four · Operations Research, ITS</dd></div>
+                    </dl>
+                </div>
+            </article>
         </section>
 
         <!-- SKILLS & CERTIFICATIONS -->
         <section class="section wrap" id="skills">
             <header class="section-head">
-                <span class="section-num mono">04</span>
-                <h2 data-lang-en="Skills &amp; certifications" data-lang-id="Keahlian &amp; sertifikasi">Skills &amp; certifications</h2>
+                <span class="sec-eyebrow" data-lang-en="Skills" data-lang-id="Keahlian">Skills</span>
+                <h2 data-lang-en="tools &amp; proof." data-lang-id="alat &amp; bukti.">tools &amp; proof.</h2>
             </header>
 
             <div class="skills">
@@ -375,8 +438,8 @@
         <!-- PHOTOS -->
         <section class="section wrap" id="photos">
             <header class="section-head">
-                <span class="section-num mono">05</span>
-                <h2 data-lang-en="Outside class" data-lang-id="Di luar kelas">Outside class</h2>
+                <span class="sec-eyebrow" data-lang-en="Photos" data-lang-id="Foto">Photos</span>
+                <h2 data-lang-en="outside class." data-lang-id="di luar kelas.">outside class.</h2>
                 <p class="section-note" data-lang-en="Photos from the organizations and programs I've been part of. Open an album to browse." data-lang-id="Foto dari organisasi dan program yang pernah saya ikuti. Buka album untuk melihat.">Photos from the organizations and programs I've been part of. Open an album to browse.</p>
             </header>
 
@@ -386,8 +449,8 @@
         <!-- WRITING -->
         <section class="section wrap" id="writing">
             <header class="section-head">
-                <span class="section-num mono">06</span>
-                <h2 data-lang-en="Writing" data-lang-id="Tulisan">Writing</h2>
+                <span class="sec-eyebrow" data-lang-en="Writing" data-lang-id="Tulisan">Writing</span>
+                <h2 data-lang-en="notes &amp; writing." data-lang-id="catatan &amp; tulisan.">notes &amp; writing.</h2>
             </header>
 
             <ul class="posts">
@@ -422,8 +485,8 @@
         <!-- CONTACT -->
         <section class="section wrap contact" id="contact">
             <header class="section-head">
-                <span class="section-num mono">07</span>
-                <h2 data-lang-en="Contact" data-lang-id="Kontak">Contact</h2>
+                <span class="sec-eyebrow" data-lang-en="Contact" data-lang-id="Kontak">Contact</span>
+                <h2 data-lang-en="let's talk." data-lang-id="mari ngobrol.">let's talk.</h2>
             </header>
 
             <p class="contact-lead" data-lang-en="I'm always open to discussing new opportunities, collaborations, creative ideas, or peer learning. The fastest way to reach me is email." data-lang-id="Saya selalu terbuka untuk mendiskusikan peluang baru, kolaborasi, ide kreatif, atau belajar bersama. Cara tercepat menghubungi saya adalah lewat email.">I'm always open to discussing new opportunities, collaborations, creative ideas, or peer learning. The fastest way to reach me is email.</p>
@@ -438,10 +501,14 @@
                 <li><span class="mono">Instagram</span><a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer">@adityahandrian ↗</a></li>
                 <li><span class="mono">X</span><a href="https://x.com/adtyhn" target="_blank" rel="noopener noreferrer">@adtyhn ↗</a></li>
                 <li><span class="mono">Spotify</span><a href="https://open.spotify.com/user/31vlsg32rd5mjx43w27gpyc2yrqe" target="_blank" rel="noopener noreferrer" data-lang-en="What I'm listening to ↗" data-lang-id="Yang sedang saya dengarkan ↗">What I'm listening to ↗</a></li>
+                <li><span class="mono" data-lang-en="Share" data-lang-id="Bagikan">Share</span><span class="share-inline"><button type="button" class="text-btn js-copy-link" data-lang-en="Copy link" data-lang-id="Salin tautan">Copy link</button> / <a href="https://wa.me/?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio%3A%20https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">WhatsApp</a> / <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">LinkedIn</a> / <a href="https://x.com/intent/post?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio&amp;url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">X</a></span></li>
                 <li><span class="mono" data-lang-en="Resume" data-lang-id="CV">Resume</span><span><a href="assets/resume.pdf" target="_blank" class="js-resume-view" data-lang-en="View" data-lang-id="Lihat">View</a> / <a href="assets/resume.pdf" download="Muhammad_Aditya_Handrian_Resume.pdf" data-lang-en="Download PDF" data-lang-id="Unduh PDF">Download PDF</a></span></li>
             </ul>
         </section>
     </main>
+
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollFill"></span></div>
+    <div class="cur" id="cur" aria-hidden="true"></div>
 
     <footer class="site-footer wrap">
         <p>© <span id="year">2026</span> Muhammad Aditya Handrian</p>
@@ -463,6 +530,6 @@
         <p class="lightbox-desc" id="lightboxDesc"></p>
     </div>
 
-    <script src="script.js?v=4.8"></script>
+    <script src="script.js?v=6.1"></script>
 </body>
 </html>
