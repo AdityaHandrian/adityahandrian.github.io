@@ -4,51 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>Page not found — Aditya Handrian</title>
+    <title>Page not found, Aditya Handrian</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
         try {
             var t = localStorage.getItem('theme');
             if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
         } catch (e) {}
     </script>
-    <link rel="stylesheet" href="/style.css?v=6.0">
+    <link rel="stylesheet" href="/style.css?v=7.0">
     <style>
         .notfound {
-            min-height: 100vh;
             display: grid;
             align-content: center;
-            gap: 1.5rem;
-            padding-block: 4rem;
+            gap: var(--space-lg);
+            min-height: 100svh;
+            padding-block: var(--space-2xl);
         }
 
-        .notfound h1 {
-            font-family: var(--display);
-            font-weight: 500;
-            font-size: clamp(3rem, 9vw, 6.5rem);
-            line-height: 0.95;
-            letter-spacing: -0.02em;
+        .notfound .num {
+            font-size: var(--text-lead);
+            color: var(--color-accent);
         }
 
-        .notfound h1 em {
-            color: var(--accent);
-        }
-
-        .notfound p {
-            color: var(--soft);
+        .notfound p:not(.num) {
             max-width: 40ch;
+            font-size: var(--text-lead);
         }
     </style>
 </head>
 <body>
-    <main class="wrap notfound">
-        <p class="mono" style="color: var(--accent-ink); letter-spacing: .15em">[404]</p>
-        <h1>nothing <em>here.</em></h1>
-        <p>This page doesn't exist, or it moved. / Halaman ini tidak ada atau sudah dipindah.</p>
-        <p><a href="/">← Aditya Handrian</a></p>
+    <main class="container notfound">
+        <p class="num">404</p>
+        <h1>nothing here.</h1>
+        <p>This page doesn’t exist, or it moved. Halaman ini tidak ada atau sudah dipindah.</p>
+        <p><a class="btn" href="/">Back to Aditya Handrian</a></p>
     </main>
 </body>
 </html>

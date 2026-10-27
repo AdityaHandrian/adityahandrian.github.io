@@ -154,14 +154,14 @@ const ALBUMS = {
 // Screenshot sets open in the same lightbox but aren't listed as albums.
 const SCREENSHOTS = {
     'project-mona': {
-        titleEn: 'MONA — Money Assistant',
-        titleId: 'MONA — Money Assistant',
+        titleEn: 'MONA, Money Assistant',
+        titleId: 'MONA, Money Assistant',
         descEn: '', descId: '',
         images: ['assets/Project/Mona/image.png', 'assets/Project/Mona/image (1).png']
     },
     'project-pelita': {
-        titleEn: 'Pelita — Accessibility superapp',
-        titleId: 'Pelita — Superapp aksesibilitas',
+        titleEn: 'Pelita, Accessibility superapp',
+        titleId: 'Pelita, Superapp aksesibilitas',
         descEn: '', descId: '',
         images: [
             'assets/Project/Pelita/d7e94b10-2734-49cf-8708-bcc07bcc9039.jpg',
@@ -170,8 +170,8 @@ const SCREENSHOTS = {
         ]
     },
     'research': {
-        titleEn: 'Thesis — preliminary results',
-        titleId: 'Tugas Akhir — hasil awal',
+        titleEn: 'Thesis, preliminary results',
+        titleId: 'Tugas Akhir, hasil awal',
         descEn: 'Figures from the thesis proposal (Oct 2026). Labels are in Indonesian.',
         descId: 'Gambar dari proposal Tugas Akhir (Okt 2026).',
         images: [
@@ -233,66 +233,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initShare();
     initCopyEmail();
     initResumeLinks();
-    initHeroTyping();
     initReveal();
-    initScrollProgress();
-    initCursorLabel();
 
     const year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
 });
-
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-// ===== Hero: type the code lines out once =====
-function initHeroTyping() {
-    const box = document.getElementById('heroCode');
-    if (!box || prefersReducedMotion) return;
-
-    // Reserve the final height so nothing below jumps while typing
-    box.style.minHeight = box.offsetHeight + 'px';
-
-    const walker = document.createTreeWalker(box, NodeFilter.SHOW_TEXT);
-    const nodes = [];
-    while (walker.nextNode()) {
-        const node = walker.currentNode;
-        // Skip the indentation between lines; it never renders
-        if (node.parentElement === box) continue;
-        nodes.push({ node, full: node.data });
-    }
-    nodes.forEach(n => { n.node.data = ''; });
-
-    let i = 0;
-    let j = 0;
-    let timer = null;
-
-    function finish() {
-        clearTimeout(timer);
-        nodes.forEach(n => { n.node.data = n.full; });
-        box.style.minHeight = '';
-    }
-
-    function tick() {
-        if (i >= nodes.length) {
-            box.style.minHeight = '';
-            return;
-        }
-        const n = nodes[i];
-        j += 1;
-        n.node.data = n.full.slice(0, j);
-        if (j >= n.full.length) {
-            i += 1;
-            j = 0;
-        }
-        // Markup characters fly by; prose types at reading pace
-        const inProse = n.node.parentElement && n.node.parentElement.closest('.tx, .cv');
-        timer = setTimeout(tick, inProse ? 16 : 6);
-    }
-
-    timer = setTimeout(tick, 650);
-    // Swapping language rewrites the prose, so jump to the end instead of typing stale text
-    document.addEventListener('langchange', finish, { once: true });
-}
 
 // ===== Reveal on scroll =====
 function initReveal() {
@@ -314,64 +259,6 @@ function initReveal() {
     }, { rootMargin: '0px 0px -8% 0px' });
 
     targets.forEach(el => observer.observe(el));
-}
-
-// ===== Thin progress bar along the bottom edge =====
-function initScrollProgress() {
-    const fill = document.getElementById('scrollFill');
-    if (!fill) return;
-    let queued = false;
-    const update = () => {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        fill.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
-        queued = false;
-    };
-    window.addEventListener('scroll', () => {
-        if (!queued) {
-            queued = true;
-            requestAnimationFrame(update);
-        }
-    }, { passive: true });
-    update();
-}
-
-// ===== Small label that follows the mouse over clickable media =====
-function initCursorLabel() {
-    const cur = document.getElementById('cur');
-    if (!cur) return;
-
-    const labels = {
-        view: { en: 'view', id: 'lihat' },
-        open: { en: 'open album', id: 'buka album' }
-    };
-
-    let active = null;
-
-    document.addEventListener('pointerover', e => {
-        if (e.pointerType !== 'mouse') return;
-        const el = e.target.closest('[data-cursor]');
-        if (el === active) return;
-        active = el;
-        if (!el) {
-            cur.classList.remove('is-visible');
-            return;
-        }
-        const label = labels[el.dataset.cursor] || labels.view;
-        cur.textContent = label[currentLang()] || label.en;
-        cur.classList.add('is-visible');
-    });
-
-    document.addEventListener('pointermove', e => {
-        if (!active || e.pointerType !== 'mouse') return;
-        cur.style.transform = `translate(${e.clientX + 18}px, ${e.clientY - 34}px)`;
-    }, { passive: true });
-
-    document.addEventListener('pointerdown', () => cur.classList.remove('is-visible'));
-    window.addEventListener('scroll', () => {
-        if (!active) return;
-        active = null;
-        cur.classList.remove('is-visible');
-    }, { passive: true });
 }
 
 // ===== Theme =====
@@ -527,7 +414,7 @@ function initLightbox() {
         img.classList.add('is-loading');
         img.onload = () => img.classList.remove('is-loading');
         img.src = src;
-        img.alt = heading + ' — ' + (index + 1);
+        img.alt = heading + ', ' + (index + 1);
         title.textContent = heading;
         desc.textContent = item ? item.desc : (pick(set, 'desc') || '');
         if (item && item.url) {
@@ -535,7 +422,7 @@ function initLightbox() {
             link.href = item.url;
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
-            link.textContent = currentLang() === 'id' ? 'Verifikasi ↗' : 'Verify ↗';
+            link.textContent = currentLang() === 'id' ? 'Verifikasi' : 'Verify';
             desc.append(' · ', link);
         }
         count.textContent = (index + 1) + ' / ' + set.images.length;
@@ -615,7 +502,7 @@ function buildDatasetSet() {
     buttons.forEach(btn => {
         SCREENSHOTS.dataset.images.push(btn.dataset.sampleImg);
         SCREENSHOTS.dataset.items.push({
-            title: btn.dataset.sampleBrand + ' — ' + btn.dataset.sampleSeason,
+            title: btn.dataset.sampleBrand + ', ' + btn.dataset.sampleSeason,
             desc: 'Vogue Runway',
             url: ''
         });

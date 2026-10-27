@@ -26,7 +26,7 @@
     <link rel="canonical" href="https://adityahandrian.github.io/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
         // Apply saved theme before paint to avoid a flash
         try {
@@ -34,14 +34,14 @@
             if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
         } catch (e) {}
     </script>
-    <link rel="stylesheet" href="style.css?v=6.1">
+    <link rel="stylesheet" href="style.css?v=7.0">
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" id="siteHeader">
-        <div class="wrap header-inner">
-            <a href="#top" class="wordmark">Aditya <span aria-hidden="true">•</span> Handrian</a>
+        <div class="container header-inner">
+            <a href="#top" class="wordmark" aria-label="Aditya Handrian, back to top">Aditya Handrian</a>
             <nav class="site-nav" aria-label="Sections">
                 <a href="#about" data-lang-en="About" data-lang-id="Tentang">About</a>
                 <a href="#experience" data-lang-en="Experience" data-lang-id="Pengalaman">Experience</a>
@@ -58,12 +58,12 @@
                     <button type="button" data-set-lang="id" aria-pressed="false">ID</button>
                 </div>
                 <div class="share">
-                    <button type="button" class="share-btn mono" id="shareBtn" aria-haspopup="true" aria-expanded="false" aria-controls="shareMenu" data-lang-en="Share" data-lang-id="Bagikan">Share</button>
+                    <button type="button" class="share-btn" id="shareBtn" aria-haspopup="true" aria-expanded="false" aria-controls="shareMenu" data-lang-en="Share" data-lang-id="Bagikan">Share</button>
                     <div class="share-menu" id="shareMenu" hidden>
                         <button type="button" class="js-copy-link" data-lang-en="Copy link" data-lang-id="Salin tautan">Copy link</button>
-                        <a href="https://wa.me/?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio%3A%20https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-                        <a href="https://x.com/intent/post?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio&amp;url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">X ↗</a>
+                        <a href="https://wa.me/?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio%3A%20https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://x.com/intent/post?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio&amp;url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">X</a>
                         <a href="mailto:?subject=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio&amp;body=https%3A%2F%2Fadityahandrian.github.io%2F">Email</a>
                     </div>
                 </div>
@@ -78,458 +78,487 @@
 
         <!-- HERO -->
         <section class="hero" id="top">
-            <div class="hero-stage wrap">
-                <h1 class="hero-name">Muhammad Aditya Handrian</h1>
-                <div class="hero-code" id="heroCode">
-                    <p class="cl"><span class="ct">&lt;p&gt;</span><span class="tx" data-lang-en="Informatics student at ITS, working where business needs meet the software that answers them." data-lang-id="Mahasiswa Informatika ITS, bekerja di titik temu antara kebutuhan bisnis dan perangkat lunak yang menjawabnya.">Informatics student at ITS, working where business needs meet the software that answers them.</span><span class="ct">&lt;/p&gt;</span></p>
-                    <p class="cl"><span class="ct">&lt;output</span> <span class="cp">name</span>=<span class="cs">"currently"</span><span class="ct">&gt;</span><span class="tx" data-lang-en="Business Analyst Intern, DOT Indonesia." data-lang-id="Magang Business Analyst, DOT Indonesia.">Business Analyst Intern, DOT Indonesia.</span><span class="ct">&lt;/output&gt;</span></p>
-                    <p class="cl"><span class="ct">&lt;a</span> <span class="cp">href</span>=<span class="cs">"resume.pdf"</span><span class="ct">&gt;</span><a class="cv js-resume-view" href="assets/resume.pdf" target="_blank" data-lang-en="view cv" data-lang-id="lihat cv">view cv</a><span class="ct">&lt;/a&gt;</span><span class="caret" aria-hidden="true"></span></p>
+            <div class="container stage">
+                <div class="stage-text">
+                    <h1 class="name">Muhammad Aditya Handrian</h1>
+                    <p class="stage-lead" data-lang-en="Informatics student at ITS, turning business needs into working software." data-lang-id="Mahasiswa Informatika ITS, menerjemahkan kebutuhan bisnis menjadi perangkat lunak yang berjalan.">Informatics student at ITS, turning business needs into working software.</p>
+                    <p class="stage-actions">
+                        <a class="btn btn--primary js-resume-view" href="assets/resume.pdf" target="_blank" data-lang-en="View CV" data-lang-id="Lihat CV">View CV</a>
+                        <a class="btn" href="mailto:adityahandriann@gmail.com" data-lang-en="Email me" data-lang-id="Kirim email">Email me</a>
+                    </p>
+                </div>
+                <div class="record">
+                    <figure class="portrait">
+                        <img src="assets/profile-cutout.webp" alt="Portrait of Muhammad Aditya Handrian" width="760" height="950" fetchpriority="high">
+                    </figure>
+                    <dl class="facts">
+                        <div><dt data-lang-en="Now" data-lang-id="Sekarang">Now</dt><dd data-lang-en="Business Analyst Intern, DOT Indonesia" data-lang-id="Magang Business Analyst, DOT Indonesia">Business Analyst Intern, DOT Indonesia</dd></div>
+                        <div><dt data-lang-en="Studying" data-lang-id="Studi">Studying</dt><dd data-lang-en="B.S. Informatics Engineering, ITS, since 2023" data-lang-id="S1 Teknik Informatika, ITS, sejak 2023">B.S. Informatics Engineering, ITS, since 2023</dd></div>
+                        <div><dt data-lang-en="Researching" data-lang-id="Riset">Researching</dt><dd data-lang-en="Fashion trends from runway images with vision-language models (thesis)" data-lang-id="Tren fesyen dari gambar runway dengan vision-language models (TA)">Fashion trends from runway images with vision-language models (thesis)</dd></div>
+                        <div><dt data-lang-en="Open to" data-lang-id="Terbuka untuk">Open to</dt><dd data-lang-en="Internship &amp; part-time roles" data-lang-id="Magang &amp; peran paruh waktu">Internship &amp; part-time roles</dd></div>
+                    </dl>
                 </div>
             </div>
-            <a class="hero-scroll" href="#about" data-lang-en="scroll" data-lang-id="gulir">scroll</a>
         </section>
 
         <!-- ABOUT -->
-        <section class="section wrap" id="about">
-            <header class="section-head">
-                <span class="sec-eyebrow" data-lang-en="About" data-lang-id="Tentang">About</span>
-                <h2 data-lang-en="hello, i'm aditya." data-lang-id="halo, saya aditya.">hello, i'm aditya.</h2>
-            </header>
-            <div class="about-grid">
-                <figure class="portrait">
-                    <img src="assets/profile.jpg" alt="Portrait of Muhammad Aditya Handrian" width="480" height="600" loading="lazy">
-                </figure>
+        <section class="section section--about" id="about">
+            <div class="container about-grid">
+                <h2 data-lang-en="hello, i’m aditya." data-lang-id="halo, saya aditya.">hello, i’m aditya.</h2>
                 <div class="about-body">
-                    <p class="about-lead" data-lang-en="I turn business needs into requirements at DOT Indonesia, and I build software on the side — most recently &lt;em&gt;Pelita&lt;/em&gt;, a mobile assistant for visually impaired people that runs object detection entirely on the phone." data-lang-id="Saya menerjemahkan kebutuhan bisnis menjadi requirement di DOT Indonesia, dan membangun perangkat lunak di sela-selanya — terbaru &lt;em&gt;Pelita&lt;/em&gt;, asisten mobile untuk penyandang tunanetra yang menjalankan deteksi objek sepenuhnya di ponsel.">I turn business needs into requirements at DOT Indonesia, and I build software on the side — most recently <em>Pelita</em>, a mobile assistant for visually impaired people that runs object detection entirely on the phone.</p>
-                <p data-lang-en="I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations." data-lang-id="Saya tertarik pada titik temu antara teknologi dan dampak dunia nyata, menerjemahkan konsep teknis menjadi solusi yang benar-benar membantu orang dan organisasi.">I'm drawn to the intersection where technology meets real-world impact, translating technical concepts into solutions that genuinely help people and organizations.</p>
-                <p data-lang-en="What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a &lt;strong&gt;Business Analyst Intern&lt;/strong&gt;, a &lt;strong&gt;Teaching Assistant&lt;/strong&gt;, and a &lt;strong&gt;Frontend Web Engineer&lt;/strong&gt;. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives." data-lang-id="Yang paling membuat saya bersemangat adalah kesempatan untuk bekerja dengan tim yang beragam di mana setiap anggota membawa sesuatu yang unik. Saya telah memperoleh pengalaman langsung sebagai &lt;strong&gt;Magang Business Analyst&lt;/strong&gt;, &lt;strong&gt;Asisten Dosen&lt;/strong&gt;, dan &lt;strong&gt;Frontend Web Engineer&lt;/strong&gt;. Peran-peran ini telah mengajarkan saya pentingnya empati, komunikasi yang jelas, dan melihat masalah dari berbagai perspektif.">What excites me most is the chance to work with diverse teams where each member brings something unique to the table. I've gained hands-on experience as a <strong>Business Analyst Intern</strong>, a <strong>Teaching Assistant</strong>, and a <strong>Frontend Web Engineer</strong>. These roles have taught me the importance of empathy, clear communication, and seeing problems from multiple perspectives.</p>
-                <p data-lang-en="I believe the best outcomes come from collaborative teamwork and a willingness to adapt. I'm always looking for opportunities to contribute, learn alongside others, and dive into new frameworks to expand my skill set." data-lang-id="Saya percaya hasil terbaik datang dari kerja sama tim yang kolaboratif dan kesediaan untuk beradaptasi. Saya selalu mencari peluang untuk berkontribusi, belajar bersama orang lain, dan mendalami framework baru untuk memperluas keahlian saya.">I believe the best outcomes come from collaborative teamwork and a willingness to adapt. I'm always looking for opportunities to contribute, learn alongside others, and dive into new frameworks to expand my skill set.</p>
-                <dl class="facts">
-                    <div><dt data-lang-en="Now" data-lang-id="Sekarang">Now</dt><dd data-lang-en="Business Analyst Intern, DOT Indonesia" data-lang-id="Magang Business Analyst, DOT Indonesia">Business Analyst Intern, DOT Indonesia</dd></div>
-                    <div><dt data-lang-en="Studying" data-lang-id="Studi">Studying</dt><dd data-lang-en="B.S. Informatics Engineering, ITS — since 2023" data-lang-id="S1 Teknik Informatika, ITS — sejak 2023">B.S. Informatics Engineering, ITS — since 2023</dd></div>
-                    <div><dt data-lang-en="Researching" data-lang-id="Riset">Researching</dt><dd data-lang-en="Fashion trends from runway images with vision-language models (thesis)" data-lang-id="Tren fesyen dari gambar runway dengan vision-language models (TA)">Fashion trends from runway images with vision-language models (thesis)</dd></div>
-                    <div><dt data-lang-en="Open to" data-lang-id="Terbuka untuk">Open to</dt><dd data-lang-en="Internship &amp; part-time roles" data-lang-id="Magang &amp; peran paruh waktu">Internship &amp; part-time roles</dd></div>
-                </dl>
-                <p class="intro-links">
-                    <a href="mailto:adityahandriann@gmail.com">Email</a>
-                    <a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-                    <a href="https://github.com/AdityaHandrian" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                    <a href="assets/resume.pdf" target="_blank" class="js-resume-view" data-lang-en="Resume (PDF) ↗" data-lang-id="CV (PDF) ↗">Resume (PDF) ↗</a>
-                </p>
+                    <p class="statement" data-lang-en="I turn business needs into requirements at DOT Indonesia, and I build software on the side, most recently &lt;em&gt;Pelita&lt;/em&gt;, a mobile assistant for visually impaired people that runs object detection entirely on the phone." data-lang-id="Saya menerjemahkan kebutuhan bisnis menjadi requirement di DOT Indonesia, dan membangun perangkat lunak di sela-selanya, terbaru &lt;em&gt;Pelita&lt;/em&gt;, asisten mobile untuk penyandang tunanetra yang menjalankan deteksi objek sepenuhnya di ponsel.">I turn business needs into requirements at DOT Indonesia, and I build software on the side, most recently <em>Pelita</em>, a mobile assistant for visually impaired people that runs object detection entirely on the phone.</p>
+                    <p class="intro-links">
+                        <a href="mailto:adityahandriann@gmail.com">Email</a>
+                        <a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://github.com/AdityaHandrian" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="assets/resume.pdf" target="_blank" class="js-resume-view" data-lang-en="Resume (PDF)" data-lang-id="CV (PDF)">Resume (PDF)</a>
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- EXPERIENCE -->
-        <section class="section wrap" id="experience">
-            <header class="section-head">
-                <span class="sec-eyebrow" data-lang-en="Experience" data-lang-id="Pengalaman">Experience</span>
-                <h2 data-lang-en="where i've worked." data-lang-id="tempat saya berkontribusi.">where i've worked.</h2>
-            </header>
+        <section class="section section--experience" id="experience">
+            <div class="container">
+                <header class="section-head">
+                    <h2 data-lang-en="where i’ve worked." data-lang-id="tempat saya berkontribusi.">where i’ve worked.</h2>
+                </header>
 
-            <h3 class="group-title group-title--work mono" data-lang-en="Work" data-lang-id="Kerja">Work</h3>
-            <ol class="entries">
-                <li class="entry">
-                    <p class="entry-date mono" data-lang-en="Feb 2026 — now" data-lang-id="Feb 2026 — sekarang">Feb 2026 — now</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="Business Analyst Intern" data-lang-id="Magang Business Analyst">Business Analyst Intern</span> <span class="entry-org">DOT Indonesia</span></h4>
-                        <p data-lang-en="Collaborating with stakeholders to gather and document business requirements, ensuring technical solutions align with business objectives. Working closely with cross-functional teams to analyze workflows and support data-driven decision-making." data-lang-id="Berkolaborasi dengan pemangku kepentingan untuk mengumpulkan dan mendokumentasikan kebutuhan bisnis, memastikan solusi teknis selaras dengan tujuan bisnis. Bekerja sama dengan tim lintas fungsi untuk menganalisis alur kerja dan mendukung pengambilan keputusan berbasis data.">Collaborating with stakeholders to gather and document business requirements, ensuring technical solutions align with business objectives. Working closely with cross-functional teams to analyze workflows and support data-driven decision-making.</p>
-                        <p class="entry-tags mono" data-lang-en="Business analysis · Stakeholder management · Documentation" data-lang-id="Analisis bisnis · Manajemen stakeholder · Dokumentasi">Business analysis · Stakeholder management · Documentation</p>
-                    </div>
-                </li>
-                <li class="entry">
-                    <p class="entry-date mono" data-lang-en="Jul — Dec 2025" data-lang-id="Jul — Des 2025">Jul — Dec 2025</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="Event Staff" data-lang-id="Staf Acara">Event Staff</span> <span class="entry-org" data-lang-en="PM-BEM Berdampak 2025, Ministry of Education &amp; Culture" data-lang-id="PM-BEM Berdampak 2025, Kemendikbud">PM-BEM Berdampak 2025, Ministry of Education &amp; Culture</span></h4>
-                        <p data-lang-en="Supported event coordination for a national-level education initiative under Indonesia's Ministry of Education and Culture, contributing to impactful programs that reached communities across East Java." data-lang-id="Mendukung koordinasi acara untuk inisiatif pendidikan tingkat nasional di bawah Kementerian Pendidikan &amp; Kebudayaan RI, berkontribusi pada program-program berdampak yang menjangkau masyarakat di seluruh Jawa Timur.">Supported event coordination for a national-level education initiative under Indonesia's Ministry of Education and Culture, contributing to impactful programs that reached communities across East Java.</p>
-                        <p class="entry-tags mono" data-lang-en="Government · Event coordination · Education" data-lang-id="Pemerintah · Koordinasi acara · Pendidikan">Government · Event coordination · Education</p>
-                    </div>
-                </li>
-            </ol>
-
-            <h3 class="group-title group-title--academic mono" data-lang-en="Academic" data-lang-id="Akademik">Academic</h3>
-            <ol class="entries">
-                <li class="entry">
-                    <p class="entry-date mono" data-lang-en="2023 — now" data-lang-id="2023 — sekarang">2023 — now</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="B.S. Informatics Engineering" data-lang-id="S1 Teknik Informatika">B.S. Informatics Engineering</span> <span class="entry-org">Institut Teknologi Sepuluh Nopember</span></h4>
-                        <p data-lang-en="Pursuing an undergraduate degree in Informatics Engineering with a focus on software engineering, database design, and systems analysis. Maintained active involvement in academic labs and student-led engineering initiatives." data-lang-id="Menempuh pendidikan sarjana S1 Teknik Informatika dengan fokus pada rekayasa perangkat lunak, perancangan basis data, dan analisis sistem. Aktif berpartisipasi dalam laboratorium akademik dan inisiatif rekayasa mahasiswa.">Pursuing an undergraduate degree in Informatics Engineering with a focus on software engineering, database design, and systems analysis. Maintained active involvement in academic labs and student-led engineering initiatives.</p>
-                        <p class="entry-tags mono" data-lang-en="Software engineering · Database systems · Algorithms &amp; data structures" data-lang-id="Rekayasa perangkat lunak · Sistem basis data · Algoritma &amp; struktur data">Software engineering · Database systems · Algorithms &amp; data structures</p>
-                    </div>
-                </li>
-                <li class="entry">
-                    <p class="entry-date mono" data-lang-en="Aug 2025 — Jan 2026" data-lang-id="Agt 2025 — Jan 2026">Aug 2025 — Jan 2026</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="Teaching Assistant, Software Development Concepts" data-lang-id="Asisten Dosen, Konsep Pengembangan Perangkat Lunak">Teaching Assistant, Software Development Concepts</span> <span class="entry-org">ITS</span></h4>
-                        <p data-lang-en="Had the privilege of supporting fellow students in understanding core software development methodologies. Facilitated lab sessions, reviewed assignments, and guided peers through practical exercises, learning just as much as I taught in the process." data-lang-id="Mendapat kehormatan untuk mendukung rekan mahasiswa dalam memahami metodologi inti pengembangan perangkat lunak. Memfasilitasi sesi laboratorium, meninjau tugas, dan membimbing rekan sejawat melalui latihan praktis, belajar sama banyaknya dengan yang saya ajarkan dalam prosesnya.">Had the privilege of supporting fellow students in understanding core software development methodologies. Facilitated lab sessions, reviewed assignments, and guided peers through practical exercises, learning just as much as I taught in the process.</p>
-                        <p class="entry-tags mono" data-lang-en="Mentoring · Software development · Peer learning" data-lang-id="Bimbingan · Pengembangan perangkat lunak · Belajar bersama">Mentoring · Software development · Peer learning</p>
-                    </div>
-                </li>
-                <li class="entry">
-                    <p class="entry-date mono" data-lang-en="Sep — Dec 2025" data-lang-id="Sep — Des 2025">Sep — Dec 2025</p>
-                    <div class="entry-main">
-                        <h4><span>Frontend Web Engineer, MONA</span> <span class="entry-org">ITS</span></h4>
-                        <p data-lang-en="Developed the frontend for MONA, an AI-powered financial management application. Focused on crafting an intuitive, user-friendly interface that makes complex financial data feel approachable and actionable." data-lang-id="Mengembangkan frontend untuk MONA, aplikasi pengelolaan keuangan berbasis AI. Berfokus pada pembuatan antarmuka yang intuitif dan ramah pengguna yang membuat data keuangan kompleks terasa mudah dipahami dan ditindaklanjuti.">Developed the frontend for MONA, an AI-powered financial management application. Focused on crafting an intuitive, user-friendly interface that makes complex financial data feel approachable and actionable.</p>
-                        <p class="entry-tags mono" data-lang-en="Frontend development · AI integration · UI/UX" data-lang-id="Pengembangan frontend · Integrasi AI · UI/UX">Frontend development · AI integration · UI/UX</p>
-                    </div>
-                </li>
-                <li class="entry">
-                    <p class="entry-date mono" data-lang-en="Aug 2025" data-lang-id="Agt 2025">Aug 2025</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="Guest Speaker" data-lang-id="Pembicara Tamu">Guest Speaker</span> <span class="entry-org">ITS CAMP 2025</span></h4>
-                        <p data-lang-en="Presented a session on &quot;Digital Ethics &amp; Wise Communication in the Technology Era&quot; to inspire and educate new students on responsible digital behavior and effective communication." data-lang-id="Mempresentasikan sesi tentang &quot;Etika Digital &amp; Komunikasi Bijak di Era Teknologi&quot; untuk menginspirasi dan mengedukasi mahasiswa baru tentang perilaku digital yang bertanggung jawab dan komunikasi yang efektif.">Presented a session on "Digital Ethics &amp; Wise Communication in the Technology Era" to inspire and educate new students on responsible digital behavior and effective communication.</p>
-                        <p class="entry-tags mono" data-lang-en="Public speaking · Digital ethics · Communication" data-lang-id="Presentasi publik · Etika digital · Komunikasi">Public speaking · Digital ethics · Communication</p>
-                    </div>
-                </li>
-            </ol>
-
-            <h3 class="group-title group-title--org mono" data-lang-en="Organizations" data-lang-id="Organisasi">Organizations</h3>
-            <ol class="entries">
-                <li class="entry">
-                    <p class="entry-date mono" data-lang-en="Mar 2025 — Apr 2026" data-lang-id="Mar 2025 — Apr 2026">Mar 2025 — Apr 2026</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="Staff, Social &amp; Community Affairs Ministry" data-lang-id="Staf Kementerian Sosial &amp; Pengabdian Masyarakat">Staff, Social &amp; Community Affairs Ministry</span> <span class="entry-org">BEM ITS</span></h4>
-                        <p data-lang-en="Contributed to social impact programs under the Student Executive Board of ITS, including serving as &lt;strong&gt;Project Officer for SOCARE 2025&lt;/strong&gt; and &lt;strong&gt;Head of Consumption Division for ITS Mengajar for Indonesia 2025&lt;/strong&gt;." data-lang-id="Berkontribusi pada program dampak sosial di bawah Badan Eksekutif Mahasiswa (BEM) ITS, termasuk menjabat sebagai &lt;strong&gt;Project Officer SOCARE 2025&lt;/strong&gt; dan &lt;strong&gt;Ketua Divisi Konsumsi ITS Mengajar untuk Indonesia 2025&lt;/strong&gt;.">Contributed to social impact programs under the Student Executive Board of ITS, including serving as <strong>Project Officer for SOCARE 2025</strong> and <strong>Head of Consumption Division for ITS Mengajar for Indonesia 2025</strong>.</p>
-                        <p class="entry-tags mono" data-lang-en="Social impact · Project management · Community service" data-lang-id="Dampak sosial · Manajemen proyek · Pengabdian masyarakat">Social impact · Project management · Community service</p>
-                    </div>
-                </li>
-                <li class="entry">
-                    <p class="entry-date mono" data-lang-en="Mar — Aug 2025" data-lang-id="Mar — Agt 2025">Mar — Aug 2025</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="Head of Event Division, INCLENATION 2025" data-lang-id="Ketua Divisi Acara, INCLENATION 2025">Head of Event Division, INCLENATION 2025</span> <span class="entry-org">BEM FTEIC ITS</span></h4>
-                        <p data-lang-en="Led the event planning division, working with a dedicated team to conceptualize, organize, and deliver engaging events. This role taught me a great deal about delegation, creative problem-solving, and the value of empowering team members." data-lang-id="Memimpin divisi perencanaan acara, bekerja dengan tim yang berdedikasi untuk mengonseptualisasikan, menyelenggarakan, dan menyajikan acara-acara yang menarik. Peran ini mengajarkan saya banyak hal tentang delegasi, pemecahan masalah secara kreatif, dan nilai pemberdayaan anggota tim.">Led the event planning division, working with a dedicated team to conceptualize, organize, and deliver engaging events. This role taught me a great deal about delegation, creative problem-solving, and the value of empowering team members.</p>
-                        <p class="entry-tags mono" data-lang-en="Leadership · Event planning · Team empowerment" data-lang-id="Kepemimpinan · Perencanaan acara · Pemberdayaan tim">Leadership · Event planning · Team empowerment</p>
-                    </div>
-                </li>
-                <li class="entry">
-                    <p class="entry-date mono" data-lang-en="Feb 2025 — Feb 2026" data-lang-id="Feb 2025 — Feb 2026">Feb 2025 — Feb 2026</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="Staff, Student Social Development &amp; Mentor" data-lang-id="Staf Pengembangan Sosial Mahasiswa &amp; Mentor">Staff, Student Social Development &amp; Mentor</span> <span class="entry-org">HMTC ITS</span></h4>
-                        <p data-lang-en="Actively contributed to student development programs, including mentoring for &lt;strong&gt;Nawasena&lt;/strong&gt; and organizing &lt;strong&gt;HGTS (HMTC Goes to School) 2025&lt;/strong&gt;, an outreach initiative introducing high school students to computer science." data-lang-id="Berkontribusi aktif dalam program pengembangan mahasiswa, termasuk mentoring untuk &lt;strong&gt;Nawasena&lt;/strong&gt; dan mengorganisir &lt;strong&gt;HGTS (HMTC Goes to School) 2025&lt;/strong&gt;, sebuah inisiatif penjangkauan untuk memperkenalkan ilmu komputer kepada siswa SMA.">Actively contributed to student development programs, including mentoring for <strong>Nawasena</strong> and organizing <strong>HGTS (HMTC Goes to School) 2025</strong>, an outreach initiative introducing high school students to computer science.</p>
-                        <p class="entry-tags mono" data-lang-en="Mentoring · Student outreach · Community" data-lang-id="Bimbingan · Sosialisasi siswa · Komunitas">Mentoring · Student outreach · Community</p>
-                    </div>
-                </li>
-                <li class="entry entry--compact">
-                    <p class="entry-date mono" data-lang-en="Mar — Nov 2024" data-lang-id="Mar — Nov 2024">Mar — Nov 2024</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="Public Relations Staff &amp; MC" data-lang-id="Staf Hubungan Masyarakat &amp; MC">Public Relations Staff &amp; MC</span> <span class="entry-org">Schematics ITS</span></h4>
-                    </div>
-                </li>
-                <li class="entry entry--compact">
-                    <p class="entry-date mono" data-lang-en="Mar — Dec 2024" data-lang-id="Mar — Des 2024">Mar — Dec 2024</p>
-                    <div class="entry-main">
-                        <h4><span data-lang-en="Event Staff" data-lang-id="Staf Acara">Event Staff</span> <span class="entry-org">BEM FTEIC ITS &amp; PAMMITS</span></h4>
-                    </div>
-                </li>
-            </ol>
+                <table class="ledger">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="col-when" data-lang-en="From" data-lang-id="Dari">From</th>
+                            <th scope="col" class="col-when" data-lang-en="To" data-lang-id="Sampai">To</th>
+                            <th scope="col" class="col-role" data-lang-en="Role" data-lang-id="Peran">Role</th>
+                            <th scope="col" data-lang-en="Details" data-lang-id="Rincian">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="group"><th colspan="4" scope="colgroup" data-lang-en="Work" data-lang-id="Kerja">Work</th></tr>
+                        <tr class="entry">
+                            <td class="when" data-lang-en="Feb 2026" data-lang-id="Feb 2026">Feb 2026</td>
+                            <td class="when" data-lang-en="now" data-lang-id="sekarang">now</td>
+                            <td class="role"><span data-lang-en="Business Analyst Intern" data-lang-id="Magang Business Analyst">Business Analyst Intern</span> <span class="org">DOT Indonesia</span></td>
+                            <td class="notes" data-lang-en="Gathering and documenting business requirements with stakeholders, and analysing workflows with cross-functional teams." data-lang-id="Mengumpulkan dan mendokumentasikan kebutuhan bisnis bersama stakeholder, serta menganalisis alur kerja bersama tim lintas fungsi.">Gathering and documenting business requirements with stakeholders, and analysing workflows with cross-functional teams.</td>
+                        </tr>
+                        <tr class="entry">
+                            <td class="when" data-lang-en="Jul 2025" data-lang-id="Jul 2025">Jul 2025</td>
+                            <td class="when" data-lang-en="Dec 2025" data-lang-id="Des 2025">Dec 2025</td>
+                            <td class="role"><span data-lang-en="Event Staff" data-lang-id="Staf Acara">Event Staff</span> <span class="org" data-lang-en="PM-BEM Berdampak 2025, Ministry of Education &amp; Culture" data-lang-id="PM-BEM Berdampak 2025, Kemendikbud">PM-BEM Berdampak 2025, Ministry of Education &amp; Culture</span></td>
+                            <td class="notes" data-lang-en="Event coordination for a national education programme that reached communities across East Java." data-lang-id="Koordinasi acara untuk program pendidikan nasional yang menjangkau masyarakat di seluruh Jawa Timur.">Event coordination for a national education programme that reached communities across East Java.</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr class="group"><th colspan="4" scope="colgroup" data-lang-en="Academic" data-lang-id="Akademik">Academic</th></tr>
+                        <tr class="entry">
+                            <td class="when">2023</td>
+                            <td class="when" data-lang-en="now" data-lang-id="sekarang">now</td>
+                            <td class="role"><span data-lang-en="B.S. Informatics Engineering" data-lang-id="S1 Teknik Informatika">B.S. Informatics Engineering</span> <span class="org">Institut Teknologi Sepuluh Nopember</span></td>
+                            <td class="notes" data-lang-en="Software engineering, database design and systems analysis." data-lang-id="Rekayasa perangkat lunak, perancangan basis data, dan analisis sistem.">Software engineering, database design and systems analysis.</td>
+                        </tr>
+                        <tr class="entry">
+                            <td class="when" data-lang-en="Aug 2025" data-lang-id="Agt 2025">Aug 2025</td>
+                            <td class="when">Jan 2026</td>
+                            <td class="role"><span data-lang-en="Teaching Assistant, Software Development Concepts" data-lang-id="Asisten Dosen, Konsep Pengembangan Perangkat Lunak">Teaching Assistant, Software Development Concepts</span> <span class="org">ITS</span></td>
+                            <td class="notes" data-lang-en="Ran lab sessions, reviewed assignments and guided students through core software development methods." data-lang-id="Memandu sesi laboratorium, meninjau tugas, dan membimbing mahasiswa memahami metodologi inti pengembangan perangkat lunak.">Ran lab sessions, reviewed assignments and guided students through core software development methods.</td>
+                        </tr>
+                        <tr class="entry">
+                            <td class="when">Sep 2025</td>
+                            <td class="when" data-lang-en="Dec 2025" data-lang-id="Des 2025">Dec 2025</td>
+                            <td class="role"><span>Frontend Web Engineer, MONA</span> <span class="org">ITS</span></td>
+                            <td class="notes" data-lang-en="Built the frontend of MONA, an AI-powered personal finance app." data-lang-id="Membangun frontend MONA, aplikasi keuangan pribadi berbasis AI.">Built the frontend of MONA, an AI-powered personal finance app.</td>
+                        </tr>
+                        <tr class="entry">
+                            <td class="when" data-lang-en="Aug 2025" data-lang-id="Agt 2025">Aug 2025</td>
+                            <td class="when"></td>
+                            <td class="role"><span data-lang-en="Guest Speaker" data-lang-id="Pembicara Tamu">Guest Speaker</span> <span class="org"><abbr>ITS CAMP</abbr> 2025</span></td>
+                            <td class="notes" data-lang-en="A session for new students on “Digital Ethics &amp; Wise Communication in the Technology Era”." data-lang-id="Sesi untuk mahasiswa baru tentang “Etika Digital &amp; Komunikasi Bijak di Era Teknologi”.">A session for new students on “Digital Ethics &amp; Wise Communication in the Technology Era”.</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr class="group"><th colspan="4" scope="colgroup" data-lang-en="Organizations" data-lang-id="Organisasi">Organizations</th></tr>
+                        <tr class="entry">
+                            <td class="when">Mar 2025</td>
+                            <td class="when">Apr 2026</td>
+                            <td class="role"><span data-lang-en="Staff, Social &amp; Community Affairs Ministry" data-lang-id="Staf Kementerian Sosial &amp; Pengabdian Masyarakat">Staff, Social &amp; Community Affairs Ministry</span> <span class="org"><abbr>BEM ITS</abbr></span></td>
+                            <td class="notes" data-lang-en="Project Officer for SOCARE 2025, and Head of Consumption for ITS Mengajar for Indonesia 2025." data-lang-id="Project Officer SOCARE 2025, dan Ketua Divisi Konsumsi ITS Mengajar untuk Indonesia 2025.">Project Officer for SOCARE 2025, and Head of Consumption for ITS Mengajar for Indonesia 2025.</td>
+                        </tr>
+                        <tr class="entry">
+                            <td class="when">Mar 2025</td>
+                            <td class="when" data-lang-en="Aug 2025" data-lang-id="Agt 2025">Aug 2025</td>
+                            <td class="role"><span data-lang-en="Head of Event Division, INCLENATION 2025" data-lang-id="Ketua Divisi Acara, INCLENATION 2025">Head of Event Division, INCLENATION 2025</span> <span class="org"><abbr>BEM FTEIC ITS</abbr></span></td>
+                            <td class="notes" data-lang-en="Led the event division from concept to delivery." data-lang-id="Memimpin divisi acara dari konsep hingga pelaksanaan.">Led the event division from concept to delivery.</td>
+                        </tr>
+                        <tr class="entry">
+                            <td class="when">Feb 2025</td>
+                            <td class="when">Feb 2026</td>
+                            <td class="role"><span data-lang-en="Staff, Student Social Development &amp; Mentor" data-lang-id="Staf Pengembangan Sosial Mahasiswa &amp; Mentor">Staff, Student Social Development &amp; Mentor</span> <span class="org"><abbr>HMTC ITS</abbr></span></td>
+                            <td class="notes" data-lang-en="Mentor for Nawasena, and organiser of HGTS (HMTC Goes to School) 2025, introducing high school students to computer science." data-lang-id="Mentor Nawasena, dan panitia HGTS (HMTC Goes to School) 2025 yang memperkenalkan ilmu komputer kepada siswa SMA.">Mentor for Nawasena, and organiser of HGTS (HMTC Goes to School) 2025, introducing high school students to computer science.</td>
+                        </tr>
+                        <tr class="entry">
+                            <td class="when">Mar 2024</td>
+                            <td class="when">Nov 2024</td>
+                            <td class="role"><span data-lang-en="Public Relations Staff &amp; MC" data-lang-id="Staf Hubungan Masyarakat &amp; MC">Public Relations Staff &amp; MC</span> <span class="org">Schematics ITS</span></td>
+                            <td class="notes"></td>
+                        </tr>
+                        <tr class="entry">
+                            <td class="when">Mar 2024</td>
+                            <td class="when" data-lang-en="Dec 2024" data-lang-id="Des 2024">Dec 2024</td>
+                            <td class="role"><span data-lang-en="Event Staff" data-lang-id="Staf Acara">Event Staff</span> <span class="org"><abbr>BEM FTEIC ITS</abbr> &amp; <abbr>PAMMITS</abbr></span></td>
+                            <td class="notes"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <!-- RESEARCH -->
-        <section class="section wrap" id="research">
-            <header class="section-head">
-                <span class="sec-eyebrow" data-lang-en="Research" data-lang-id="Riset">Research</span>
-                <h2 data-lang-en="what i'm researching." data-lang-id="yang sedang saya teliti.">what i'm researching.</h2>
-            </header>
-
-            <article class="thesis">
-                <div class="thesis-head">
-                    <div class="thesis-head__text">
-                        <p class="thesis-status mono"><span data-lang-en="Undergraduate thesis" data-lang-id="Tugas Akhir">Undergraduate thesis</span><span data-lang-en="Proposal stage · Oct 2026" data-lang-id="Tahap proposal · Okt 2026">Proposal stage · Oct 2026</span></p>
+        <section class="section section--research" id="research">
+            <div class="container">
+                <header class="research-head">
+                    <h2 data-lang-en="what i’m researching." data-lang-id="yang sedang saya teliti.">what i’m researching.</h2>
+                    <div class="thesis-intro">
+                        <p class="thesis-status" data-lang-en="Undergraduate thesis, proposal stage, Oct 2026" data-lang-id="Tugas Akhir, tahap proposal, Okt 2026">Undergraduate thesis, proposal stage, Oct 2026</p>
                         <h3 class="thesis-title" data-lang-en="Temporal and seasonal fashion trend identification from runway images, using zero-shot attribute extraction with vision-language models and style clustering" data-lang-id="Identifikasi tren fesyen temporal dan musiman dari gambar runway menggunakan ekstraksi atribut zero-shot berbasis vision-language models dan klasterisasi gaya">Temporal and seasonal fashion trend identification from runway images, using zero-shot attribute extraction with vision-language models and style clustering</h3>
                     </div>
+                </header>
+
+                <figure class="sheet thesis-figures">
+                    <button type="button" class="thesis-thumb" data-cursor="view" data-album="research" data-index="0">
+                        <img src="assets/research/style-clusters.jpg" alt="" loading="lazy" width="1587" height="1375">
+                        <span data-lang-en="Style clusters on UMAP (PCA + K-Means, 17 clusters)" data-lang-id="Klaster gaya pada UMAP (PCA + K-Means, 17 klaster)">Style clusters on UMAP (PCA + K-Means, 17 clusters)</span>
+                    </button>
+                    <button type="button" class="thesis-thumb" data-cursor="view" data-album="research" data-index="1">
+                        <img src="assets/research/cluster-trends.jpg" alt="" loading="lazy" width="1400" height="1219">
+                        <span data-lang-en="Cluster popularity per year, 2019 to 2023" data-lang-id="Popularitas klaster per tahun, 2019 hingga 2023">Cluster popularity per year, 2019 to 2023</span>
+                    </button>
+                    <figcaption>
+                        <span data-lang-en="Preliminary results" data-lang-id="Hasil awal">Preliminary results</span>
+                        <button type="button" class="thesis-figures__more" data-album="research" data-index="2" data-lang-en="+2 more charts" data-lang-id="+2 grafik lain">+2 more charts</button>
+                    </figcaption>
+                </figure>
+
+                <div class="thesis-body">
                     <figure class="thesis-samples">
                         <div class="thesis-samples__row">
                             <button type="button" class="thesis-sample" data-cursor="view" data-album="dataset" data-index="0" data-sample-img="assets/research/sample-spring.jpg" data-sample-brand="Alberta Ferretti" data-sample-season="Spring 2021">
-                                <img src="assets/research/sample-spring.jpg" alt="Alberta Ferretti, Spring 2021 — runway look" loading="lazy" width="480" height="720">
-                                <span class="mono">Spring</span>
+                                <img src="assets/research/sample-spring.jpg" alt="Alberta Ferretti, Spring 2021, runway look" loading="lazy" width="480" height="720">
+                                <span>Spring</span>
                             </button>
                             <button type="button" class="thesis-sample" data-cursor="view" data-album="dataset" data-index="1" data-sample-img="assets/research/sample-fall.jpg" data-sample-brand="Jil Sander" data-sample-season="Fall 2023">
-                                <img src="assets/research/sample-fall.jpg" alt="Jil Sander, Fall 2023 — runway look" loading="lazy" width="480" height="720">
-                                <span class="mono">Fall</span>
+                                <img src="assets/research/sample-fall.jpg" alt="Jil Sander, Fall 2023, runway look" loading="lazy" width="480" height="720">
+                                <span>Fall</span>
                             </button>
                             <button type="button" class="thesis-sample" data-cursor="view" data-album="dataset" data-index="2" data-sample-img="assets/research/sample-resort.jpg" data-sample-brand="Max Mara" data-sample-season="Resort 2023">
-                                <img src="assets/research/sample-resort.jpg" alt="Max Mara, Resort 2023 — runway look" loading="lazy" width="480" height="720">
-                                <span class="mono">Resort</span>
+                                <img src="assets/research/sample-resort.jpg" alt="Max Mara, Resort 2023, runway look" loading="lazy" width="480" height="720">
+                                <span>Resort</span>
                             </button>
                             <button type="button" class="thesis-sample" data-cursor="view" data-album="dataset" data-index="3" data-sample-img="assets/research/sample-prefall.jpg" data-sample-brand="Christian Dior" data-sample-season="Pre-Fall 2022">
-                                <img src="assets/research/sample-prefall.jpg" alt="Christian Dior, Pre-Fall 2022 — runway look" loading="lazy" width="480" height="720">
-                                <span class="mono">Pre-Fall</span>
+                                <img src="assets/research/sample-prefall.jpg" alt="Christian Dior, Pre-Fall 2022, runway look" loading="lazy" width="480" height="720">
+                                <span>Pre-Fall</span>
                             </button>
                         </div>
-                        <figcaption class="mono" data-lang-en="Dataset samples, one per season · Vogue Runway" data-lang-id="Contoh dataset, satu per musim · Vogue Runway">Dataset samples, one per season · Vogue Runway</figcaption>
+                        <figcaption data-lang-en="Dataset samples from Vogue Runway, one per season." data-lang-id="Contoh dataset dari Vogue Runway, satu per musim.">Dataset samples from Vogue Runway, one per season.</figcaption>
                     </figure>
-                </div>
 
-                <div class="thesis-body">
-                    <p data-lang-en="Runway images carry rich visual design information, but there are far too many of them to analyze by hand without bias. This research identifies fashion trends automatically: a vision-language model reads design attributes straight from the images without task-specific training, the results are grouped into style clusters, and each attribute and style is tracked across seasons." data-lang-id="Gambar runway menyimpan informasi desain visual yang kaya, tetapi jumlahnya terlalu besar untuk dianalisis manual tanpa bias. Riset ini mengidentifikasi tren fesyen secara otomatis: vision-language model membaca atribut desain langsung dari gambar tanpa pelatihan khusus, hasilnya dikelompokkan menjadi klaster gaya, lalu setiap atribut dan gaya dilacak lintas musim.">Runway images carry rich visual design information, but there are far too many of them to analyze by hand without bias. This research identifies fashion trends automatically: a vision-language model reads design attributes straight from the images without task-specific training, the results are grouped into style clusters, and each attribute and style is tracked across seasons.</p>
-                    <p data-lang-en="The goal is a list of the clothing styles and attributes that trended in 2019–2023, obtained without a large labeled dataset." data-lang-id="Targetnya adalah daftar gaya pakaian dan atribut fesyen yang menjadi tren pada 2019–2023, diperoleh tanpa dataset berlabel dalam jumlah besar.">The goal is a list of the clothing styles and attributes that trended in 2019–2023, obtained without a large labeled dataset.</p>
-                    <dl class="project-details">
-                        <div><dt data-lang-en="Advisor" data-lang-id="Pembimbing">Advisor</dt><dd>Shintami Chusnul Hidayati, Ph.D.</dd></div>
-                        <div><dt data-lang-en="Keywords" data-lang-id="Kata kunci">Keywords</dt><dd data-lang-en="Fashion, clustering, runway, vision-language models, zero-shot" data-lang-id="Fesyen, klasterisasi, runway, vision-language models, zero-shot">Fashion, clustering, runway, vision-language models, zero-shot</dd></div>
-                    </dl>
+                    <div class="thesis-text">
+                        <p data-lang-en="Runway images carry rich visual design information, but there are far too many of them to analyze by hand without bias. This research identifies fashion trends automatically: a vision-language model reads design attributes straight from the images without task-specific training, the results are grouped into style clusters, and each attribute and style is tracked across seasons." data-lang-id="Gambar runway menyimpan informasi desain visual yang kaya, tetapi jumlahnya terlalu besar untuk dianalisis manual tanpa bias. Riset ini mengidentifikasi tren fesyen secara otomatis: vision-language model membaca atribut desain langsung dari gambar tanpa pelatihan khusus, hasilnya dikelompokkan menjadi klaster gaya, lalu setiap atribut dan gaya dilacak lintas musim.">Runway images carry rich visual design information, but there are far too many of them to analyze by hand without bias. This research identifies fashion trends automatically: a vision-language model reads design attributes straight from the images without task-specific training, the results are grouped into style clusters, and each attribute and style is tracked across seasons.</p>
+                        <p data-lang-en="The goal is a list of the clothing styles and attributes that trended from 2019 to 2023, obtained without a large labeled dataset." data-lang-id="Targetnya adalah daftar gaya pakaian dan atribut fesyen yang menjadi tren pada 2019 hingga 2023, diperoleh tanpa dataset berlabel dalam jumlah besar.">The goal is a list of the clothing styles and attributes that trended from 2019 to 2023, obtained without a large labeled dataset.</p>
+                        <dl class="details">
+                            <div><dt data-lang-en="Advisor" data-lang-id="Pembimbing">Advisor</dt><dd>Shintami Chusnul Hidayati, Ph.D.</dd></div>
+                            <div><dt data-lang-en="Keywords" data-lang-id="Kata kunci">Keywords</dt><dd data-lang-en="Fashion, clustering, runway, vision-language models, zero-shot" data-lang-id="Fesyen, klasterisasi, runway, vision-language models, zero-shot">Fashion, clustering, runway, vision-language models, zero-shot</dd></div>
+                        </dl>
+                    </div>
                 </div>
+            </div>
 
-                <ol class="pipeline">
-                    <li>
-                        <span class="pipeline-step mono">1 · Data</span>
-                        <p class="pipeline-figure">16,298 → 14,401</p>
-                        <p data-lang-en="Women's ready-to-wear looks from Vogue Runway, 2019–2023: 19 brands that showed in all four seasons every year, filtered down." data-lang-id="Busana wanita siap pakai dari Vogue Runway, 2019–2023: 19 brand yang tampil di keempat musim setiap tahun, lalu disaring.">Women's ready-to-wear looks from Vogue Runway, 2019–2023: 19 brands that showed in all four seasons every year, filtered down.</p>
-                    </li>
-                    <li>
-                        <span class="pipeline-step mono" data-lang-en="2 · Attributes" data-lang-id="2 · Atribut">2 · Attributes</span>
-                        <p class="pipeline-figure">CLIP · SigLIP · MLLM</p>
-                        <p data-lang-en="Zero-shot extraction of 9 attribute categories adapted from Fashionpedia, using prompt ensembles and ontology-constrained prompting. Models are combined by majority and weighted voting, scored with Macro F1 against manual labels." data-lang-id="Ekstraksi zero-shot 9 kategori atribut yang diadaptasi dari Fashionpedia, dengan prompt ensemble dan ontology-constrained prompting. Model digabung lewat majority dan weighted voting, dievaluasi dengan Macro F1 terhadap anotasi manual.">Zero-shot extraction of 9 attribute categories adapted from Fashionpedia, using prompt ensembles and ontology-constrained prompting. Models are combined by majority and weighted voting, scored with Macro F1 against manual labels.</p>
-                    </li>
-                    <li>
-                        <span class="pipeline-step mono" data-lang-en="3 · Styles" data-lang-id="3 · Gaya">3 · Styles</span>
-                        <p class="pipeline-figure">PCA / UMAP × K-Means / HDBSCAN</p>
-                        <p data-lang-en="Dimensionality reduction and clustering combinations are compared to group the attribute representations into style clusters." data-lang-id="Kombinasi reduksi dimensi dan klasterisasi dibandingkan untuk mengelompokkan representasi atribut menjadi klaster gaya.">Dimensionality reduction and clustering combinations are compared to group the attribute representations into style clusters.</p>
-                    </li>
-                    <li>
-                        <span class="pipeline-step mono" data-lang-en="4 · Trends" data-lang-id="4 · Tren">4 · Trends</span>
-                        <p class="pipeline-figure" data-lang-en="5 trajectory types" data-lang-id="5 jenis lintasan">5 trajectory types</p>
-                        <p data-lang-en="Each attribute's and style's popularity over time is labeled emerging, declining, stable, seasonal, or volatile." data-lang-id="Popularitas setiap atribut dan gaya dari waktu ke waktu dikategorikan sebagai emerging, declining, stable, seasonal, atau volatile.">Each attribute's and style's popularity over time is labeled emerging, declining, stable, seasonal, or volatile.</p>
-                    </li>
-                </ol>
-
-                <div class="thesis-figures">
-                    <p class="thesis-figures__label mono" data-lang-en="Preliminary results" data-lang-id="Hasil awal">Preliminary results</p>
-                    <button type="button" class="thesis-thumb" data-cursor="view" data-album="research" data-index="0">
-                        <img src="assets/research/style-clusters.jpg" alt="" loading="lazy">
-                        <span data-lang-en="Style clusters on UMAP — PCA + K-Means, 17 clusters" data-lang-id="Klaster gaya pada UMAP — PCA + K-Means, 17 klaster">Style clusters on UMAP — PCA + K-Means, 17 clusters</span>
-                    </button>
-                    <button type="button" class="thesis-thumb" data-cursor="view" data-album="research" data-index="1">
-                        <img src="assets/research/cluster-trends.jpg" alt="" loading="lazy">
-                        <span data-lang-en="Cluster popularity per year, 2019–2023" data-lang-id="Popularitas klaster per tahun, 2019–2023">Cluster popularity per year, 2019–2023</span>
-                    </button>
-                    <button type="button" class="thesis-figures__more mono" data-album="research" data-index="2" data-lang-en="+2 more charts" data-lang-id="+2 grafik lain">+2 more charts</button>
+            <div class="band-ink">
+                <div class="container">
+                    <ol class="pipeline">
+                        <li>
+                            <h4 class="pipeline-step">Data</h4>
+                            <p class="pipeline-figure">16,298 → 14,401</p>
+                            <p data-lang-en="Women’s ready-to-wear looks from Vogue Runway, 2019 to 2023: 19 brands that showed in all four seasons every year, filtered down." data-lang-id="Busana wanita siap pakai dari Vogue Runway, 2019 hingga 2023: 19 brand yang tampil di keempat musim setiap tahun, lalu disaring.">Women’s ready-to-wear looks from Vogue Runway, 2019 to 2023: 19 brands that showed in all four seasons every year, filtered down.</p>
+                        </li>
+                        <li>
+                            <h4 class="pipeline-step" data-lang-en="Attributes" data-lang-id="Atribut">Attributes</h4>
+                            <p class="pipeline-figure">CLIP, SigLIP, MLLM</p>
+                            <p data-lang-en="Zero-shot extraction of 9 attribute categories adapted from Fashionpedia, using prompt ensembles and ontology-constrained prompting. Models are combined by majority and weighted voting, scored with Macro F1 against manual labels." data-lang-id="Ekstraksi zero-shot 9 kategori atribut yang diadaptasi dari Fashionpedia, dengan prompt ensemble dan ontology-constrained prompting. Model digabung lewat majority dan weighted voting, dievaluasi dengan Macro F1 terhadap anotasi manual.">Zero-shot extraction of 9 attribute categories adapted from Fashionpedia, using prompt ensembles and ontology-constrained prompting. Models are combined by majority and weighted voting, scored with Macro F1 against manual labels.</p>
+                        </li>
+                        <li>
+                            <h4 class="pipeline-step" data-lang-en="Styles" data-lang-id="Gaya">Styles</h4>
+                            <p class="pipeline-figure">PCA / UMAP × K-Means / HDBSCAN</p>
+                            <p data-lang-en="Dimensionality reduction and clustering combinations are compared to group the attribute representations into style clusters." data-lang-id="Kombinasi reduksi dimensi dan klasterisasi dibandingkan untuk mengelompokkan representasi atribut menjadi klaster gaya.">Dimensionality reduction and clustering combinations are compared to group the attribute representations into style clusters.</p>
+                        </li>
+                        <li>
+                            <h4 class="pipeline-step" data-lang-en="Trends" data-lang-id="Tren">Trends</h4>
+                            <p class="pipeline-figure" data-lang-en="5 trajectory types" data-lang-id="5 jenis lintasan">5 trajectory types</p>
+                            <p data-lang-en="Each attribute’s and style’s popularity over time is labeled emerging, declining, stable, seasonal, or volatile." data-lang-id="Popularitas setiap atribut dan gaya dari waktu ke waktu dikategorikan sebagai emerging, declining, stable, seasonal, atau volatile.">Each attribute’s and style’s popularity over time is labeled emerging, declining, stable, seasonal, or volatile.</p>
+                        </li>
+                    </ol>
                 </div>
-            </article>
+            </div>
         </section>
 
         <!-- PROJECTS -->
-        <section class="section wrap" id="projects">
-            <header class="section-head">
-                <span class="sec-eyebrow" data-lang-en="Projects" data-lang-id="Proyek">Projects</span>
-                <h2 data-lang-en="things i've built." data-lang-id="yang pernah saya bangun.">things i've built.</h2>
-            </header>
+        <section class="section section--projects" id="projects">
+            <div class="container">
+                <header class="section-head">
+                    <h2 data-lang-en="things i’ve built." data-lang-id="yang pernah saya bangun.">things i’ve built.</h2>
+                </header>
 
-            <article class="project">
-                <div class="project-shots project-shots--phone">
-                    <button type="button" class="shot" data-cursor="view" data-album="project-pelita" data-index="0"><img src="assets/Project/Pelita/d7e94b10-2734-49cf-8708-bcc07bcc9039.jpg" alt="Pelita app screenshot 1" loading="lazy"></button>
-                    <button type="button" class="shot" data-cursor="view" data-album="project-pelita" data-index="1"><img src="assets/Project/Pelita/b0dc643f-a807-4aff-bc85-608408d337e7.jpg" alt="Pelita app screenshot 2" loading="lazy"></button>
-                    <button type="button" class="shot" data-cursor="view" data-album="project-pelita" data-index="2"><img src="assets/Project/Pelita/8415ea43-351f-4734-b07c-0012fa416c3e.jpg" alt="Pelita app screenshot 3" loading="lazy"></button>
-                </div>
-                <div class="project-text">
-                    <p class="project-meta mono"><span>Flutter</span><span data-lang-en="Mobile · Edge AI" data-lang-id="Mobile · Edge AI">Mobile · Edge AI</span></p>
-                    <h3>Pelita <span class="project-sub" data-lang-en="Accessibility superapp" data-lang-id="Superapp aksesibilitas">Accessibility superapp</span></h3>
-                    <p class="project-tagline" data-lang-en="Voice &amp; haptic guided assistant for the visually impaired." data-lang-id="Asisten panduan suara &amp; haptic untuk tunanetra.">Voice &amp; haptic guided assistant for the visually impaired.</p>
-                    <p data-lang-en="An accessibility superapp designed for visually impaired users. Features a custom tactile GestureShell loop navigation engine, on-device Edge AI using TensorFlow Lite for real-time object detection (Quantized MobileNet SSD) and Google ML Kit for Text/Banknote Recognition, and a telemetry-based safety service that uses accelerometer sensors to detect falls or panic states to trigger emergency GPS messages." data-lang-id="Superapp aksesibilitas yang dirancang untuk pengguna tunanetra. Menampilkan mesin navigasi loop taktil GestureShell kustom, Edge AI langsung di perangkat menggunakan TensorFlow Lite untuk deteksi objek real-time (Quantized MobileNet SSD) dan Google ML Kit untuk Pengenalan Teks/Uang Kertas, serta layanan keselamatan berbasis telemetri yang menggunakan sensor akselerometer untuk mendeteksi jatuh atau kondisi panik guna memicu pesan GPS darurat.">An accessibility superapp designed for visually impaired users. Features a custom tactile GestureShell loop navigation engine, on-device Edge AI using TensorFlow Lite for real-time object detection (Quantized MobileNet SSD) and Google ML Kit for Text/Banknote Recognition, and a telemetry-based safety service that uses accelerometer sensors to detect falls or panic states to trigger emergency GPS messages.</p>
-                    <dl class="project-details">
-                        <div><dt data-lang-en="Result" data-lang-id="Hasil">Result</dt><dd data-lang-en="Object detection, text and banknote recognition all run on-device (TFLite, ML Kit)" data-lang-id="Deteksi objek, pengenalan teks dan uang kertas berjalan di perangkat (TFLite, ML Kit)">Object detection, text and banknote recognition all run on-device (TFLite, ML Kit)</dd></div>
-                        <div><dt data-lang-en="Role" data-lang-id="Peran">Role</dt><dd data-lang-en="Lead Mobile &amp; AI Developer" data-lang-id="Pengembang Mobile &amp; AI Utama">Lead Mobile &amp; AI Developer</dd></div>
-                        <div><dt>Stack</dt><dd>Flutter, Dart, TFLite, Google ML Kit, Riverpod, Isar DB</dd></div>
-                    </dl>
-                    <a class="project-link" href="https://github.com/AdityaHandrian/Pelita" target="_blank" rel="noopener noreferrer" data-lang-en="Source on GitHub ↗" data-lang-id="Kode sumber di GitHub ↗">Source on GitHub ↗</a>
-                </div>
-            </article>
+                <article class="project project--pelita">
+                    <div class="project-text">
+                        <h3>Pelita</h3>
+                        <p class="project-sub" data-lang-en="Accessibility superapp" data-lang-id="Superapp aksesibilitas">Accessibility superapp</p>
+                        <p class="project-meta"><span>Flutter</span><span data-lang-en="Mobile, Edge AI" data-lang-id="Mobile, Edge AI">Mobile, Edge AI</span></p>
+                        <p class="project-tagline" data-lang-en="Voice &amp; haptic guided assistant for the visually impaired." data-lang-id="Asisten panduan suara &amp; haptic untuk tunanetra.">Voice &amp; haptic guided assistant for the visually impaired.</p>
+                        <p data-lang-en="A tactile GestureShell loop for navigation, real-time object detection with a quantized MobileNet SSD on TensorFlow Lite, text and banknote recognition with Google ML Kit, and fall detection that sends an emergency GPS message." data-lang-id="Navigasi loop taktil GestureShell, deteksi objek real-time dengan Quantized MobileNet SSD di TensorFlow Lite, pengenalan teks dan uang kertas dengan Google ML Kit, serta deteksi jatuh yang mengirim pesan GPS darurat.">A tactile GestureShell loop for navigation, real-time object detection with a quantized MobileNet SSD on TensorFlow Lite, text and banknote recognition with Google ML Kit, and fall detection that sends an emergency GPS message.</p>
+                        <dl class="details">
+                            <div><dt data-lang-en="Result" data-lang-id="Hasil">Result</dt><dd data-lang-en="Object detection, text and banknote recognition all run on-device (TFLite, ML Kit)" data-lang-id="Deteksi objek, pengenalan teks dan uang kertas berjalan di perangkat (TFLite, ML Kit)">Object detection, text and banknote recognition all run on-device (TFLite, ML Kit)</dd></div>
+                            <div><dt data-lang-en="Role" data-lang-id="Peran">Role</dt><dd data-lang-en="Lead Mobile &amp; AI Developer" data-lang-id="Pengembang Mobile &amp; AI Utama">Lead Mobile &amp; AI Developer</dd></div>
+                            <div><dt>Stack</dt><dd>Flutter, Dart, TFLite, Google ML Kit, Riverpod, Isar DB</dd></div>
+                        </dl>
+                        <a class="project-link" href="https://github.com/AdityaHandrian/Pelita" target="_blank" rel="noopener noreferrer" data-lang-en="Source on GitHub" data-lang-id="Kode sumber di GitHub">Source on GitHub</a>
+                    </div>
+                    <div class="project-shots project-shots--phone">
+                        <button type="button" class="shot" data-cursor="view" data-album="project-pelita" data-index="0" data-kind="product"><img src="assets/Project/Pelita/d7e94b10-2734-49cf-8708-bcc07bcc9039.jpg" alt="Pelita app screenshot 1" loading="lazy" width="782" height="1600"></button>
+                        <button type="button" class="shot" data-cursor="view" data-album="project-pelita" data-index="1" data-kind="product"><img src="assets/Project/Pelita/b0dc643f-a807-4aff-bc85-608408d337e7.jpg" alt="Pelita app screenshot 2" loading="lazy" width="782" height="1600"></button>
+                        <button type="button" class="shot" data-cursor="view" data-album="project-pelita" data-index="2" data-kind="product"><img src="assets/Project/Pelita/8415ea43-351f-4734-b07c-0012fa416c3e.jpg" alt="Pelita app screenshot 3" loading="lazy" width="782" height="1600"></button>
+                    </div>
+                </article>
 
-            <article class="project">
-                <div class="project-shots project-shots--wide">
-                    <button type="button" class="shot" data-cursor="view" data-album="project-mona" data-index="0"><img src="assets/Project/Mona/image.png" alt="MONA dashboard screenshot" loading="lazy"></button>
-                    <button type="button" class="shot" data-cursor="view" data-album="project-mona" data-index="1"><img src="assets/Project/Mona/image (1).png" alt="MONA screenshot" loading="lazy"></button>
-                </div>
-                <div class="project-text">
-                    <p class="project-meta mono"><span>2025</span><span data-lang-en="Web · AI" data-lang-id="Web · AI">Web · AI</span></p>
-                    <h3>MONA <span class="project-sub">Money Assistant</span></h3>
-                    <p class="project-tagline" data-lang-en="Your intelligent personal finance companion." data-lang-id="Asisten finansial pribadi cerdas Anda.">Your intelligent personal finance companion.</p>
-                    <p data-lang-en="MONA is an intelligent personal finance companion designed to help users take complete control of their financial future. Built with modern technology and user-centric design, MONA makes managing money simple, secure, and insightful. Contributed as a Frontend Web Engineer, crafting the interface that brings complex financial data to life." data-lang-id="MONA adalah asisten keuangan pribadi cerdas yang dirancang untuk membantu pengguna mengendalikan masa depan finansial mereka. Dibangun dengan teknologi modern dan desain yang berpusat pada pengguna, MONA membuat pengelolaan uang menjadi sederhana, aman, dan berwawasan luas. Berkontribusi sebagai Frontend Web Engineer, merancang antarmuka yang menghidupkan data keuangan yang kompleks.">MONA is an intelligent personal finance companion designed to help users take complete control of their financial future. Built with modern technology and user-centric design, MONA makes managing money simple, secure, and insightful. Contributed as a Frontend Web Engineer, crafting the interface that brings complex financial data to life.</p>
-                    <dl class="project-details">
-                        <div><dt data-lang-en="Result" data-lang-id="Hasil">Result</dt><dd data-lang-en="Live, hosted by ITS at senopati.its.ac.id" data-lang-id="Sudah live, di-hosting ITS di senopati.its.ac.id">Live, hosted by ITS at senopati.its.ac.id</dd></div>
-                        <div><dt data-lang-en="Role" data-lang-id="Peran">Role</dt><dd>Frontend Web Engineer</dd></div>
-                        <div><dt data-lang-en="Scope" data-lang-id="Lingkup">Scope</dt><dd data-lang-en="Frontend engineering, AI integration, UI/UX, FinTech" data-lang-id="Rekayasa frontend, integrasi AI, UI/UX, FinTech">Frontend engineering, AI integration, UI/UX, FinTech</dd></div>
-                    </dl>
-                    <a class="project-link" href="https://senopati.its.ac.id/mona" target="_blank" rel="noopener noreferrer" data-lang-en="Visit senopati.its.ac.id/mona ↗" data-lang-id="Kunjungi senopati.its.ac.id/mona ↗">Visit senopati.its.ac.id/mona ↗</a>
-                </div>
-            </article>
+                <article class="project project--rbsm">
+                    <div class="project-text">
+                        <h3>Chain Transfer RBSM</h3>
+                        <p class="project-sub" data-lang-en="Transportation problem heuristic" data-lang-id="Heuristik masalah transportasi">Transportation problem heuristic</p>
+                        <p class="project-meta"><span>2026</span><span data-lang-en="Operations research, C++" data-lang-id="Riset operasi, C++">Operations research, C++</span></p>
+                        <p class="project-tagline" data-lang-en="One extra move that lets RBSM reach the optimal cost far more often." data-lang-id="Satu langkah tambahan yang membuat RBSM jauh lebih sering mencapai biaya optimal.">One extra move that lets RBSM reach the optimal cost far more often.</p>
+                        <p data-lang-en="RBSM only moves excess units straight from an over-allocated row to an under-allocated one. Our change lets an already-satisfied row act as a go-between (ER → S → NS across two columns) when that path is cheaper, and the rewritten search keeps each iteration at O(m²n), the same class as the original, instead of O(m³n²)." data-lang-id="RBSM hanya memindahkan kelebihan langsung dari baris ER ke baris NS. Modifikasi kami membolehkan baris yang sudah Satisfied menjadi perantara (ER → S → NS lewat dua kolom) jika jalur itu lebih murah, dan pencarian yang ditulis ulang menjaga tiap iterasi di O(m²n), sekelas dengan RBSM asli, bukan O(m³n²).">RBSM only moves excess units straight from an over-allocated row to an under-allocated one. Our change lets an already-satisfied row act as a go-between (ER → S → NS across two columns) when that path is cheaper, and the rewritten search keeps each iteration at O(m²n), the same class as the original, instead of O(m³n²).</p>
+                        <dl class="details">
+                            <div><dt data-lang-en="Team" data-lang-id="Tim">Team</dt><dd data-lang-en="Group of four, Operations Research, ITS" data-lang-id="Kelompok empat orang, Riset Operasi, ITS">Group of four, Operations Research, ITS</dd></div>
+                        </dl>
+                    </div>
+                    <figure class="sheet results">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" data-lang-en="Measure" data-lang-id="Ukuran">Measure</th>
+                                    <th scope="col" class="num" data-lang-en="RBSM" data-lang-id="RBSM">RBSM</th>
+                                    <th scope="col" class="num">Chain Transfer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" data-lang-en="Optimal solutions" data-lang-id="Solusi optimal">Optimal solutions</th>
+                                    <td class="num" data-lang-en="25.6%" data-lang-id="25,6%">25.6%</td>
+                                    <td class="num is-lead" data-lang-en="74.6%" data-lang-id="74,6%">74.6%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" data-lang-en="Mean gap to optimal" data-lang-id="Rata-rata selisih dari optimal">Mean gap to optimal</th>
+                                    <td class="num" data-lang-en="6.58%" data-lang-id="6,58%">6.58%</td>
+                                    <td class="num is-lead" data-lang-en="0.64%" data-lang-id="0,64%">0.64%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" data-lang-en="Time, 100×100 problem" data-lang-id="Waktu, soal 100×100">Time, 100×100 problem</th>
+                                    <td class="num" data-lang-en="5.2 ms" data-lang-id="5,2 ms">5.2&nbsp;ms</td>
+                                    <td class="num" data-lang-en="10.3 ms" data-lang-id="10,3 ms">10.3&nbsp;ms</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <figcaption data-lang-en="Optimality over 3,000 random problems. Chain Transfer took 112 ms per 100×100 problem before the search was rewritten." data-lang-id="Optimalitas dari 3.000 soal acak. Chain Transfer butuh 112 ms per soal 100×100 sebelum pencariannya ditulis ulang.">Optimality over 3,000 random problems. Chain Transfer took 112 ms per 100×100 problem before the search was rewritten.</figcaption>
+                    </figure>
+                    <div class="project-shots project-shots--slides">
+                        <button type="button" class="shot" data-cursor="view" data-album="project-rbsm" data-index="0" data-kind="product"><img src="assets/Project/RBSM/slide-20.jpg" alt="Slide comparing original RBSM (total cost 995) with Chain Transfer RBSM (835)" loading="lazy" width="1467" height="825"></button>
+                        <button type="button" class="shot" data-cursor="view" data-album="project-rbsm" data-index="1" data-kind="product"><img src="assets/Project/RBSM/slide-13.jpg" alt="Slide explaining the chain transfer idea: ER to S to NS" loading="lazy" width="1467" height="825"></button>
+                    </div>
+                </article>
 
-            <article class="project">
-                <div class="project-shots project-shots--wide">
-                    <button type="button" class="shot" data-cursor="view" data-album="project-rec" data-index="0"><img src="assets/Project/Product Recommendation System/0.png" alt="Recommendation system screenshot 1" loading="lazy"></button>
-                    <button type="button" class="shot" data-cursor="view" data-album="project-rec" data-index="1"><img src="assets/Project/Product Recommendation System/0 (1).png" alt="Recommendation system screenshot 2" loading="lazy"></button>
-                </div>
-                <div class="project-text">
-                    <p class="project-meta mono"><span>Web</span><span data-lang-en="Machine learning" data-lang-id="Pembelajaran mesin">Machine learning</span></p>
-                    <h3 data-lang-en="Product Recommendation System" data-lang-id="Sistem Rekomendasi Produk">Product Recommendation System</h3>
-                    <p class="project-tagline" data-lang-en="Four recommenders, one dataset, compared side by side." data-lang-id="Empat algoritma rekomendasi, satu dataset, dibandingkan berdampingan.">Four recommenders, one dataset, compared side by side.</p>
-                    <p data-lang-en="A comparative web platform benchmarking four recommendation algorithms (KNN, SVD++, NCF, and CBF) in real-time using Lazada review datasets. Features personalized and contextual recommendations (e.g., &quot;because you viewed this&quot;) alongside an AI-powered sentiment analysis module for automated customer review processing." data-lang-id="Platform web komparatif yang membandingkan empat algoritma rekomendasi (KNN, SVD++, NCF, dan CBF) secara real-time menggunakan dataset ulasan Lazada. Fitur rekomendasi yang dipersonalisasi dan kontekstual (misal, &quot;karena Anda melihat ini&quot;) serta modul analisis sentimen berbasis AI untuk pemrosesan ulasan pelanggan secara otomatis.">A comparative web platform benchmarking four recommendation algorithms (KNN, SVD++, NCF, and CBF) in real-time using Lazada review datasets. Features personalized and contextual recommendations (e.g., "because you viewed this") alongside an AI-powered sentiment analysis module for automated customer review processing.</p>
-                    <dl class="project-details">
-                        <div><dt data-lang-en="Result" data-lang-id="Hasil">Result</dt><dd data-lang-en="KNN, SVD++, NCF and CBF compared live on the same Lazada review data" data-lang-id="KNN, SVD++, NCF, dan CBF dibandingkan langsung pada data ulasan Lazada yang sama">KNN, SVD++, NCF and CBF compared live on the same Lazada review data</dd></div>
-                        <div><dt data-lang-en="Role" data-lang-id="Peran">Role</dt><dd>ML / Frontend Engineer</dd></div>
-                        <div><dt data-lang-en="Scope" data-lang-id="Lingkup">Scope</dt><dd data-lang-en="Recommender systems, sentiment analysis, frontend" data-lang-id="Sistem rekomendasi, analisis sentimen, frontend">Recommender systems, sentiment analysis, frontend</dd></div>
-                    </dl>
-                    <a class="project-link" href="https://github.com/AdityaHandrian/kelompokfprsbp" target="_blank" rel="noopener noreferrer" data-lang-en="Source on GitHub ↗" data-lang-id="Kode sumber di GitHub ↗">Source on GitHub ↗</a>
-                </div>
-            </article>
+                <div class="project-pair">
+                    <article class="project project--card">
+                        <div class="project-shots project-shots--wide">
+                            <button type="button" class="shot" data-cursor="view" data-album="project-mona" data-index="0" data-kind="product"><img src="assets/Project/Mona/image.png" alt="MONA dashboard screenshot" loading="lazy" width="1919" height="911"></button>
+                            <button type="button" class="shot" data-cursor="view" data-album="project-mona" data-index="1" data-kind="product"><img src="assets/Project/Mona/image (1).png" alt="MONA screenshot" loading="lazy" width="1058" height="812"></button>
+                        </div>
+                        <div class="project-text">
+                            <h3>MONA</h3>
+                            <p class="project-sub">Money Assistant</p>
+                            <p class="project-meta"><span>2025</span><span data-lang-en="Web, AI" data-lang-id="Web, AI">Web, AI</span></p>
+                            <p class="project-tagline" data-lang-en="Your intelligent personal finance companion." data-lang-id="Asisten finansial pribadi cerdas Anda.">Your intelligent personal finance companion.</p>
+                            <dl class="details">
+                                <div><dt data-lang-en="Result" data-lang-id="Hasil">Result</dt><dd data-lang-en="Live, hosted by ITS at senopati.its.ac.id" data-lang-id="Sudah live, di-hosting ITS di senopati.its.ac.id">Live, hosted by ITS at senopati.its.ac.id</dd></div>
+                                <div><dt data-lang-en="Role" data-lang-id="Peran">Role</dt><dd>Frontend Web Engineer</dd></div>
+                                <div><dt data-lang-en="Scope" data-lang-id="Lingkup">Scope</dt><dd data-lang-en="Frontend engineering, AI integration, UI/UX, FinTech" data-lang-id="Rekayasa frontend, integrasi AI, UI/UX, FinTech">Frontend engineering, AI integration, UI/UX, FinTech</dd></div>
+                            </dl>
+                            <a class="project-link" href="https://senopati.its.ac.id/mona" target="_blank" rel="noopener noreferrer" data-lang-en="Visit senopati.its.ac.id/mona" data-lang-id="Kunjungi senopati.its.ac.id/mona">Visit senopati.its.ac.id/mona</a>
+                        </div>
+                    </article>
 
-            <article class="project">
-                <div class="project-shots project-shots--wide">
-                    <button type="button" class="shot" data-cursor="view" data-album="project-rbsm" data-index="0"><img src="assets/Project/RBSM/slide-20.jpg" alt="Slide comparing original RBSM (total cost 995) with Chain Transfer RBSM (835)" loading="lazy" width="1467" height="825"></button>
-                    <button type="button" class="shot" data-cursor="view" data-album="project-rbsm" data-index="1"><img src="assets/Project/RBSM/slide-13.jpg" alt="Slide explaining the chain transfer idea: ER to S to NS" loading="lazy" width="1467" height="825"></button>
+                    <article class="project project--card">
+                        <div class="project-shots project-shots--wide">
+                            <button type="button" class="shot" data-cursor="view" data-album="project-rec" data-index="0" data-kind="product"><img src="assets/Project/Product Recommendation System/0.png" alt="Recommendation system screenshot 1" loading="lazy" width="1258" height="870"></button>
+                            <button type="button" class="shot" data-cursor="view" data-album="project-rec" data-index="1" data-kind="product"><img src="assets/Project/Product Recommendation System/0 (1).png" alt="Recommendation system screenshot 2" loading="lazy" width="1165" height="839"></button>
+                        </div>
+                        <div class="project-text">
+                            <h3 data-lang-en="Product Recommendation System" data-lang-id="Sistem Rekomendasi Produk">Product Recommendation System</h3>
+                            <p class="project-meta"><span>Web</span><span data-lang-en="Machine learning" data-lang-id="Pembelajaran mesin">Machine learning</span></p>
+                            <p class="project-tagline" data-lang-en="Four recommenders, one dataset, compared side by side." data-lang-id="Empat algoritma rekomendasi, satu dataset, dibandingkan berdampingan.">Four recommenders, one dataset, compared side by side.</p>
+                            <dl class="details">
+                                <div><dt data-lang-en="Result" data-lang-id="Hasil">Result</dt><dd data-lang-en="KNN, SVD++, NCF and CBF compared live on the same Lazada review data" data-lang-id="KNN, SVD++, NCF, dan CBF dibandingkan langsung pada data ulasan Lazada yang sama">KNN, SVD++, NCF and CBF compared live on the same Lazada review data</dd></div>
+                                <div><dt data-lang-en="Role" data-lang-id="Peran">Role</dt><dd>ML / Frontend Engineer</dd></div>
+                                <div><dt data-lang-en="Scope" data-lang-id="Lingkup">Scope</dt><dd data-lang-en="Recommender systems, sentiment analysis, frontend" data-lang-id="Sistem rekomendasi, analisis sentimen, frontend">Recommender systems, sentiment analysis, frontend</dd></div>
+                            </dl>
+                            <a class="project-link" href="https://github.com/AdityaHandrian/kelompokfprsbp" target="_blank" rel="noopener noreferrer" data-lang-en="Source on GitHub" data-lang-id="Kode sumber di GitHub">Source on GitHub</a>
+                        </div>
+                    </article>
                 </div>
-                <div class="project-text">
-                    <p class="project-meta mono"><span>2026</span><span data-lang-en="Operations research · C++" data-lang-id="Riset operasi · C++">Operations research · C++</span></p>
-                    <h3>Chain Transfer RBSM <span class="project-sub" data-lang-en="Transportation problem heuristic" data-lang-id="Heuristik masalah transportasi">Transportation problem heuristic</span></h3>
-                    <p class="project-tagline" data-lang-en="One extra move that lets RBSM reach the optimal cost far more often." data-lang-id="Satu langkah tambahan yang membuat RBSM jauh lebih sering mencapai biaya optimal.">One extra move that lets RBSM reach the optimal cost far more often.</p>
-                    <p data-lang-en="RBSM only moves excess units straight from an over-allocated row to an under-allocated one, so it sometimes has to pay for an expensive move. Our modification lets an already-satisfied row act as a go-between (ER → S → NS across two columns) when that path is cheaper. We then rewrote the search so the extra step runs in O(m²·n) per iteration, the same class as the original, instead of O(m³·n²)." data-lang-id="RBSM hanya memindahkan kelebihan langsung dari baris ER ke baris NS, sehingga kadang terpaksa memilih pemindahan yang mahal. Modifikasi kami membolehkan baris yang sudah Satisfied menjadi perantara (ER → S → NS lewat dua kolom) jika jalur itu lebih murah. Pencariannya lalu kami tulis ulang sehingga langkah tambahan ini berjalan dalam O(m²·n) per iterasi, sekelas dengan RBSM asli, bukan O(m³·n²).">RBSM only moves excess units straight from an over-allocated row to an under-allocated one, so it sometimes has to pay for an expensive move. Our modification lets an already-satisfied row act as a go-between (ER → S → NS across two columns) when that path is cheaper. We then rewrote the search so the extra step runs in O(m²·n) per iteration, the same class as the original, instead of O(m³·n²).</p>
-                    <dl class="project-details">
-                        <div><dt data-lang-en="Result" data-lang-id="Hasil">Result</dt><dd data-lang-en="On 3,000 random problems, optimal solutions rose from 25.6% to 74.6% and mean gap to optimal fell from 6.58% to 0.64%" data-lang-id="Pada 3.000 soal acak, soal yang optimal naik dari 25,6% ke 74,6% dan rata-rata selisih dari optimal turun dari 6,58% ke 0,64%">On 3,000 random problems, optimal solutions rose from 25.6% to 74.6% and mean gap to optimal fell from 6.58% to 0.64%</dd></div>
-                        <div><dt data-lang-en="Speed" data-lang-id="Kecepatan">Speed</dt><dd data-lang-en="100×100 problems: 112 ms → 10.3 ms after optimization (original RBSM: 5.2 ms)" data-lang-id="Soal 100×100: 112 ms → 10,3 ms setelah optimasi (RBSM asli: 5,2 ms)">100×100 problems: 112 ms → 10.3 ms after optimization (original RBSM: 5.2 ms)</dd></div>
-                        <div><dt data-lang-en="Team" data-lang-id="Tim">Team</dt><dd data-lang-en="Group of four · Operations Research, ITS" data-lang-id="Kelompok empat orang · Riset Operasi, ITS">Group of four · Operations Research, ITS</dd></div>
-                    </dl>
-                </div>
-            </article>
+            </div>
         </section>
 
         <!-- SKILLS & CERTIFICATIONS -->
-        <section class="section wrap" id="skills">
-            <header class="section-head">
-                <span class="sec-eyebrow" data-lang-en="Skills" data-lang-id="Keahlian">Skills</span>
-                <h2 data-lang-en="tools &amp; proof." data-lang-id="alat &amp; bukti.">tools &amp; proof.</h2>
-            </header>
+        <section class="section section--skills band" id="skills">
+            <div class="container">
+                <header class="section-head">
+                    <h2 data-lang-en="tools &amp; proof." data-lang-id="alat &amp; bukti.">tools &amp; proof.</h2>
+                </header>
 
-            <div class="skills">
-                <dl class="skill-rows">
-                    <div><dt data-lang-en="Languages" data-lang-id="Bahasa">Languages</dt><dd>Python, C++, Dart, SQL</dd></div>
-                    <div><dt data-lang-en="Frameworks &amp; platforms" data-lang-id="Framework &amp; platform">Frameworks &amp; platforms</dt><dd>Laravel, Flutter, Firebase, AWS</dd></div>
-                    <div><dt data-lang-en="Design &amp; analysis" data-lang-id="Desain &amp; analisis">Design &amp; analysis</dt><dd>Figma, UI/UX, Excel, ArcGIS</dd></div>
-                    <div><dt data-lang-en="Working with people" data-lang-id="Bekerja dengan orang">Working with people</dt><dd data-lang-en="Leadership, problem solving, team collaboration, time management" data-lang-id="Kepemimpinan, pemecahan masalah, kolaborasi tim, manajemen waktu">Leadership, problem solving, team collaboration, time management</dd></div>
-                </dl>
+                <div class="skills">
+                    <dl class="skill-rows">
+                        <div><dt data-lang-en="Languages" data-lang-id="Bahasa">Languages</dt><dd>Python, C++, Dart, SQL</dd></div>
+                        <div><dt data-lang-en="Frameworks &amp; platforms" data-lang-id="Framework &amp; platform">Frameworks &amp; platforms</dt><dd>Laravel, Flutter, Firebase, AWS</dd></div>
+                        <div><dt data-lang-en="Design &amp; analysis" data-lang-id="Desain &amp; analisis">Design &amp; analysis</dt><dd>Figma, UI/UX, Excel, ArcGIS</dd></div>
+                        <div><dt data-lang-en="Working with people" data-lang-id="Bekerja dengan orang">Working with people</dt><dd data-lang-en="Leadership, problem solving, team collaboration, time management" data-lang-id="Kepemimpinan, pemecahan masalah, kolaborasi tim, manajemen waktu">Leadership, problem solving, team collaboration, time management</dd></div>
+                    </dl>
 
-                <div class="certs">
-                    <h3 class="group-title mono" data-lang-en="Certifications" data-lang-id="Sertifikasi">Certifications</h3>
-                    <table class="cert-table">
-                        <tbody>
-                            <tr class="cert-issuer"><th colspan="2" class="mono">AWS Academy</th></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="0" data-cert-img="assets/certs/aws-cloud-security-builder.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/76f5ee90-a172-4ee6-b4ec-7c8cfb55493c">Cloud Security Builder</button></td><td class="mono">Jan 2026 <a class="cert-verify" href="https://www.credly.com/badges/76f5ee90-a172-4ee6-b4ec-7c8cfb55493c" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="1" data-cert-img="assets/certs/aws-cloud-web-app-builder.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/b94ff800-e070-441d-b956-6d6f5485add5">Cloud Web Application Builder</button></td><td class="mono">Jan 2026 <a class="cert-verify" href="https://www.credly.com/badges/b94ff800-e070-441d-b956-6d6f5485add5" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="2" data-cert-img="assets/certs/aws-microservices-cicd.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/b85176d9-8a93-4d5d-92fa-ca6a4ee32cc3">Microservices &amp; CI/CD Pipeline Builder</button></td><td class="mono">Jan 2026 <a class="cert-verify" href="https://www.credly.com/badges/b85176d9-8a93-4d5d-92fa-ca6a4ee32cc3" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="3" data-cert-img="assets/certs/aws-data-engineering.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/f9735a76-5edc-42e3-a117-bd1193ea54ac">Data Engineering</button></td><td class="mono">Jan 2026 <a class="cert-verify" href="https://www.credly.com/badges/f9735a76-5edc-42e3-a117-bd1193ea54ac" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="4" data-cert-img="assets/certs/aws-ml-foundations.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/17b31d8e-b7c0-4483-9ade-b44d3b937936">Machine Learning Foundations</button></td><td class="mono">Jan 2026 <a class="cert-verify" href="https://www.credly.com/badges/17b31d8e-b7c0-4483-9ade-b44d3b937936" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="5" data-cert-img="assets/certs/aws-genai-foundations.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/3d18106b-b0c5-4375-8295-81bffb628438">Generative AI Foundations</button></td><td class="mono">Jan 2026 <a class="cert-verify" href="https://www.credly.com/badges/3d18106b-b0c5-4375-8295-81bffb628438" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="6" data-cert-img="assets/certs/aws-cloud-security-foundations.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/981a5aa1-7573-4694-afab-244b2bdb9f8c">Cloud Security Foundations</button></td><td class="mono">Jan 2026 <a class="cert-verify" href="https://www.credly.com/badges/981a5aa1-7573-4694-afab-244b2bdb9f8c" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                        </tbody>
-                        <tbody>
-                            <tr class="cert-issuer"><th colspan="2" class="mono">Microsoft Learn</th></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="7" data-cert-img="assets/certs/ms-powerbi-get-started.jpg" data-cert-issuer="Microsoft Learn" data-cert-date="Jun 2026" data-cert-url="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/4ccwsgmk">Get started building with Power BI</button></td><td class="mono">Jun 2026 <a class="cert-verify" href="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/4ccwsgmk" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="8" data-cert-img="assets/certs/ms-powerbi-get-data.jpg" data-cert-issuer="Microsoft Learn" data-cert-date="Jun 2026" data-cert-url="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/y44sm57r">Get data in Power BI</button></td><td class="mono">Jun 2026 <a class="cert-verify" href="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/y44sm57r" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="9" data-cert-img="assets/certs/ms-powerbi-clean-transform.jpg" data-cert-issuer="Microsoft Learn" data-cert-date="Jun 2026" data-cert-url="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/egghtaep">Clean, transform, and load data in Power BI</button></td><td class="mono">Jun 2026 <a class="cert-verify" href="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/egghtaep" target="_blank" rel="noopener noreferrer" data-lang-en="Verify ↗" data-lang-id="Verifikasi ↗">Verify ↗</a></td></tr>
-                        </tbody>
-                        <tbody>
-                            <tr class="cert-issuer"><th colspan="2" class="mono">Palo Alto Networks</th></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="10" data-cert-img="assets/certs/palo-secops-fundamentals.jpg" data-cert-issuer="Palo Alto Networks" data-cert-date="Jan 2026">Security Operations Fundamentals</button></td><td class="mono">Jan 2026</td></tr>
-                            <tr><td><button type="button" class="cert-name" data-album="certs" data-index="11" data-cert-img="assets/certs/palo-cybersecurity-foundation.jpg" data-cert-issuer="Palo Alto Networks" data-cert-date="Jan 2026">Cybersecurity Foundation</button></td><td class="mono">Jan 2026</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="certs">
+                        <h3 class="certs-title" data-lang-en="Certifications" data-lang-id="Sertifikasi">Certifications</h3>
+                        <table class="cert-table">
+                            <tbody>
+                                <tr class="cert-issuer"><th colspan="2" scope="colgroup">AWS Academy</th></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="0" data-cert-img="assets/certs/aws-cloud-security-builder.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/76f5ee90-a172-4ee6-b4ec-7c8cfb55493c">Cloud Security Builder</button></td><td class="cert-when"><span class="num">Jan 2026</span> <a class="cert-verify" href="https://www.credly.com/badges/76f5ee90-a172-4ee6-b4ec-7c8cfb55493c" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="1" data-cert-img="assets/certs/aws-cloud-web-app-builder.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/b94ff800-e070-441d-b956-6d6f5485add5">Cloud Web Application Builder</button></td><td class="cert-when"><span class="num">Jan 2026</span> <a class="cert-verify" href="https://www.credly.com/badges/b94ff800-e070-441d-b956-6d6f5485add5" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="2" data-cert-img="assets/certs/aws-microservices-cicd.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/b85176d9-8a93-4d5d-92fa-ca6a4ee32cc3">Microservices &amp; CI/CD Pipeline Builder</button></td><td class="cert-when"><span class="num">Jan 2026</span> <a class="cert-verify" href="https://www.credly.com/badges/b85176d9-8a93-4d5d-92fa-ca6a4ee32cc3" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="3" data-cert-img="assets/certs/aws-data-engineering.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/f9735a76-5edc-42e3-a117-bd1193ea54ac">Data Engineering</button></td><td class="cert-when"><span class="num">Jan 2026</span> <a class="cert-verify" href="https://www.credly.com/badges/f9735a76-5edc-42e3-a117-bd1193ea54ac" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="4" data-cert-img="assets/certs/aws-ml-foundations.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/17b31d8e-b7c0-4483-9ade-b44d3b937936">Machine Learning Foundations</button></td><td class="cert-when"><span class="num">Jan 2026</span> <a class="cert-verify" href="https://www.credly.com/badges/17b31d8e-b7c0-4483-9ade-b44d3b937936" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="5" data-cert-img="assets/certs/aws-genai-foundations.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/3d18106b-b0c5-4375-8295-81bffb628438">Generative AI Foundations</button></td><td class="cert-when"><span class="num">Jan 2026</span> <a class="cert-verify" href="https://www.credly.com/badges/3d18106b-b0c5-4375-8295-81bffb628438" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="6" data-cert-img="assets/certs/aws-cloud-security-foundations.jpg" data-cert-issuer="AWS Academy" data-cert-date="Jan 2026" data-cert-url="https://www.credly.com/badges/981a5aa1-7573-4694-afab-244b2bdb9f8c">Cloud Security Foundations</button></td><td class="cert-when"><span class="num">Jan 2026</span> <a class="cert-verify" href="https://www.credly.com/badges/981a5aa1-7573-4694-afab-244b2bdb9f8c" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                            </tbody>
+                            <tbody>
+                                <tr class="cert-issuer"><th colspan="2" scope="colgroup">Microsoft Learn</th></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="7" data-cert-img="assets/certs/ms-powerbi-get-started.jpg" data-cert-issuer="Microsoft Learn" data-cert-date="Jun 2026" data-cert-url="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/4ccwsgmk">Get started building with Power BI</button></td><td class="cert-when"><span class="num">Jun 2026</span> <a class="cert-verify" href="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/4ccwsgmk" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="8" data-cert-img="assets/certs/ms-powerbi-get-data.jpg" data-cert-issuer="Microsoft Learn" data-cert-date="Jun 2026" data-cert-url="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/y44sm57r">Get data in Power BI</button></td><td class="cert-when"><span class="num">Jun 2026</span> <a class="cert-verify" href="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/y44sm57r" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="9" data-cert-img="assets/certs/ms-powerbi-clean-transform.jpg" data-cert-issuer="Microsoft Learn" data-cert-date="Jun 2026" data-cert-url="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/egghtaep">Clean, transform, and load data in Power BI</button></td><td class="cert-when"><span class="num">Jun 2026</span> <a class="cert-verify" href="https://learn.microsoft.com/en-us/users/muhammadadityahandrian-6697/achievements/print/egghtaep" target="_blank" rel="noopener noreferrer" data-lang-en="Verify" data-lang-id="Verifikasi">Verify</a></td></tr>
+                            </tbody>
+                            <tbody>
+                                <tr class="cert-issuer"><th colspan="2" scope="colgroup">Palo Alto Networks</th></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="10" data-cert-img="assets/certs/palo-secops-fundamentals.jpg" data-cert-issuer="Palo Alto Networks" data-cert-date="Jan 2026">Security Operations Fundamentals</button></td><td class="cert-when"><span class="num">Jan 2026</span></td></tr>
+                                <tr><td><button type="button" class="cert-name" data-album="certs" data-index="11" data-cert-img="assets/certs/palo-cybersecurity-foundation.jpg" data-cert-issuer="Palo Alto Networks" data-cert-date="Jan 2026">Cybersecurity Foundation</button></td><td class="cert-when"><span class="num">Jan 2026</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- PHOTOS -->
-        <section class="section wrap" id="photos">
-            <header class="section-head">
-                <span class="sec-eyebrow" data-lang-en="Photos" data-lang-id="Foto">Photos</span>
-                <h2 data-lang-en="outside class." data-lang-id="di luar kelas.">outside class.</h2>
-                <p class="section-note" data-lang-en="Photos from the organizations and programs I've been part of. Open an album to browse." data-lang-id="Foto dari organisasi dan program yang pernah saya ikuti. Buka album untuk melihat.">Photos from the organizations and programs I've been part of. Open an album to browse.</p>
-            </header>
+        <section class="section section--photos" id="photos">
+            <div class="container">
+                <header class="section-head section-head--split">
+                    <h2 data-lang-en="outside class." data-lang-id="di luar kelas.">outside class.</h2>
+                    <p class="section-note" data-lang-en="Photos from the organizations and programs I’ve been part of. Open an album to browse." data-lang-id="Foto dari organisasi dan program yang pernah saya ikuti. Buka album untuk melihat.">Photos from the organizations and programs I’ve been part of. Open an album to browse.</p>
+                </header>
 
-            <div class="albums" id="albums"></div>
+                <div class="albums" id="albums"></div>
+            </div>
         </section>
 
         <!-- WRITING -->
-        <section class="section wrap" id="writing">
-            <header class="section-head">
-                <span class="sec-eyebrow" data-lang-en="Writing" data-lang-id="Tulisan">Writing</span>
-                <h2 data-lang-en="notes &amp; writing." data-lang-id="catatan &amp; tulisan.">notes &amp; writing.</h2>
-            </header>
+        <section class="section section--writing" id="writing">
+            <div class="container">
+                <header class="section-head">
+                    <h2 data-lang-en="notes &amp; writing." data-lang-id="catatan &amp; tulisan.">notes &amp; writing.</h2>
+                </header>
 
-            <ul class="posts">
-                <li>
-                    <a href="https://medium.com/@adityahandriann/busy-beaver-problem-5f76e144af4b" target="_blank" rel="noopener noreferrer">
-                        <span class="post-tag mono" data-lang-en="Jun 2025 · Computation theory" data-lang-id="Jun 2025 · Teori komputasi">Jun 2025 · Computation theory</span>
-                        <span class="post-title">Busy Beaver Problem</span>
-                        <span class="post-desc" data-lang-en="Exploring the Busy Beaver problem, a fascinating boundary of computability theory that defines the limits of what computers can solve." data-lang-id="Menjelajahi masalah Busy Beaver, batas teori komputabilitas yang menarik yang mendefinisikan batas kemampuan yang dapat diselesaikan oleh komputer.">Exploring the Busy Beaver problem, a fascinating boundary of computability theory that defines the limits of what computers can solve.</span>
-                        <span class="post-arrow" aria-hidden="true">↗</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://medium.com/@adityahandriann/church-turing-thesis-dan-kaitannya-dengan-bahasa-pemrograman-08ec3c6032fe" target="_blank" rel="noopener noreferrer">
-                        <span class="post-tag mono" data-lang-en="Jun 2025 · Computer science" data-lang-id="Jun 2025 · Ilmu komputer">Jun 2025 · Computer science</span>
-                        <span class="post-title">Church-Turing Thesis &amp; Bahasa Pemrograman</span>
-                        <span class="post-desc" data-lang-en="An in-depth look at the Church-Turing Thesis and its profound connection to modern programming languages and computability." data-lang-id="Tinjauan mendalam tentang Tesis Church-Turing dan kaitannya yang erat dengan bahasa pemrograman modern serta komputabilitas.">An in-depth look at the Church-Turing Thesis and its profound connection to modern programming languages and computability.</span>
-                        <span class="post-arrow" aria-hidden="true">↗</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://medium.com/@adityahandriann/manajemen-dan-analisis-data-pada-dataset-diabetes-menggunakan-python-sql-tugas-oprec-asisten-98bc63bc01ca" target="_blank" rel="noopener noreferrer">
-                        <span class="post-tag mono" data-lang-en="Apr 2025 · Data science" data-lang-id="Apr 2025 · Sains data">Apr 2025 · Data science</span>
-                        <span class="post-title" data-lang-en="Diabetes Dataset Management &amp; Analytics" data-lang-id="Manajemen &amp; Analisis Dataset Diabetes">Diabetes Dataset Management &amp; Analytics</span>
-                        <span class="post-desc" data-lang-en="Implementing data management and predictive analytics on the Diabetes dataset using Python and SQL for Teaching Assistant selection." data-lang-id="Menerapkan manajemen data dan analisis prediktif pada dataset Diabetes menggunakan Python dan SQL untuk seleksi Asisten Dosen.">Implementing data management and predictive analytics on the Diabetes dataset using Python and SQL for Teaching Assistant selection.</span>
-                        <span class="post-arrow" aria-hidden="true">↗</span>
-                    </a>
-                </li>
-            </ul>
-            <p class="more-link"><a href="https://medium.com/@adityahandriann" target="_blank" rel="noopener noreferrer" data-lang-en="All posts on Medium ↗" data-lang-id="Semua tulisan di Medium ↗">All posts on Medium ↗</a></p>
+                <ul class="posts">
+                    <li>
+                        <a href="https://medium.com/@adityahandriann/busy-beaver-problem-5f76e144af4b" target="_blank" rel="noopener noreferrer">
+                            <span class="post-date num">Jun 2025</span>
+                            <span class="post-topic" data-lang-en="Computation theory" data-lang-id="Teori komputasi">Computation theory</span>
+                            <span class="post-title">Busy Beaver Problem</span>
+                            <span class="post-desc" data-lang-en="Exploring the Busy Beaver problem, a fascinating boundary of computability theory that defines the limits of what computers can solve." data-lang-id="Menjelajahi masalah Busy Beaver, batas teori komputabilitas yang menarik yang mendefinisikan batas kemampuan yang dapat diselesaikan oleh komputer.">Exploring the Busy Beaver problem, a fascinating boundary of computability theory that defines the limits of what computers can solve.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://medium.com/@adityahandriann/church-turing-thesis-dan-kaitannya-dengan-bahasa-pemrograman-08ec3c6032fe" target="_blank" rel="noopener noreferrer">
+                            <span class="post-date num">Jun 2025</span>
+                            <span class="post-topic" data-lang-en="Computer science" data-lang-id="Ilmu komputer">Computer science</span>
+                            <span class="post-title">Church-Turing Thesis &amp; Bahasa Pemrograman</span>
+                            <span class="post-desc" data-lang-en="An in-depth look at the Church-Turing Thesis and its profound connection to modern programming languages and computability." data-lang-id="Tinjauan mendalam tentang Tesis Church-Turing dan kaitannya yang erat dengan bahasa pemrograman modern serta komputabilitas.">An in-depth look at the Church-Turing Thesis and its profound connection to modern programming languages and computability.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://medium.com/@adityahandriann/manajemen-dan-analisis-data-pada-dataset-diabetes-menggunakan-python-sql-tugas-oprec-asisten-98bc63bc01ca" target="_blank" rel="noopener noreferrer">
+                            <span class="post-date num">Apr 2025</span>
+                            <span class="post-topic" data-lang-en="Data science" data-lang-id="Sains data">Data science</span>
+                            <span class="post-title" data-lang-en="Diabetes Dataset Management &amp; Analytics" data-lang-id="Manajemen &amp; Analisis Dataset Diabetes">Diabetes Dataset Management &amp; Analytics</span>
+                            <span class="post-desc" data-lang-en="Implementing data management and predictive analytics on the Diabetes dataset using Python and SQL for Teaching Assistant selection." data-lang-id="Menerapkan manajemen data dan analisis prediktif pada dataset Diabetes menggunakan Python dan SQL untuk seleksi Asisten Dosen.">Implementing data management and predictive analytics on the Diabetes dataset using Python and SQL for Teaching Assistant selection.</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="more-link"><a href="https://medium.com/@adityahandriann" target="_blank" rel="noopener noreferrer" data-lang-en="All posts on Medium" data-lang-id="Semua tulisan di Medium">All posts on Medium</a></p>
+            </div>
         </section>
 
         <!-- CONTACT -->
-        <section class="section wrap contact" id="contact">
-            <header class="section-head">
-                <span class="sec-eyebrow" data-lang-en="Contact" data-lang-id="Kontak">Contact</span>
-                <h2 data-lang-en="let's talk." data-lang-id="mari ngobrol.">let's talk.</h2>
-            </header>
+        <section class="section section--contact contact" id="contact">
+            <div class="container">
+                <header class="section-head section-head--split">
+                    <h2 data-lang-en="let’s talk." data-lang-id="mari ngobrol.">let’s talk.</h2>
+                    <p class="section-note" data-lang-en="I’m always open to discussing new opportunities, collaborations, creative ideas, or peer learning. The fastest way to reach me is email." data-lang-id="Saya selalu terbuka untuk mendiskusikan peluang baru, kolaborasi, ide kreatif, atau belajar bersama. Cara tercepat menghubungi saya adalah lewat email.">I’m always open to discussing new opportunities, collaborations, creative ideas, or peer learning. The fastest way to reach me is email.</p>
+                </header>
 
-            <p class="contact-lead" data-lang-en="I'm always open to discussing new opportunities, collaborations, creative ideas, or peer learning. The fastest way to reach me is email." data-lang-id="Saya selalu terbuka untuk mendiskusikan peluang baru, kolaborasi, ide kreatif, atau belajar bersama. Cara tercepat menghubungi saya adalah lewat email.">I'm always open to discussing new opportunities, collaborations, creative ideas, or peer learning. The fastest way to reach me is email.</p>
-            <p class="contact-email">
-                <a href="mailto:adityahandriann@gmail.com">adityahandriann@gmail.com</a>
-                <button type="button" class="copy-btn mono" id="copyEmail" data-copy="adityahandriann@gmail.com" data-lang-en="Copy" data-lang-id="Salin">Copy</button>
-            </p>
+                <div class="contact-body">
+                    <p class="contact-email">
+                        <a href="mailto:adityahandriann@gmail.com">adityahandriann@gmail.com</a>
+                        <button type="button" class="copy-btn" id="copyEmail" data-copy="adityahandriann@gmail.com" data-lang-en="Copy" data-lang-id="Salin">Copy</button>
+                    </p>
 
-            <ul class="contact-list">
-                <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer">in/adityahandrian ↗</a></li>
-                <li><span class="mono">GitHub</span><a href="https://github.com/AdityaHandrian" target="_blank" rel="noopener noreferrer">AdityaHandrian ↗</a></li>
-                <li><span class="mono">Instagram</span><a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer">@adityahandrian ↗</a></li>
-                <li><span class="mono">X</span><a href="https://x.com/adtyhn" target="_blank" rel="noopener noreferrer">@adtyhn ↗</a></li>
-                <li><span class="mono">Spotify</span><a href="https://open.spotify.com/user/31vlsg32rd5mjx43w27gpyc2yrqe" target="_blank" rel="noopener noreferrer" data-lang-en="What I'm listening to ↗" data-lang-id="Yang sedang saya dengarkan ↗">What I'm listening to ↗</a></li>
-                <li><span class="mono" data-lang-en="Share" data-lang-id="Bagikan">Share</span><span class="share-inline"><button type="button" class="text-btn js-copy-link" data-lang-en="Copy link" data-lang-id="Salin tautan">Copy link</button> / <a href="https://wa.me/?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio%3A%20https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">WhatsApp</a> / <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">LinkedIn</a> / <a href="https://x.com/intent/post?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio&amp;url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">X</a></span></li>
-                <li><span class="mono" data-lang-en="Resume" data-lang-id="CV">Resume</span><span><a href="assets/resume.pdf" target="_blank" class="js-resume-view" data-lang-en="View" data-lang-id="Lihat">View</a> / <a href="assets/resume.pdf" download="Muhammad_Aditya_Handrian_Resume.pdf" data-lang-en="Download PDF" data-lang-id="Unduh PDF">Download PDF</a></span></li>
-            </ul>
+                    <ul class="contact-list">
+                        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/adityahandrian/" target="_blank" rel="noopener noreferrer">in/adityahandrian</a></li>
+                        <li><span>GitHub</span><a href="https://github.com/AdityaHandrian" target="_blank" rel="noopener noreferrer">AdityaHandrian</a></li>
+                        <li><span>Instagram</span><a href="https://www.instagram.com/adityahandrian/" target="_blank" rel="noopener noreferrer">@adityahandrian</a></li>
+                        <li><span>X</span><a href="https://x.com/adtyhn" target="_blank" rel="noopener noreferrer">@adtyhn</a></li>
+                        <li><span>Spotify</span><a href="https://open.spotify.com/user/31vlsg32rd5mjx43w27gpyc2yrqe" target="_blank" rel="noopener noreferrer" data-lang-en="What I’m listening to" data-lang-id="Yang sedang saya dengarkan">What I’m listening to</a></li>
+                        <li><span data-lang-en="Share" data-lang-id="Bagikan">Share</span><span class="share-inline"><button type="button" class="text-btn js-copy-link" data-lang-en="Copy link" data-lang-id="Salin tautan">Copy link</button> / <a href="https://wa.me/?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio%3A%20https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">WhatsApp</a> / <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">LinkedIn</a> / <a href="https://x.com/intent/post?text=Muhammad%20Aditya%20Handrian%20%E2%80%94%20portfolio&amp;url=https%3A%2F%2Fadityahandrian.github.io%2F" target="_blank" rel="noopener noreferrer">X</a></span></li>
+                        <li><span data-lang-en="Resume" data-lang-id="CV">Resume</span><span><a href="assets/resume.pdf" target="_blank" class="js-resume-view" data-lang-en="View" data-lang-id="Lihat">View</a> / <a href="assets/resume.pdf" download="Muhammad_Aditya_Handrian_Resume.pdf" data-lang-en="Download PDF" data-lang-id="Unduh PDF">Download PDF</a></span></li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
-    <div class="scroll-progress" aria-hidden="true"><span id="scrollFill"></span></div>
-    <div class="cur" id="cur" aria-hidden="true"></div>
-
-    <footer class="site-footer wrap">
-        <p>© <span id="year">2026</span> Muhammad Aditya Handrian</p>
-        <a href="#top" data-lang-en="Back to top ↑" data-lang-id="Kembali ke atas ↑">Back to top ↑</a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year" class="num">2026</span> Muhammad Aditya Handrian</p>
+            <a href="#top" data-lang-en="Back to top" data-lang-id="Kembali ke atas">Back to top</a>
+        </div>
     </footer>
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
         <div class="lightbox-bar">
             <p class="lightbox-title" id="lightboxTitle"></p>
-            <p class="lightbox-count mono" id="lightboxCount"></p>
-            <button type="button" class="lightbox-close mono" id="lightboxClose" data-lang-en="Close" data-lang-id="Tutup">Close</button>
+            <p class="lightbox-count num" id="lightboxCount"></p>
+            <button type="button" class="lightbox-close" id="lightboxClose" data-lang-en="Close" data-lang-id="Tutup">Close</button>
         </div>
         <div class="lightbox-stage">
-            <button type="button" class="lightbox-nav lightbox-nav--prev" id="lightboxPrev" aria-label="Previous photo">←</button>
-            <img id="lightboxImg" alt="">
-            <button type="button" class="lightbox-nav lightbox-nav--next" id="lightboxNext" aria-label="Next photo">→</button>
+            <button type="button" class="lightbox-nav lightbox-nav--prev" id="lightboxPrev" aria-label="Previous photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+            <img id="lightboxImg" src="assets/profile.jpg" alt="" width="480" height="600" loading="lazy">
+            <button type="button" class="lightbox-nav lightbox-nav--next" id="lightboxNext" aria-label="Next photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
         </div>
         <p class="lightbox-desc" id="lightboxDesc"></p>
     </div>
 
-    <script src="script.js?v=6.1"></script>
+    <script src="script.js?v=7.0"></script>
 </body>
 </html>
